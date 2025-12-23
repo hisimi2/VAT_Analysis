@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Remote_Debug|Win32">
+      <Configuration>Remote_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Remote_Release|Win32">
+      <Configuration>Remote_Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D23225EE-87A7-4F82-A84C-5E8A75163860}</ProjectGuid>
+    <RootNamespace>SLT_MC</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_D</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_D</TargetName>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+    <OutDir>..\..\Bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\Bin</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Include;.\;../Include/BBXMNP;.\MotorInterlock;.\Sequence;.\OPSwitch;.\Sequence\Base;.\Sequence\LoadTable;.\Sequence\MultiOrigin;.\Sequence\PressUnit;.\Sequence\Stacker;.\Sequence\System;.\Sequence\TestPP;.\Sequence\Transfer;.\Sequence\TrayFeeder;.\Sequence\TrayLoadPP;.\Sequence\TrayPP;.\Sequence\TrayUnloadPP;.\VisionIF;.\Include\Trigger</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4477</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\LibFiles;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LIB_DATA_MEM_D.lib;LIB_DB_LS_D.lib;LIB_MC_D.lib;LIB_GUI_D.lib;LIB_UTIL_D.lib;LIB_CommCtrl_D.lib;LIB_COK_FILE_D.lib;LIB_IPC_SOCK_D.lib;CrashRpt1403d.lib;LogLib_D.lib;mpr.lib;LIB_REGULATOR_D.lib;cpprest142_2_10d.lib;dnssd.lib;LIB_BBXMNP_D.lib;Trigger\mvsenc_x32.lib;Trigger\mvenc852v3d.lib;Trigger\mvenc852v3.lib</AdditionalDependencies>
+      <HeapReserveSize>
+      </HeapReserveSize>
+      <StackReserveSize>
+      </StackReserveSize>
+      <LargeAddressAware>
+      </LargeAddressAware>
+      <HeapCommitSize>
+      </HeapCommitSize>
+      <StackCommitSize>
+      </StackCommitSize>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>After_Build_D.bat</Command>
+    </PostBuildEvent>
+    <Manifest>
+      <EnableDpiAwareness>false</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Include;.\;</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\LibFiles</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LIB_DATA_MEM_D.lib;LIB_DB_LS_D.lib;LIB_MC_D.lib;LIB_GUI_D.lib;LIB_UTIL_D.lib;LIB_CommCtrl_D.lib;LIB_COK_FILE_D.lib;LIB_IPC_SOCK_D.lib;CrashRpt1403d.lib;LogLib_D.lib;mpr.lib;LIB_REGULATOR_D.lib;LIB_SANKYO_D.lib;LIB_AABRetest_Rule_Check_D.lib;LIB_UDP_D.lib;LIB_OEE_D.lib;LIB_FTP_D.lib;ssh.lib;</AdditionalDependencies>
+      <HeapReserveSize>
+      </HeapReserveSize>
+      <StackReserveSize>
+      </StackReserveSize>
+      <LargeAddressAware>
+      </LargeAddressAware>
+      <HeapCommitSize>
+      </HeapCommitSize>
+      <StackCommitSize>
+      </StackCommitSize>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>XCOPY "$(OutDir)LIB_AABRetest_Rule_Check_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_COK_FILE_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_CommCtrl_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_DATA_MEM_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_DB_LS_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_FTP_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_GUI_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_IPC_SOCK_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_MC_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_OEE_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_REGULATOR_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_SANKYO_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_UDP_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_UTIL_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LogLib_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)$(ProjectName)_D.exe" "$(RemoteDebuggerWorkingDirectory)" /yes
+
+XCOPY "$(OutDir)LIB_AABRetest_Rule_Check_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_COK_FILE_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_CommCtrl_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_DATA_MEM_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_DB_LS_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_FTP_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_GUI_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_IPC_SOCK_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_MC_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_OEE_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_REGULATOR_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_SANKYO_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_UDP_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_UTIL_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LogLib_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)$(ProjectName)_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\LibFiles</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LIB_DATA_MEM.lib;LIB_DB_LS.lib;LIB_MC.lib;LIB_GUI.lib;LIB_UTIL.lib;LIB_CommCtrl.lib;LIB_COK_FILE.lib;LIB_IPC_SOCK.lib;CrashRpt1403.lib;LogLib.lib;mpr.lib;LIB_REGULATOR.lib;LIB_SANKYO.lib;LIB_AABRetest_Rule_Check.lib;LIB_UDP.lib;LIB_OEE.lib;LIB_FTP.lib;ssh.lib;</AdditionalDependencies>
+      <StackReserveSize>10485760</StackReserveSize>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>After_Build.bat</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Include</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\LibFiles</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LIB_DATA_MEM.lib;LIB_DB_LS.lib;LIB_MC.lib;LIB_GUI.lib;LIB_UTIL.lib;LIB_CommCtrl.lib;LIB_COK_FILE.lib;LIB_IPC_SOCK.lib;CrashRpt1403.lib;LogLib.lib;mpr.lib;LIB_REGULATOR.lib;LIB_SANKYO.lib;LIB_AABRetest_Rule_Check.lib;LIB_UDP.lib;LIB_OEE.lib;LIB_FTP.lib;ssh.lib;</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>XCOPY "$(OutDir)LIB_AABRetest_Rule_Check.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_COK_FILE.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_CommCtrl.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_DATA_MEM.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_DB_LS.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_FTP.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_GUI.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_IPC_SOCK.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_MC.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_OEE.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_REGULATOR.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_SANKYO.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_UDP.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_UTIL.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LogLib.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)$(ProjectName).exe" "$(RemoteDebuggerWorkingDirectory)" /yes
+
+XCOPY "$(OutDir)LIB_AABRetest_Rule_Check.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_COK_FILE.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_CommCtrl.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_DATA_MEM.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_DB_LS.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_FTP.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_GUI.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_IPC_SOCK.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_MC.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_OEE.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_REGULATOR.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_SANKYO.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_UDP.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_UTIL.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LogLib.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)$(ProjectName).pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+    <None Include="ReadMe.txt" />
+    <None Include="res\001bmp.bmp" />
+    <None Include="res\003bmp.bmp" />
+    <None Include="res\004bmp.bmp" />
+    <None Include="res\bitmap_t.bmp" />
+    <None Include="res\btn_icon\blow.bmp" />
+    <None Include="res\btn_icon\Blw.ico" />
+    <None Include="res\btn_icon\Dn.ico" />
+    <None Include="res\btn_icon\save.bmp" />
+    <None Include="res\btn_icon\Up.ico" />
+    <None Include="res\btn_icon\Vac.ico" />
+    <None Include="res\btn_icon\vacuum.bmp" />
+    <None Include="res\ErrorPosGreen.bmp" />
+    <None Include="res\ErrorPosRed.bmp" />
+    <None Include="res\ico00001.ico" />
+    <None Include="res\ICO\Alignment\Alignment.ico" />
+    <None Include="res\ICO\AutoSkip\AutoSkip.ico" />
+    <None Include="res\ICO\AutoSkip\AutoSkipOn.ico" />
+    <None Include="res\ICO\Base\favicon.ico" />
+    <None Include="res\ICO\CategorySetup\CategorySetup2.ico" />
+    <None Include="res\ICO\ChangeKit\KitChange.ico" />
+    <None Include="res\ICO\Clear\Clear.ico" />
+    <None Include="res\ICO\Contact\Contact.ico" />
+    <None Include="res\ICO\Counter\Counter.ico" />
+    <None Include="res\ICO\Device Setup\DeviceSetup.ico" />
+    <None Include="res\ICO\DIO\favicon.ico" />
+    <None Include="res\ICO\Direct_Drop\Direct.ico" />
+    <None Include="res\ICO\Direct_Drop\Drop.ico" />
+    <None Include="res\ICO\Exit_Save\Exit.ico" />
+    <None Include="res\ICO\Exit_Save\Exit2.ico" />
+    <None Include="res\ICO\Exit_Save\Save.ico" />
+    <None Include="res\ICO\Export_Import\Export.ico" />
+    <None Include="res\ICO\Export_Import\Import.ico" />
+    <None Include="res\ICO\FileChangae\FileChange.ico" />
+    <None Include="res\ICO\interface\InterfaceSetting.ico" />
+    <None Include="res\ICO\Level\Engr.ico" />
+    <None Include="res\ICO\Level\Main.ico" />
+    <None Include="res\ICO\Level\Oper.ico" />
+    <None Include="res\ICO\Level\Oper2.ico" />
+    <None Include="res\ICO\Level\Setup.ico" />
+    <None Include="res\ICO\Level\Supervisor.ico" />
+    <None Include="res\ICO\LoadingTable\table-grid.ico" />
+    <None Include="res\ICO\Lot Info\LotInfo.ico" />
+    <None Include="res\ICO\modify\modify.ico" />
+    <None Include="res\ICO\MotorMonitor\MotorMonitor.ico" />
+    <None Include="res\ICO\new\New.ico" />
+    <None Include="res\ICO\offset\Offset.ico" />
+    <None Include="res\ICO\Online_Offline_Demo\Demo.ico" />
+    <None Include="res\ICO\Online_Offline_Demo\Offline.ico" />
+    <None Include="res\ICO\Online_Offline_Demo\Online.ico" />
+    <None Include="res\ICO\position\Position.ico" />
+    <None Include="res\ICO\PressUnit\PressUnit.ico" />
+    <None Include="res\ICO\print\favicon.ico" />
+    <None Include="res\ICO\Run.ico" />
+    <None Include="res\ICO\Setup\Event Log\Log.ico" />
+    <None Include="res\ICO\Setup\Event Log\Log2.ico" />
+    <None Include="res\ICO\SiteMap\SiteMap.ico" />
+    <None Include="res\ICO\SLT Program\SLT_PGM2.ico" />
+    <None Include="res\ICO\Speed\Speed.ico" />
+    <None Include="res\ICO\Stacker.ico" />
+    <None Include="res\ICO\Stop.ico" />
+    <None Include="res\ICO\Timer\Timer.ico" />
+    <None Include="res\ICO\Yield\YieldCtrl.ico" />
+    <None Include="res\logo_1.bmp" />
+    <None Include="res\main_icon\device.png" />
+    <None Include="res\main_icon\Model.png" />
+    <None Include="res\main_icon\network.png" />
+    <None Include="res\main_icon\non_device .png" />
+    <None Include="res\main_icon\non_dvc_tray.png" />
+    <None Include="res\main_icon\non_network.png" />
+    <None Include="res\main_icon\OpStateHalt.bmp" />
+    <None Include="res\main_icon\OpStateRun.bmp" />
+    <None Include="res\main_icon\OpStateStop.bmp" />
+    <None Include="res\main_icon\Runmode.png" />
+    <None Include="res\main_icon\speedbar.bmp" />
+    <None Include="res\main_icon\temperature_1.png" />
+    <None Include="res\main_icon\temperature_2.png" />
+    <None Include="res\main_icon\temperature_3.png" />
+    <None Include="res\main_icon\vision.png" />
+    <None Include="res\main_icon\vision_disc.png" />
+    <None Include="res\Manu\AIOAllCheck.bmp" />
+    <None Include="res\manu\bitmap1.bmp" />
+    <None Include="res\manu\bitmap3.bmp" />
+    <None Include="res\Manu\CMD\AutoHeightCal.bmp" />
+    <None Include="res\Manu\CMD\ClampUnclamp.bmp" />
+    <None Include="res\Manu\CMD\Close.bmp" />
+    <None Include="res\Manu\CMD\EmptyCheck.bmp" />
+    <None Include="res\Manu\CMD\Exchange.bmp" />
+    <None Include="res\Manu\CMD\ExchangeMove.bmp" />
+    <None Include="res\Manu\CMD\Initial.bmp" />
+    <None Include="res\Manu\CMD\Load.bmp" />
+    <None Include="res\Manu\CMD\MovePos.bmp" />
+    <None Include="res\Manu\CMD\PickPlace.bmp" />
+    <None Include="res\Manu\CMD\PickPlaceMove.bmp" />
+    <None Include="res\Manu\CMD\PushDown.bmp" />
+    <None Include="res\Manu\CMD\PushUp.bmp" />
+    <None Include="res\Manu\CMD\SocketClean.bmp" />
+    <None Include="res\Manu\CMD\SocketCleaning.bmp" />
+    <None Include="res\Manu\CMD\TrayCheck.bmp" />
+    <None Include="res\Manu\CMD\TrayDown.bmp" />
+    <None Include="res\Manu\CMD\TrayUp.bmp" />
+    <None Include="res\Manu\CMD\Unload.bmp" />
+    <None Include="res\Manu\CMD\Vibration.bmp" />
+    <None Include="res\Manu\CommunicationTest.bmp" />
+    <None Include="res\Manu\DIOAllCheck.bmp" />
+    <None Include="res\Manu\EPRegulator.bmp" />
+    <None Include="res\Manu\EVTransfer.bmp" />
+    <None Include="res\Manu\Exit.bmp" />
+    <None Include="res\Manu\ExitCylinder.bmp" />
+    <None Include="res\Manu\ExitCylinderPress.bmp" />
+    <None Include="res\Manu\ExitCylinderStackerSetplate.bmp" />
+    <None Include="res\Manu\ExitCylinderTestPP.bmp" />
+    <None Include="res\Manu\ExitCylinderTransfer.bmp" />
+    <None Include="res\Manu\LoadTable_01.bmp" />
+    <None Include="res\Manu\LoadTable_02.bmp" />
+    <None Include="res\Manu\LoadTable_03.bmp" />
+    <None Include="res\Manu\LoadTable_04.bmp" />
+    <None Include="res\Manu\LoadTable_TestPP_01.bmp" />
+    <None Include="res\Manu\LoadTable_TestPP_02.bmp" />
+    <None Include="res\Manu\LoadTable_TestPP_03.bmp" />
+    <None Include="res\Manu\LoadTable_TestPP_04.bmp" />
+    <None Include="res\Manu\MotorSetupTeaching.bmp" />
+    <None Include="res\Manu\PressUnit .bmp" />
+    <None Include="res\Manu\PressUnitDown_01.bmp" />
+    <None Include="res\Manu\PressUnitDown_02.bmp" />
+    <None Include="res\Manu\PressUnitDown_03.bmp" />
+    <None Include="res\Manu\PressUnitDown_04.bmp" />
+    <None Include="res\Manu\PressUnitDown_05.bmp" />
+    <None Include="res\Manu\PressUnitDown_06.bmp" />
+    <None Include="res\Manu\PressUnitDown_07.bmp" />
+    <None Include="res\Manu\PressUnitDown_08.bmp" />
+    <None Include="res\Manu\PressUnitUp_01.bmp" />
+    <None Include="res\Manu\PressUnitUp_02.bmp" />
+    <None Include="res\Manu\PressUnitUp_03.bmp" />
+    <None Include="res\Manu\PressUnitUp_04.bmp" />
+    <None Include="res\Manu\PressUnitUp_05.bmp" />
+    <None Include="res\Manu\PressUnitUp_06.bmp" />
+    <None Include="res\Manu\PressUnitUp_07.bmp" />
+    <None Include="res\Manu\PressUnitUp_08.bmp" />
+    <None Include="res\Manu\Retry.bmp" />
+    <None Include="res\Manu\ServoMotorSetting.bmp" />
+    <None Include="res\Manu\Setplate_Stacker.bmp" />
+    <None Include="res\Manu\Setup\COKBaseSetting.bmp" />
+    <None Include="res\Manu\Setup\COKExit.bmp" />
+    <None Include="res\Manu\Setup\COKLoad.bmp" />
+    <None Include="res\Manu\Setup\COKLoad.PNG" />
+    <None Include="res\Manu\Setup\COKSave.bmp" />
+    <None Include="res\Manu\Setup\COKSave.PNG" />
+    <None Include="res\Manu\Setup\TowerExit.bmp" />
+    <None Include="res\Manu\Setup\TowerSave.bmp" />
+    <None Include="res\Manu\Skip.bmp" />
+    <None Include="res\Manu\StackerEVLeft.bmp" />
+    <None Include="res\Manu\StackerEVRight.bmp" />
+    <None Include="res\Manu\Stop.bmp" />
+    <None Include="res\Manu\SubManu\BasePoint.bmp" />
+    <None Include="res\Manu\SubManu\EncoderRead.bmp" />
+    <None Include="res\Manu\SubManu\ExitMotor.bmp" />
+    <None Include="res\Manu\SubManu\ExitRegulator.bmp" />
+    <None Include="res\Manu\SubManu\ExitTeaching.bmp" />
+    <None Include="res\Manu\SubManu\MotorMoving.bmp" />
+    <None Include="res\Manu\SubManu\MotorTeaching.bmp" />
+    <None Include="res\Manu\SubManu\ParameterSetup.bmp" />
+    <None Include="res\Manu\SubManu\PressUnit.bmp" />
+    <None Include="res\Manu\SubManu\Reload.bmp" />
+    <None Include="res\Manu\SubManu\Save.bmp" />
+    <None Include="res\Manu\SubManu\ServoMotor.bmp" />
+    <None Include="res\Manu\SubManu\SetplateStacker.bmp" />
+    <None Include="res\Manu\SubManu\TestPP.bmp" />
+    <None Include="res\Manu\SubManu\TestPpOffSet.bmp" />
+    <None Include="res\Manu\SubManu\Transfer.bmp" />
+    <None Include="res\Manu\SubManu\TrayPP.bmp" />
+    <None Include="res\Manu\SubManu\TrayPpOffSet.bmp" />
+    <None Include="res\Manu\TestPP_01.bmp" />
+    <None Include="res\Manu\TestPP_02.bmp" />
+    <None Include="res\Manu\TestPP_03.bmp" />
+    <None Include="res\Manu\TestPP_04.bmp" />
+    <None Include="res\Manu\Transfer.bmp" />
+    <None Include="res\Manu\TrayPP.bmp" />
+    <None Include="res\Manu\VisionInterface.bmp" />
+    <None Include="res\Observer_Icon\alarm.ico" />
+    <None Include="res\Observer_Icon\counter.ico" />
+    <None Include="res\Observer_Icon\error.ico" />
+    <None Include="res\observer_icon\icon1.ico" />
+    <None Include="res\observer_icon\icon2.ico" />
+    <None Include="res\Observer_Icon\log.ico" />
+    <None Include="res\Observer_Icon\ope_call.ico" />
+    <None Include="res\Observer_Icon\save.ico" />
+    <None Include="res\Observer_Icon\scanner.ico" />
+    <None Include="res\Observer_Icon\TestIF.ico" />
+    <None Include="res\Observer_Icon\Version.ico" />
+    <None Include="res\OpButtonGreenLock.png" />
+    <None Include="res\OpButtonGreenOff.png" />
+    <None Include="res\OpButtonGreenOn.png" />
+    <None Include="res\OpButtonGreenUnlock.png" />
+    <None Include="res\OpButtonRedOff.png" />
+    <None Include="res\OpButtonRedOn.png" />
+    <None Include="res\OpButtonYellowOff.png" />
+    <None Include="res\OpButtonYellowOn.png" />
+    <None Include="res\Plate_Form.bmp" />
+    <None Include="res\Save.ico" />
+    <None Include="res\ShutDown.ico" />
+    <None Include="res\ShutDown.png" />
+    <None Include="res\signal_stop.ico" />
+    <None Include="res\SLTDoc.ico" />
+    <None Include="res\SLT_MC.ico" />
+    <None Include="res\SLT_MCDoc.ico" />
+    <None Include="res\TestSiteDisable.bmp" />
+    <None Include="res\TestSiteDisable2.bmp" />
+    <None Include="res\TW_MS.ico" />
+    <None Include="res\unitsetd.bmp" />
+    <None Include="res\Warning.ico" />
+    <None Include="VisionAutoTeaching\Cmd\5_Z AUTO TEACHING\VatTrayLoadPPCmd_PickerHeightCal.cpp.bak" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Dll_Src\LIB_MC\LIB_MC\BbxmnpClient.h" />
+    <ClInclude Include="..\Include\DEF_COK_STRUCT.h" />
+    <ClInclude Include="..\Include\DEF_COMMON.h" />
+    <ClInclude Include="..\Include\DEF_DEVICE_DATA.h" />
+    <ClInclude Include="..\Include\DEF_DM_0.h" />
+    <ClInclude Include="..\Include\DEF_DM_1.h" />
+    <ClInclude Include="..\Include\DEF_DM_10.h" />
+    <ClInclude Include="..\Include\DEF_DM_11.h" />
+    <ClInclude Include="..\Include\DEF_DM_12.h" />
+    <ClInclude Include="..\Include\DEF_DM_13.h" />
+    <ClInclude Include="..\Include\DEF_DM_14.h" />
+    <ClInclude Include="..\Include\DEF_DM_2.h" />
+    <ClInclude Include="..\Include\DEF_DM_3.h" />
+    <ClInclude Include="..\Include\DEF_DM_4.h" />
+    <ClInclude Include="..\Include\DEF_DM_5.h" />
+    <ClInclude Include="..\Include\DEF_DM_6.h" />
+    <ClInclude Include="..\Include\DEF_DM_7.h" />
+    <ClInclude Include="..\Include\DEF_DM_8.h" />
+    <ClInclude Include="..\Include\DEF_DM_9.h" />
+    <ClInclude Include="..\Include\DEF_ERROR_CODE.h" />
+    <ClInclude Include="..\Include\DEF_EVENT_CODE.h" />
+    <ClInclude Include="..\Include\DEF_IO.h" />
+    <ClInclude Include="..\Include\DEF_SLT_MC.h" />
+    <ClInclude Include="..\Include\DEF_VAT_COMMON.h" />
+    <ClInclude Include="..\Include\Log.h" />
+    <ClInclude Include="..\Include\OcxFiles\calendar.h" />
+    <ClInclude Include="..\Include\OcxFiles\CellMapStatic.h" />
+    <ClInclude Include="..\Include\OcxFiles\dsspanel.h" />
+    <ClInclude Include="..\Include\OcxFiles\font.h" />
+    <ClInclude Include="..\Include\OcxFiles\gradientprogress.h" />
+    <ClInclude Include="..\Include\OcxFiles\mdccombo.h" />
+    <ClInclude Include="..\Include\OcxFiles\mdclist.h" />
+    <ClInclude Include="..\Include\OcxFiles\mdctext.h" />
+    <ClInclude Include="..\Include\OcxFiles\MSCOMM.H" />
+    <ClInclude Include="..\Include\OcxFiles\nokey.h" />
+    <ClInclude Include="..\Include\OcxFiles\picture.h" />
+    <ClInclude Include="..\Include\OcxFiles\spreadsheet.h" />
+    <ClInclude Include="..\Include\OcxFiles\sscommand.h" />
+    <ClInclude Include="BarcodeList.h" />
+    <ClInclude Include="CylinderTimeCheck.h" />
+    <ClInclude Include="DataMemCont.h" />
+    <ClInclude Include="DelaySensor.h" />
+    <ClInclude Include="DlgAlarmMsgBox.h" />
+    <ClInclude Include="DlgAlarmMsgBoxDoor.h" />
+    <ClInclude Include="DlgAxisActionMove.h" />
+    <ClInclude Include="DlgBarcodeSetting.h" />
+    <ClInclude Include="DlgCalculatePcd.h" />
+    <ClInclude Include="DlgCommand_Feeder.h" />
+    <ClInclude Include="DlgCommand_LoadTbl.h" />
+    <ClInclude Include="DlgCommand_Param.h" />
+    <ClInclude Include="DlgCommand_PressUnit.h" />
+    <ClInclude Include="DlgCommand_Stacker.h" />
+    <ClInclude Include="DlgCommand_TestPP.h" />
+    <ClInclude Include="DlgCommand_Transfer.h" />
+    <ClInclude Include="DlgCommand_TrayPP.h" />
+    <ClInclude Include="DlgContactAndSafety.h" />
+    <ClInclude Include="DlgCylinderTimeCheck.h" />
+    <ClInclude Include="DlgDebugAutoStacker.h" />
+    <ClInclude Include="DlgDeviceInfoEditor.h" />
+    <ClInclude Include="DlgHomeCheckStatus.h" />
+    <ClInclude Include="DlgManu.h" />
+    <ClInclude Include="DlgManuFeeder.h" />
+    <ClInclude Include="DlgManuLoadTbl.h" />
+    <ClInclude Include="DlgManuMotor.h" />
+    <ClInclude Include="DlgManuMotorJog.h" />
+    <ClInclude Include="DlgManuMotorParam.h" />
+    <ClInclude Include="DlgManuMotorTeaching.h" />
+    <ClInclude Include="DlgManuPressUnit.h" />
+    <ClInclude Include="DlgManuRegul.h" />
+    <ClInclude Include="DlgManuSetplate.h" />
+    <ClInclude Include="DlgManuStackerClampSen.h" />
+    <ClInclude Include="DlgManuTesterIF.h" />
+    <ClInclude Include="DlgManuTestPP.h" />
+    <ClInclude Include="DlgManuTransfer.h" />
+    <ClInclude Include="DlgManuTrayPP.h" />
+    <ClInclude Include="DlgManuVision.h" />
+    <ClInclude Include="DlgManuVisionSetup.h" />
+    <ClInclude Include="DlgManuZMotorTeaching.h" />
+    <ClInclude Include="DlgMon.h" />
+    <ClInclude Include="DlgMonOverview.h" />
+    <ClInclude Include="DlgSelectItem.h" />
+    <ClInclude Include="DlgSetup.h" />
+    <ClInclude Include="DlgSetupCOKInfo.h" />
+    <ClInclude Include="DlgSetupSignalTower.h" />
+    <ClInclude Include="DlgSetupStocker.h" />
+    <ClInclude Include="DlgSimulDioSLT.h" />
+    <ClInclude Include="DlgTesterIFInfo.h" />
+    <ClInclude Include="DlgTesterIF_TesterStatus.h" />
+    <ClInclude Include="DlgVATProgressBar.h" />
+    <ClInclude Include="DlgVibrator.h" />
+    <ClInclude Include="DlgZPickerActionMove.h" />
+    <ClInclude Include="DualTCP_Sock.h" />
+    <ClInclude Include="Error.h" />
+    <ClInclude Include="GUIComm.h" />
+    <ClInclude Include="LastRobotStatus.h" />
+    <ClInclude Include="LogZip.h" />
+    <ClInclude Include="LotInfo.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="ManuMotorZAxisDlg.h" />
+    <ClInclude Include="MasterMac.h" />
+    <ClInclude Include="MmwinFtp.h" />
+    <ClInclude Include="MotorInterlock\BaseMotorInterlock.h" />
+    <ClInclude Include="MotorInterlock\MotorInterlock.h" />
+    <ClInclude Include="MotorInterlock\MotorInterLock_LoadTbl.h" />
+    <ClInclude Include="MotorInterlock\MotorInterlock_PressUnit.h" />
+    <ClInclude Include="MotorInterlock\MotorInterlock_Stacker.h" />
+    <ClInclude Include="MotorInterlock\MotorInterlock_TestPP.h" />
+    <ClInclude Include="MotorInterlock\MotorInterlock_Transfer.h" />
+    <ClInclude Include="MotorInterlock\MotorInterlock_TrayPP.h" />
+    <ClInclude Include="NetDriver.h" />
+    <ClInclude Include="OPSwitch\OPSwitchAct.h" />
+    <ClInclude Include="OPSwitch\OPSwitchAct_Cover.h" />
+    <ClInclude Include="OPSwitch\OPSwitchAct_Feeder.h" />
+    <ClInclude Include="OPSwitch\OPSwitchAct_Lamp.h" />
+    <ClInclude Include="OPSwitch\OPSwitchAct_START.h" />
+    <ClInclude Include="OPSwitch\OPSwitchAct_StepTestPP.h" />
+    <ClInclude Include="OPSwitch\OPSwitchAct_StepTrayPP.h" />
+    <ClInclude Include="OPSwitch\OPSwitchAct_STOP.h" />
+    <ClInclude Include="Pcd_Backlash\DlgPcdBacklash.h" />
+    <ClInclude Include="Pcd_Backlash\TestPPCmd_VatBacklash.h" />
+    <ClInclude Include="Pcd_Backlash\TestPPCmd_VatPcd.h" />
+    <ClInclude Include="Pcd_Backlash\TrayLoadPPCmd_VatBacklash.h" />
+    <ClInclude Include="Pcd_Backlash\TrayLoadPPCmd_VatPcd.h" />
+    <ClInclude Include="Pcd_Backlash\TrayUnloadPPCmd_VatBacklash.h" />
+    <ClInclude Include="Pcd_Backlash\TrayUnloadPPCmd_VatPcd.h" />
+    <ClInclude Include="Pcd_Backlash\VatHwDesignDim.h" />
+    <ClInclude Include="ping.h" />
+    <ClInclude Include="PressUnitConvert.h" />
+    <ClInclude Include="ProcJamRate.h" />
+    <ClInclude Include="RamMotorParam.h" />
+    <ClInclude Include="RamTeaching.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Sequence\Base\BaseAutoSeqManager.h" />
+    <ClInclude Include="Sequence\Base\BaseSeqCmd.h" />
+    <ClInclude Include="Sequence\Base\BaseTaskManager.h" />
+    <ClInclude Include="Sequence\Base\SeqCmdList.h" />
+    <ClInclude Include="Sequence\Base\TaskAutoTrayBasePP.h" />
+    <ClInclude Include="Sequence\Base\TaskTrayBasePP.h" />
+    <ClInclude Include="Sequence\LoadTable\LoadTblCmd_Initial.h" />
+    <ClInclude Include="Sequence\LoadTable\LoadTblCmd_MovePos.h" />
+    <ClInclude Include="Sequence\LoadTable\TaskAutoLoadTable.h" />
+    <ClInclude Include="Sequence\LoadTable\TaskLoadTable.h" />
+    <ClInclude Include="Sequence\MultiOrigin\MultiOrgCmd_Axis.h" />
+    <ClInclude Include="Sequence\MultiOrigin\TaskMultiOrg.h" />
+    <ClInclude Include="Sequence\PressUnit\AllAutoTestSite.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_AutoHeightCal.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_Contact.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_Initial.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_MovePos.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_OffLineTest.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_OnLineLoopTest.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_OnLineTestApple.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_QAEmptyTest.h" />
+    <ClInclude Include="Sequence\PressUnit\PressUnitCmd_SocketCleanContact.h" />
+    <ClInclude Include="Sequence\PressUnit\TaskAutoPress.h" />
+    <ClInclude Include="Sequence\PressUnit\TaskPressUnit.h" />
+    <ClInclude Include="Sequence\PressUnit\TaskRegulator.h" />
+    <ClInclude Include="Sequence\Stacker\AllAutoStacker.h" />
+    <ClInclude Include="Sequence\Stacker\StackerCmd_FullTray.h" />
+    <ClInclude Include="Sequence\Stacker\StackerCmd_Initial.h" />
+    <ClInclude Include="Sequence\Stacker\StackerCmd_Load.h" />
+    <ClInclude Include="Sequence\Stacker\StackerCmd_TrayDn.h" />
+    <ClInclude Include="Sequence\Stacker\StackerCmd_TrayOut.h" />
+    <ClInclude Include="Sequence\Stacker\StackerCmd_TrayUp.h" />
+    <ClInclude Include="Sequence\Stacker\StackerCmd_Unload.h" />
+    <ClInclude Include="Sequence\Stacker\StackerCmd_Vibration.h" />
+    <ClInclude Include="Sequence\Stacker\TaskAutoStacker.h" />
+    <ClInclude Include="Sequence\Stacker\TaskStacker.h" />
+    <ClInclude Include="Sequence\Stacker\TaskVibrator.h" />
+    <ClInclude Include="Sequence\System\SystemCmd_AxisJogMove.h" />
+    <ClInclude Include="Sequence\System\SystemCmd_Axis_Initial.h" />
+    <ClInclude Include="Sequence\System\TaskAutoSystem.h" />
+    <ClInclude Include="Sequence\System\TaskSystemCtrl.h" />
+    <ClInclude Include="Sequence\System\TaskTowerLight.h" />
+    <ClInclude Include="Sequence\TestPP\TaskAutoTestPp.h" />
+    <ClInclude Include="Sequence\TestPP\TaskTestPP.h" />
+    <ClInclude Include="Sequence\TestPP\TestPPCmd_Initial.h" />
+    <ClInclude Include="Sequence\TestPP\TestPPCmd_MoveAlreadyPos.h" />
+    <ClInclude Include="Sequence\TestPP\TestPPCmd_MovePickPlace.h" />
+    <ClInclude Include="Sequence\Transfer\TaskAutoTransfer.h" />
+    <ClInclude Include="Sequence\Transfer\TaskTransfer.h" />
+    <ClInclude Include="Sequence\Transfer\TransferCmd_Initial.h" />
+    <ClInclude Include="Sequence\Transfer\TransferCmd_MovePickPlace.h" />
+    <ClInclude Include="Sequence\Transfer\TransferCmd_MovePos.h" />
+    <ClInclude Include="Sequence\TrayFeeder\TaskAutoTrayFeeder.h" />
+    <ClInclude Include="Sequence\TrayFeeder\TaskTrayFeeder.h" />
+    <ClInclude Include="Sequence\TrayFeeder\TrayFeederCmd_Initial.h" />
+    <ClInclude Include="Sequence\TrayFeeder\TrayFeederCmd_MovePickPlace.h" />
+    <ClInclude Include="Sequence\TrayFeeder\TrayFeederCmd_MovePos.h" />
+    <ClInclude Include="Sequence\TrayLoadPP\TaskAutoTrayLoadPP.h" />
+    <ClInclude Include="Sequence\TrayLoadPP\TaskTrayLoadPP.h" />
+    <ClInclude Include="Sequence\TrayLoadPP\TrayLoadPPCmd_Initial.h" />
+    <ClInclude Include="Sequence\TrayLoadPP\TrayLoadPPCmd_MovePickPlace.h" />
+    <ClInclude Include="Sequence\TrayLoadPP\TrayLoadPPCmd_MovePos.h" />
+    <ClInclude Include="Sequence\TrayUnloadPP\TaskAutoTrayUnloadPP.h" />
+    <ClInclude Include="Sequence\TrayUnloadPP\TaskTrayUnloadPP.h" />
+    <ClInclude Include="Sequence\TrayUnloadPP\TrayUnloadPPCmd_Initial.h" />
+    <ClInclude Include="Sequence\TrayUnloadPP\TrayUnloadPPCmd_MovePickPlace.h" />
+    <ClInclude Include="Sequence\TrayUnloadPP\TrayUnloadPPCmd_MovePos.h" />
+    <ClInclude Include="SLT_MC.h" />
+    <ClInclude Include="SLT_MCDoc.h" />
+    <ClInclude Include="SLT_MCView.h" />
+    <ClInclude Include="SocketCount.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TesterIF\Tester.h" />
+    <ClInclude Include="TesterIF\TesterClientSock.h" />
+    <ClInclude Include="TesterIF\TesterIF.h" />
+    <ClInclude Include="TesterIF\TesterMgr.h" />
+    <ClInclude Include="TesterIF\TesterServerSock.h" />
+    <ClInclude Include="TestHandWorkArea.h" />
+    <ClInclude Include="unzip.h" />
+    <ClInclude Include="VisionAutoTeaching\Auto\VAT_TaskAutoTestPP.h" />
+    <ClInclude Include="VisionAutoTeaching\Auto\VAT_TaskAutoTrayLoadPP.h" />
+    <ClInclude Include="VisionAutoTeaching\Auto\VAT_TaskAutoTrayUnloadPP.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\COMMON\VatLoadTblCmd_MovePos.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\COMMON\VatTestPPCmd_MovePos.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\COMMON\VatTrayFeederCmd_MovePos.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\COMMON\VatTrayLoadPPCmd_MovePos.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\COMMON\VatTrayUnloadPPCmd_MovePos.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\VatTestPPCmd_PickerHeightCal.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\VatTrayLoadPPCmd_PickerHeightCal.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\VatTrayLoadPPFeederCmd_MovePos.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\VatTrayLoadPPTableCmd_MovePos.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\VatTrayUnloadPPCmd_PickerHeightCal.h" />
+    <ClInclude Include="VisionAutoTeaching\Cmd\VatVisionCmd_CamMeasure.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMainTab_PickerAlignMeasure.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMainTab_PickerAlignSetting.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMainTab_VisionAutoTeachingMeasure.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMainTab_VisionAutoTeachingSetting.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMainTab_ZAutoTeachingMeasure.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMainTab_ZAutoTeachingSetting.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMain_CamCenterCalibration.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMain_Common.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMain_PickerAlign.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMain_VisionAutoTeaching.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMain_ZAutoFocus.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATMain_ZAutoTeaching.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VATSub_PickerAlignInfo.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VAT_MainDlg.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VAT_PickerAlignDlgCom.h" />
+    <ClInclude Include="VisionAutoTeaching\MainDlg\VAT_STATIC_ID.h" />
+    <ClInclude Include="VisionAutoTeaching\Simul\VATSimul.h" />
+    <ClInclude Include="VisionAutoTeaching\System\VatBaseTask.h" />
+    <ClInclude Include="VisionAutoTeaching\System\VAT_TaskAutoSystem.h" />
+    <ClInclude Include="VisionAutoTeaching\System\VAT_TaskSystemCtrl.h" />
+    <ClInclude Include="VisionAutoTeaching\VAT_CommonData.h" />
+    <ClInclude Include="VisionAutoTeaching\VAT_CommonStaticData.h" />
+    <ClInclude Include="VisionAutoTeaching\VAT_DataCopy.h" />
+    <ClInclude Include="VisionAutoTeaching\VAT_DisplayLog.h" />
+    <ClInclude Include="VisionAutoTeaching\VAT_FILE_SECTION.h" />
+    <ClInclude Include="VisionAutoTeaching\VAT_ManuMotorJog.h" />
+    <ClInclude Include="VisionAutoTeaching\VAT_MeasureStatus.h" />
+    <ClInclude Include="VisionAutoTeaching\VAT_VisionSetting.h" />
+    <ClInclude Include="VisionAutoTeaching\VisionComm\VAT_VisionComm.h" />
+    <ClInclude Include="VisionAutoTeaching\VisionComm\VAT_VisionMgr.h" />
+    <ClInclude Include="VisionIF\TriggerGenerator.h" />
+    <ClInclude Include="VisionIF\VisionComm.h" />
+    <ClInclude Include="VisionIF\VisionComm_Barcode.h" />
+    <ClInclude Include="VisionIF\VisionComm_TestHand_1.h" />
+    <ClInclude Include="VisionIF\VisionComm_TestHand_2.h" />
+    <ClInclude Include="VisionIF\Vision_2dBarcode.h" />
+    <ClInclude Include="zip.h" />
+    <ClInclude Include="_Font.h" />
+    <ClInclude Include="_Picture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Dll_Src\LIB_MC\LIB_MC\BbxmnpClient.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\calendar.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\CellMapStatic.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\dsspanel.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\font.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\gradientprogress.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\mdccombo.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\mdclist.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\mdctext.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\MSCOMM.CPP" />
+    <ClCompile Include="..\Include\OcxFiles\nokey.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\picture.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\spreadsheet.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\sscommand.cpp" />
+    <ClCompile Include="BarcodeList.cpp" />
+    <ClCompile Include="CylinderTimeCheck.cpp" />
+    <ClCompile Include="DataMemCont.cpp" />
+    <ClCompile Include="DelaySensor.cpp" />
+    <ClCompile Include="DlgAlarmMsgBox.cpp" />
+    <ClCompile Include="DlgAlarmMsgBoxDoor.cpp" />
+    <ClCompile Include="DlgAxisActionMove.cpp" />
+    <ClCompile Include="DlgBarcodeSetting.cpp" />
+    <ClCompile Include="DlgCalculatePcd.cpp" />
+    <ClCompile Include="DlgCommand_Feeder.cpp" />
+    <ClCompile Include="DlgCommand_LoadTbl.cpp" />
+    <ClCompile Include="DlgCommand_Param.cpp" />
+    <ClCompile Include="DlgCommand_PressUnit.cpp" />
+    <ClCompile Include="DlgCommand_Stacker.cpp" />
+    <ClCompile Include="DlgCommand_TestPP.cpp" />
+    <ClCompile Include="DlgCommand_Transfer.cpp" />
+    <ClCompile Include="DlgCommand_TrayPP.cpp" />
+    <ClCompile Include="DlgContactAndSafety.cpp" />
+    <ClCompile Include="DlgCylinderTimeCheck.cpp" />
+    <ClCompile Include="DlgDebugAutoStacker.cpp" />
+    <ClCompile Include="DlgDeviceInfoEditor.cpp" />
+    <ClCompile Include="DlgHomeCheckStatus.cpp" />
+    <ClCompile Include="DlgManu.cpp" />
+    <ClCompile Include="DlgManuFeeder.cpp" />
+    <ClCompile Include="DlgManuLoadTbl.cpp" />
+    <ClCompile Include="DlgManuMotor.cpp" />
+    <ClCompile Include="DlgManuMotorJog.cpp" />
+    <ClCompile Include="DlgManuMotorParam.cpp" />
+    <ClCompile Include="DlgManuMotorTeaching.cpp" />
+    <ClCompile Include="DlgManuPressUnit.cpp" />
+    <ClCompile Include="DlgManuRegul.cpp" />
+    <ClCompile Include="DlgManuSetplate.cpp" />
+    <ClCompile Include="DlgManuStackerClampSen.cpp" />
+    <ClCompile Include="DlgManuTesterIF.cpp" />
+    <ClCompile Include="DlgManuTestPP.cpp" />
+    <ClCompile Include="DlgManuTransfer.cpp" />
+    <ClCompile Include="DlgManuTrayPP.cpp" />
+    <ClCompile Include="DlgManuVision.cpp" />
+    <ClCompile Include="DlgManuVisionSetup.cpp" />
+    <ClCompile Include="DlgManuZMotorTeaching.cpp" />
+    <ClCompile Include="DlgMon.cpp" />
+    <ClCompile Include="DlgMonOverview.cpp" />
+    <ClCompile Include="DlgSelectItem.cpp" />
+    <ClCompile Include="DlgSetup.cpp" />
+    <ClCompile Include="DlgSetupCOKInfo.cpp" />
+    <ClCompile Include="DlgSetupSignalTower.cpp" />
+    <ClCompile Include="DlgSetupStocker.cpp" />
+    <ClCompile Include="DlgSimulDioSLT.cpp" />
+    <ClCompile Include="DlgTesterIFInfo.cpp" />
+    <ClCompile Include="DlgTesterIF_TesterStatus.cpp" />
+    <ClCompile Include="DlgVATProgressBar.cpp" />
+    <ClCompile Include="DlgVibrator.cpp" />
+    <ClCompile Include="DlgZPickerActionMove.cpp" />
+    <ClCompile Include="DualTCP_Sock.cpp" />
+    <ClCompile Include="Error.cpp" />
+    <ClCompile Include="GUIComm.cpp" />
+    <ClCompile Include="LastRobotStatus.cpp" />
+    <ClCompile Include="LogZip.cpp" />
+    <ClCompile Include="LotInfo.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="ManuMotorZAxisDlg.cpp" />
+    <ClCompile Include="MasterMac.cpp" />
+    <ClCompile Include="MmwinFtp.cpp" />
+    <ClCompile Include="MotorInterlock\BaseMotorInterlock.cpp" />
+    <ClCompile Include="MotorInterlock\MotorInterlock.cpp" />
+    <ClCompile Include="MotorInterlock\MotorInterLock_LoadTbl.cpp" />
+    <ClCompile Include="MotorInterlock\MotorInterlock_PressUnit.cpp" />
+    <ClCompile Include="MotorInterlock\MotorInterlock_Stacker.cpp" />
+    <ClCompile Include="MotorInterlock\MotorInterlock_TestPP.cpp" />
+    <ClCompile Include="MotorInterlock\MotorInterlock_Transfer.cpp" />
+    <ClCompile Include="MotorInterlock\MotorInterlock_TrayPP.cpp" />
+    <ClCompile Include="NetDriver.cpp" />
+    <ClCompile Include="OPSwitch\OPSwitchAct.cpp" />
+    <ClCompile Include="OPSwitch\OPSwitchAct_Cover.cpp" />
+    <ClCompile Include="OPSwitch\OPSwitchAct_Feeder.cpp" />
+    <ClCompile Include="OPSwitch\OPSwitchAct_Lamp.cpp" />
+    <ClCompile Include="OPSwitch\OPSwitchAct_START.cpp" />
+    <ClCompile Include="OPSwitch\OPSwitchAct_StepTestPP.cpp" />
+    <ClCompile Include="OPSwitch\OPSwitchAct_StepTrayPP.cpp" />
+    <ClCompile Include="OPSwitch\OPSwitchAct_STOP.cpp" />
+    <ClCompile Include="Pcd_Backlash\DlgPcdBacklash.cpp" />
+    <ClCompile Include="Pcd_Backlash\TestPPCmd_VatBacklash.cpp" />
+    <ClCompile Include="Pcd_Backlash\TestPPCmd_VatPcd.cpp" />
+    <ClCompile Include="Pcd_Backlash\TrayLoadPPCmd_VatBacklash.cpp" />
+    <ClCompile Include="Pcd_Backlash\TrayLoadPPCmd_VatPcd.cpp" />
+    <ClCompile Include="Pcd_Backlash\TrayUnloadPPCmd_VatBacklash.cpp" />
+    <ClCompile Include="Pcd_Backlash\TrayUnloadPPCmd_VatPcd.cpp" />
+    <ClCompile Include="Pcd_Backlash\VatHwDesignDim.cpp" />
+    <ClCompile Include="ping.cpp" />
+    <ClCompile Include="PressUnitConvert.cpp" />
+    <ClCompile Include="ProcJamRate.cpp" />
+    <ClCompile Include="RamMotorParam.cpp" />
+    <ClCompile Include="RamTeaching.cpp" />
+    <ClCompile Include="Sequence\Base\BaseAutoSeqManager.cpp" />
+    <ClCompile Include="Sequence\Base\BaseSeqCmd.cpp" />
+    <ClCompile Include="Sequence\Base\BaseTaskManager.cpp" />
+    <ClCompile Include="Sequence\Base\SeqCmdList.cpp" />
+    <ClCompile Include="Sequence\Base\TaskAutoTrayBasePP.cpp" />
+    <ClCompile Include="Sequence\Base\TaskTrayBasePP.cpp" />
+    <ClCompile Include="Sequence\LoadTable\LoadTblCmd_Initial.cpp" />
+    <ClCompile Include="Sequence\LoadTable\LoadTblCmd_MovePos.cpp" />
+    <ClCompile Include="Sequence\LoadTable\TaskAutoLoadTable.cpp" />
+    <ClCompile Include="Sequence\LoadTable\TaskLoadTable.cpp" />
+    <ClCompile Include="Sequence\MultiOrigin\MultiOrgCmd_Axis.cpp" />
+    <ClCompile Include="Sequence\MultiOrigin\TaskMultiOrg.cpp" />
+    <ClCompile Include="Sequence\PressUnit\AllAutoTestSite.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_AutoHeightCal.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_Contact.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_Initial.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_MovePos.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_OffLineTest.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_OnLineLoopTest.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_OnLineTestApple.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_QAEmptyTest.cpp" />
+    <ClCompile Include="Sequence\PressUnit\PressUnitCmd_SocketCleanContact.cpp" />
+    <ClCompile Include="Sequence\PressUnit\TaskAutoPress.cpp" />
+    <ClCompile Include="Sequence\PressUnit\TaskPressUnit.cpp" />
+    <ClCompile Include="Sequence\PressUnit\TaskRegulator.cpp" />
+    <ClCompile Include="Sequence\Stacker\AllAutoStacker.cpp" />
+    <ClCompile Include="Sequence\Stacker\StackerCmd_FullTray.cpp" />
+    <ClCompile Include="Sequence\Stacker\StackerCmd_Initial.cpp" />
+    <ClCompile Include="Sequence\Stacker\StackerCmd_Load.cpp" />
+    <ClCompile Include="Sequence\Stacker\StackerCmd_TrayDn.cpp" />
+    <ClCompile Include="Sequence\Stacker\StackerCmd_TrayOut.cpp" />
+    <ClCompile Include="Sequence\Stacker\StackerCmd_TrayUp.cpp" />
+    <ClCompile Include="Sequence\Stacker\StackerCmd_Unload.cpp" />
+    <ClCompile Include="Sequence\Stacker\StackerCmd_Vibration.cpp" />
+    <ClCompile Include="Sequence\Stacker\TaskAutoStacker.cpp" />
+    <ClCompile Include="Sequence\Stacker\TaskStacker.cpp" />
+    <ClCompile Include="Sequence\Stacker\TaskVibrator.cpp" />
+    <ClCompile Include="Sequence\System\SystemCmd_AxisJogMove.cpp" />
+    <ClCompile Include="Sequence\System\SystemCmd_Axis_Initial.cpp" />
+    <ClCompile Include="Sequence\System\TaskAutoSystem.cpp" />
+    <ClCompile Include="Sequence\System\TaskSystemCtrl.cpp" />
+    <ClCompile Include="Sequence\System\TaskSystemCtrl.LotCtrl.cpp" />
+    <ClCompile Include="Sequence\System\TaskSystemCtrl.SwitchCtrl.cpp" />
+    <ClCompile Include="Sequence\System\TaskTowerLight.cpp" />
+    <ClCompile Include="Sequence\TestPP\TaskAutoTestPp.cpp" />
+    <ClCompile Include="Sequence\TestPP\TaskTestPP.cpp" />
+    <ClCompile Include="Sequence\TestPP\TestPPCmd_Initial.cpp" />
+    <ClCompile Include="Sequence\TestPP\TestPPCmd_MoveAlreadyPos.cpp" />
+    <ClCompile Include="Sequence\TestPP\TestPPCmd_MovePickPlace.cpp" />
+    <ClCompile Include="Sequence\Transfer\TaskAutoTransfer.cpp" />
+    <ClCompile Include="Sequence\Transfer\TaskTransfer.cpp" />
+    <ClCompile Include="Sequence\Transfer\TransferCmd_Initial.cpp" />
+    <ClCompile Include="Sequence\Transfer\TransferCmd_MovePickPlace.cpp" />
+    <ClCompile Include="Sequence\Transfer\TransferCmd_MovePos.cpp" />
+    <ClCompile Include="Sequence\TrayFeeder\TaskAutoTrayFeeder.cpp" />
+    <ClCompile Include="Sequence\TrayFeeder\TaskTrayFeeder.cpp" />
+    <ClCompile Include="Sequence\TrayFeeder\TrayFeederCmd_Initial.cpp" />
+    <ClCompile Include="Sequence\TrayFeeder\TrayFeederCmd_MovePickPlace.cpp" />
+    <ClCompile Include="Sequence\TrayFeeder\TrayFeederCmd_MovePos.cpp" />
+    <ClCompile Include="Sequence\TrayLoadPP\TaskAutoTrayLoadPP.cpp" />
+    <ClCompile Include="Sequence\TrayLoadPP\TaskTrayLoadPP.cpp" />
+    <ClCompile Include="Sequence\TrayLoadPP\TrayLoadPPCmd_Initial.cpp" />
+    <ClCompile Include="Sequence\TrayLoadPP\TrayLoadPPCmd_MovePickPlace.cpp" />
+    <ClCompile Include="Sequence\TrayLoadPP\TrayLoadPPCmd_MovePos.cpp" />
+    <ClCompile Include="Sequence\TrayUnloadPP\TaskAutoTrayUnloadPP.Algorithm.cpp" />
+    <ClCompile Include="Sequence\TrayUnloadPP\TaskAutoTrayUnloadPP.cpp" />
+    <ClCompile Include="Sequence\TrayUnloadPP\TaskAutoTrayUnloadPP.Execute_Normal.cpp" />
+    <ClCompile Include="Sequence\TrayUnloadPP\TaskTrayUnloadPP.cpp" />
+    <ClCompile Include="Sequence\TrayUnloadPP\TrayUnloadPPCmd_Initial.cpp" />
+    <ClCompile Include="Sequence\TrayUnloadPP\TrayUnloadPPCmd_MovePickPlace.cpp" />
+    <ClCompile Include="Sequence\TrayUnloadPP\TrayUnloadPPCmd_MovePos.cpp" />
+    <ClCompile Include="SLT_MC.cpp" />
+    <ClCompile Include="SLT_MCDoc.cpp" />
+    <ClCompile Include="SLT_MCView.cpp" />
+    <ClCompile Include="SocketCount.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Remote_Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TesterIF\Tester.cpp" />
+    <ClCompile Include="TesterIF\TesterClientSock.cpp" />
+    <ClCompile Include="TesterIF\TesterIF.cpp" />
+    <ClCompile Include="TesterIF\TesterMgr.cpp" />
+    <ClCompile Include="TesterIF\TesterServerSock.cpp" />
+    <ClCompile Include="TestHandWorkArea.cpp" />
+    <ClCompile Include="unzip.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Remote_Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="VisionAutoTeaching\Auto\VAT_TaskAutoTestPP.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Auto\VAT_TaskAutoTrayLoadPP.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Auto\VAT_TaskAutoTrayUnloadPP.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\COMMON\VatLoadTblCmd_MovePos.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\COMMON\VatTestPPCmd_MovePos.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\COMMON\VatTrayFeederCmd_MovePos.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\COMMON\VatTrayLoadPPCmd_MovePos.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\COMMON\VatTrayUnloadPPCmd_MovePos.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\VatTestPPCmd_PickerHeightCal.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\VatTrayLoadPPCmd_PickerHeightCal.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\VatTrayLoadPPFeederCmd_MovePos.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\VatTrayLoadPPTableCmd_MovePos.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\VatTrayUnloadPPCmd_PickerHeightCal.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Cmd\VatVisionCmd_CamMeasure.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMainTab_PickerAlignMeasure.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMainTab_PickerAlignSetting.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMainTab_VisionAutoTeachingMeasure.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMainTab_VisionAutoTeachingSetting.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMainTab_ZAutoTeachingMeasure.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMainTab_ZAutoTeachingSetting.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMain_CamCenterCalibration.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMain_Common.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMain_PickerAlign.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMain_VisionAutoTeaching.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMain_ZAutoFocus.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATMain_ZAutoTeaching.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VATSub_PickerAlignInfo.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VAT_MainDlg.cpp" />
+    <ClCompile Include="VisionAutoTeaching\MainDlg\VAT_PickerAlignDlgCom.cpp" />
+    <ClCompile Include="VisionAutoTeaching\Simul\VATSimul.cpp" />
+    <ClCompile Include="VisionAutoTeaching\System\VatBaseTask.cpp" />
+    <ClCompile Include="VisionAutoTeaching\System\VAT_TaskAutoSystem.cpp" />
+    <ClCompile Include="VisionAutoTeaching\System\VAT_TaskSystemCtrl.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VAT_CommonData.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VAT_CommonStaticData.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VAT_DataCopy.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VAT_DisplayLog.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VAT_ManuMotorJog.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VAT_MeasureStatus.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VAT_VisionSetting.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VisionComm\VAT_VisionComm.cpp" />
+    <ClCompile Include="VisionAutoTeaching\VisionComm\VAT_VisionMgr.cpp" />
+    <ClCompile Include="VisionIF\TriggerGenerator.cpp" />
+    <ClCompile Include="VisionIF\VisionComm.cpp" />
+    <ClCompile Include="VisionIF\VisionComm_Barcode.cpp" />
+    <ClCompile Include="VisionIF\VisionComm_TestHand_1.cpp" />
+    <ClCompile Include="VisionIF\VisionComm_TestHand_2.cpp" />
+    <ClCompile Include="VisionIF\Vision_2dBarcode.cpp" />
+    <ClCompile Include="zip.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Remote_Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SLT_MC.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\###BackUp\TWSL421 자료\8. Vision Auto Teaching\Manual\IDB_VAT_MANUAL_TESTPP_1.bmp" />
+    <Image Include="res\btn_icon\Vibrator.ico" />
+    <Image Include="res\Door_1.bmp" />
+    <Image Include="res\Door_2.bmp" />
+    <Image Include="res\half.PNG" />
+    <Image Include="res\JigInfo.bmp" />
+    <Image Include="res\Maint_Plan.bmp" />
+    <Image Include="res\manu\bitmap6.bmp" />
+    <Image Include="res\manu\bitmap7.bmp" />
+    <Image Include="res\manu\bitmap8.bmp" />
+    <Image Include="res\Manu\CMD\PickerHeightCal.bmp" />
+    <Image Include="res\Manu\CMD\TrayOut.bmp" />
+    <Image Include="res\Manu\CylinderCheck.bmp" />
+    <Image Include="res\Manu\Feeder.bmp" />
+    <Image Include="res\Manu\PressUnit.bmp" />
+    <Image Include="res\Manu\Start.bmp" />
+    <Image Include="res\Manu\SubManu\NewBacklash.bmp" />
+    <Image Include="res\Manu\SubManu\PcdBacklash.bmp" />
+    <Image Include="res\Manu\SubManu\PicekrHeightcal.bmp" />
+    <Image Include="res\Manu\SubManu\PickerAlign.bmp" />
+    <Image Include="res\Manu\SubManu\VisionAutoTeaching.bmp" />
+    <Image Include="res\Manu\SubManu\ZAutoTeaching.bmp" />
+    <Image Include="res\Manu\TrayPP_01.bmp" />
+    <Image Include="res\Manu\TrayPP_02.bmp" />
+    <Image Include="res\MP_Plan.bmp" />
+    <Image Include="res\MotorDisplay\LoadTabl.bmp" />
+    <Image Include="res\MotorDisplay\PressUnit.bmp" />
+    <Image Include="res\MotorDisplay\TestPP.bmp" />
+    <Image Include="res\MotorDisplay\TrayPP.bmp" />
+    <Image Include="res\MtBackGround.bmp" />
+    <Image Include="res\observer_icon\icon3.ico" />
+    <Image Include="res\Plan.bmp" />
+    <Image Include="res\Plan_map.bmp" />
+    <Image Include="res\PlateZ.bmp" />
+    <Image Include="res\UnitPlan.bmp" />
+    <Image Include="res\VAT.bmp" />
+    <Image Include="res\VAT\Design Value\PocketZDesignValue.bmp" />
+    <Image Include="res\VAT\Design Value\SocketDesignValue.bmp" />
+    <Image Include="res\VAT\ICON\Motor.ico" />
+    <Image Include="res\VAT\ICON\Picker Information.ico" />
+    <Image Include="res\VAT\ICON\Picker-Information.ico" />
+    <Image Include="res\VAT\ICON\VisionLiveOff.ico" />
+    <Image Include="res\VAT\ICON\VisionLiveOn.ico" />
+    <Image Include="res\VAT\Manual\CmdSkip.bmp" />
+    <Image Include="res\VAT\Manual\CmdStop.bmp" />
+    <Image Include="res\VAT\Manual\IDB_VAT_MANUAL_TESTPP_1.bmp" />
+    <Image Include="res\VAT\Manual\ManuFeeder.bmp" />
+    <Image Include="res\VAT\Manual\ManuLoadTable1.bmp" />
+    <Image Include="res\VAT\Manual\ManuLoadTable2.bmp" />
+    <Image Include="res\VAT\Manual\ManuLoadTrayPp.bmp" />
+    <Image Include="res\VAT\Manual\ManuSkip.bmp" />
+    <Image Include="res\VAT\Manual\ManuStop.bmp" />
+    <Image Include="res\VAT\Manual\ManuTestPp1.bmp" />
+    <Image Include="res\VAT\Manual\ManuTestPp2.bmp" />
+    <Image Include="res\VAT\Manual\ManuTransfer.bmp" />
+    <Image Include="res\VAT\Manual\ManuUnloadTable1.bmp" />
+    <Image Include="res\VAT\Manual\ManuUnloadTable2.bmp" />
+    <Image Include="res\VAT\Manual\ManuUnloadTrayPp.bmp" />
+    <Image Include="res\VAT\Manual\VatManuTestPp1.bmp" />
+    <Image Include="res\VAT\MeasureStatus_LDTestPp1.bmp" />
+    <Image Include="res\VAT\MeasureStatus_LDTestPp2.bmp" />
+    <Image Include="res\VAT\MeasureStatus_LDTrayPp.bmp" />
+    <Image Include="res\VAT\MeasureStatus_LDTrayPp.png" />
+    <Image Include="res\VAT\MeasureStatus_TrayPp.bmp" />
+    <Image Include="res\VAT\MeasureStatus_UDTestPp1.bmp" />
+    <Image Include="res\VAT\MeasureStatus_UDTestPp2.bmp" />
+    <Image Include="res\VAT\MeasureStatus_UDTrayPp.bmp" />
+    <Image Include="res\VAT\Picker.bmp" />
+    <Image Include="res\VAT\PlateJigTargetPos.bmp" />
+    <Image Include="res\VAT\PlateJigVacuumPos.bmp" />
+    <Image Include="res\VAT\StdPickerCamCenterPos.bmp" />
+    <Image Include="res\VAT\StdPickerToCamDis.bmp" />
+    <Image Include="res\VAT\TestPpYCheckList.bmp" />
+    <Image Include="res\VAT\VAT Hand Unit Position.bmp" />
+    <Image Include="res\VAT\VatHandUnitPosition.bmp" />
+    <Image Include="res\VAT\VisionPC1.bmp" />
+    <Image Include="res\VAT\VisionPC2.bmp" />
+    <Image Include="res\VAT\VisionTargetOverview.bmp" />
+    <Image Include="res\VAT\Z Auto Focus Unit Position.bmp" />
+    <Image Include="res\VAT_POSITION.bmp" />
+    <Image Include="res\VAT_POSITION.PNG" />
+    <Image Include="res\ZAutoTeaching.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets" Condition="Exists('packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets')" />
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties _x007B_065E6FDC-1BF9-11D2-BAE8-00104B9E0792_x007D_="CSspanel_unit" _x007B_41F841C1-AE16-11D5-8817-0050DA6EF5E5_x007D_="CSpreadSheet" RESOURCE_FILE="SLT_MC.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets'))" />
+  </Target>
+</Project>

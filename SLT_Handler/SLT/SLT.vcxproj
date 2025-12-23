@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Remoter_Debug|Win32">
+      <Configuration>Remoter_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Remote_Release|Win32">
+      <Configuration>Remote_Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{94BD3981-67A0-41B9-AAB6-06D6E6A62337}</ProjectGuid>
+    <RootNamespace>SLT</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remoter_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Remoter_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remoter_Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_D</TargetName>
+    <OutDir>..\..\Bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\Bin\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Include;..\Include\OcxFiles;</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4244;4477;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\LibFiles;..\Include\MX16LIB;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LIB_CommCtrl_D.lib;LIB_GUI_D.lib;LIB_DATA_MEM_D.lib;LIB_DB_LS_D.lib;LIB_UTIL_D.lib;sqlite3.lib;CrashRpt1403d.lib;LIB_COK_FILE_D.lib;LIB_IPC_SOCK_D.lib;LogLib_D.lib;PCOMM.lib;</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>LIB_GUI_D.dll</DelayLoadDLLs>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>After_Build_D.bat</Command>
+    </PostBuildEvent>
+    <Manifest>
+      <EnableDpiAwareness>false</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Remoter_Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Include;..\Include\OcxFiles;</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\LibFiles;..\Include\MX16LIB;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LIB_CommCtrl_D.lib;LIB_GUI_D.lib;LIB_DATA_MEM_D.lib;LIB_DB_LS_D.lib;LIB_UTIL_D.lib;sqlite3.lib;CrashRpt1403d.lib;LIB_COK_FILE_D.lib;LIB_IPC_SOCK_D.lib;LogLib_D.lib;PCOMM.lib;</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <DelayLoadDLLs>LIB_GUI_D.dll</DelayLoadDLLs>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>XCOPY "$(OutDir)LIB_COK_FILE_D.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)$(ProjectName)_D.exe" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_COK_FILE_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)$(ProjectName)_D.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Include;..\Include\OcxFiles;</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <AdditionalDependencies>LIB_CommCtrl.lib;LIB_GUI.lib;LIB_DATA_MEM.lib;LIB_DB_LS.lib;LIB_UTIL.lib;sqlite3.lib;CrashRpt1403.lib;LIB_COK_FILE.lib;LIB_IPC_SOCK.lib;LogLib.lib;PCOMM.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\LibFiles;..\Include\MX16LIB;</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>LIB_GUI.dll</DelayLoadDLLs>
+      <ImageHasSafeExceptionHandlers />
+      <StackReserveSize>
+      </StackReserveSize>
+      <StackCommitSize>
+      </StackCommitSize>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>After_Build.bat</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Include;..\Include\OcxFiles;</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <AdditionalDependencies>LIB_CommCtrl.lib;LIB_GUI.lib;LIB_DATA_MEM.lib;LIB_DB_LS.lib;LIB_UTIL.lib;sqlite3.lib;CrashRpt1403.lib;LIB_COK_FILE.lib;LIB_IPC_SOCK.lib;LogLib.lib;PCOMM.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\LibFiles;..\Include\MX16LIB;</AdditionalLibraryDirectories>
+      <DelayLoadDLLs>LIB_GUI.dll</DelayLoadDLLs>
+      <ImageHasSafeExceptionHandlers />
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>XCOPY "$(OutDir)LIB_COK_FILE.dll" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)$(ProjectName).exe" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)LIB_COK_FILE.pdb" "$(RemoteDebuggerWorkingDirectory)" /yes
+XCOPY "$(OutDir)$(ProjectName).pdb" "$(RemoteDebuggerWorkingDirectory)" /yes</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\ICO\Aio.ico" />
+    <None Include="res\ICO\Alignment\Alignment.ico" />
+    <None Include="res\ICO\AutoSkip\AutoSkip.ico" />
+    <None Include="res\ICO\AutoSkip\AutoSkipOn.ico" />
+    <None Include="res\ICO\Base\favicon.ico" />
+    <None Include="res\ICO\CategorySetup\CategorySetup2.ico" />
+    <None Include="res\ICO\ChangeKit\KitChange.ico" />
+    <None Include="res\ICO\Cleaning\Cleaning.ico" />
+    <None Include="res\ICO\Clear\Clear.ico" />
+    <None Include="res\ICO\Contact\Contact.ico" />
+    <None Include="res\ICO\Counter\Counter.ico" />
+    <None Include="res\ICO\Device Setup\DeviceSetup.ico" />
+    <None Include="res\ICO\DeviceMode\device.ico" />
+    <None Include="res\ICO\DeviceMode\nodevice_notray.ico" />
+    <None Include="res\ICO\DeviceMode\no_device.ico" />
+    <None Include="res\ICO\Dio.ico" />
+    <None Include="res\ICO\DIO\favicon.ico" />
+    <None Include="res\ICO\Direct_Drop\Direct.ico" />
+    <None Include="res\ICO\Direct_Drop\Drop.ico" />
+    <None Include="res\ICO\Exit_Save\Exit.ico" />
+    <None Include="res\ICO\Exit_Save\Exit2.ico" />
+    <None Include="res\ICO\Exit_Save\Save.ico" />
+    <None Include="res\ICO\Export_Import\Export.ico" />
+    <None Include="res\ICO\Export_Import\Import.ico" />
+    <None Include="res\ICO\FileChangae\FileChange.ico" />
+    <None Include="res\ICO\FTP\laptop.ico" />
+    <None Include="res\ICO\GRR_DATA.ico" />
+    <None Include="res\ICO\GRR_SET.ico" />
+    <None Include="res\ICO\interface\InterfaceSetting.ico" />
+    <None Include="res\ICO\Level\Engr.ico" />
+    <None Include="res\ICO\Level\Main.ico" />
+    <None Include="res\ICO\Level\Oper.ico" />
+    <None Include="res\ICO\Level\Oper2.ico" />
+    <None Include="res\ICO\Level\Setup.ico" />
+    <None Include="res\ICO\Level\Supervisor.ico" />
+    <None Include="res\ICO\Lot Info\LotInfo.ico" />
+    <None Include="res\ICO\modify\modify.ico" />
+    <None Include="res\ICO\MotorMonitor\MotorMonitor.ico" />
+    <None Include="res\ICO\Network\Server.ico" />
+    <None Include="res\ICO\new\New.ico" />
+    <None Include="res\ICO\offset\Offset.ico" />
+    <None Include="res\ICO\One Cycle.ico" />
+    <None Include="res\ICO\Online_Offline_Demo\Demo.ico" />
+    <None Include="res\ico\online_offline_demo\icon2.ico" />
+    <None Include="res\ICO\Online_Offline_Demo\Offline.ico" />
+    <None Include="res\ICO\Online_Offline_Demo\Online.ico" />
+    <None Include="res\ICO\position\Position.ico" />
+    <None Include="res\ICO\print\favicon.ico" />
+    <None Include="res\ICO\Run.ico" />
+    <None Include="res\ICO\Setup\Event Log\Log.ico" />
+    <None Include="res\ICO\Setup\Event Log\Log2.ico" />
+    <None Include="res\ICO\SiteMap\SiteMap.ico" />
+    <None Include="res\ICO\SLT Program\SLT_PGM2.ico" />
+    <None Include="res\ICO\Speed\Speed.ico" />
+    <None Include="res\ICO\Speed\Speed2.ico" />
+    <None Include="res\ICO\Speed\Speed3.ico" />
+    <None Include="res\ICO\Speed\Speed4.ico" />
+    <None Include="res\ICO\Stop.ico" />
+    <None Include="res\ICO\Stop_Btn.ico" />
+    <None Include="res\ICO\Timer\Timer.ico" />
+    <None Include="res\ICO\Tower\Tower.ico" />
+    <None Include="res\ICO\TrayMap\DataAssign.ico" />
+    <None Include="res\ICO\TrayMap\TrayAssign.ico" />
+    <None Include="res\ICO\TrayMap\TrayMap.ico" />
+    <None Include="res\ICO\User\Register.ico" />
+    <None Include="res\ico\Vibrator\Vibrator.ico" />
+    <None Include="res\ico\Vision\Barcode.ico" />
+    <None Include="res\ico\Vision\vision_down.ico" />
+    <None Include="res\ico\Vision\vision_up.ico" />
+    <None Include="res\ICO\Yield\YieldCtrl.ico" />
+    <None Include="res\Plate_Form.bmp" />
+    <None Include="res\SiteMap\bmp00001.bmp" />
+    <None Include="res\SiteMap\bmp00002.bmp" />
+    <None Include="res\SiteMap\bmp00003.bmp" />
+    <None Include="res\SiteMap\bmp00004.bmp" />
+    <None Include="res\SiteMap\bmp00005.bmp" />
+    <None Include="res\SiteMap\bmp00006.bmp" />
+    <None Include="res\SiteMap\bmp00007.bmp" />
+    <None Include="res\SiteMap\bmp00008.bmp" />
+    <None Include="res\SiteMap\bmp00009.bmp" />
+    <None Include="res\SiteMap\bmp00010.bmp" />
+    <None Include="res\SiteMap\bmp00011.bmp" />
+    <None Include="res\SiteMap\bmp00012.bmp" />
+    <None Include="res\SiteMap\bmp00013.bmp" />
+    <None Include="res\SiteMap\bmp00014.bmp" />
+    <None Include="res\SiteMap\bmp00015.bmp" />
+    <None Include="res\SiteMap\bmp00016.bmp" />
+    <None Include="res\SiteMap\bmp00017.bmp" />
+    <None Include="res\SiteMap\bmp00018.bmp" />
+    <None Include="res\SiteMap\bmp00019.bmp" />
+    <None Include="res\SiteMap\bmp00020.bmp" />
+    <None Include="res\SiteMap\bmp00021.bmp" />
+    <None Include="res\SiteMap\bmp00022.bmp" />
+    <None Include="res\SiteMap\bmp00023.bmp" />
+    <None Include="res\SiteMap\bmp00024.bmp" />
+    <None Include="res\SiteMap\bmp00025.bmp" />
+    <None Include="res\SiteMap\bmp00026.bmp" />
+    <None Include="res\SiteMap\bmp00027.bmp" />
+    <None Include="res\SiteMap\bmp00028.bmp" />
+    <None Include="res\SiteMap\bmp00029.bmp" />
+    <None Include="res\SiteMap\bmp00030.bmp" />
+    <None Include="res\SiteMap\bmp00031.bmp" />
+    <None Include="res\SiteMap\bmp00032.bmp" />
+    <None Include="res\SLT.ico" />
+    <None Include="res\SLT.rc2" />
+    <None Include="res\SLTDoc.ico" />
+    <None Include="res\TrayAssign.bmp" />
+    <None Include="res\TrayAssign_MP.bmp" />
+    <None Include="res\TWlogo.bmp" />
+    <None Include="res\UpdateHistory.bmp" />
+    <None Include="res\Vibrator\Vibrator.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\DEF_COMMON.h" />
+    <ClInclude Include="..\Include\DEF_DEVICE_DATA.h" />
+    <ClInclude Include="..\Include\DEF_DM_0.h" />
+    <ClInclude Include="..\Include\DEF_DM_1.h" />
+    <ClInclude Include="..\Include\DEF_DM_10.h" />
+    <ClInclude Include="..\Include\DEF_DM_11.h" />
+    <ClInclude Include="..\Include\DEF_DM_12.h" />
+    <ClInclude Include="..\Include\DEF_DM_13.h" />
+    <ClInclude Include="..\Include\DEF_DM_2.h" />
+    <ClInclude Include="..\Include\DEF_DM_3.h" />
+    <ClInclude Include="..\Include\DEF_DM_4.h" />
+    <ClInclude Include="..\Include\DEF_DM_5.h" />
+    <ClInclude Include="..\Include\DEF_DM_6.h" />
+    <ClInclude Include="..\Include\DEF_DM_7.h" />
+    <ClInclude Include="..\Include\DEF_DM_8.h" />
+    <ClInclude Include="..\Include\DEF_DM_9.h" />
+    <ClInclude Include="..\Include\DEF_ERROR_CODE.h" />
+    <ClInclude Include="..\Include\DEF_EVENT_CODE.h" />
+    <ClInclude Include="..\Include\DEF_SLT_GUI.h" />
+    <ClInclude Include="..\Include\DEF_SLT_MC.h" />
+    <ClInclude Include="..\Include\OcxFiles\calendar.h" />
+    <ClInclude Include="..\Include\OcxFiles\CellMapStatic.h" />
+    <ClInclude Include="..\Include\OcxFiles\dsspanel.h" />
+    <ClInclude Include="..\Include\OcxFiles\font.h" />
+    <ClInclude Include="..\Include\OcxFiles\gradientprogress.h" />
+    <ClInclude Include="..\Include\OcxFiles\mdccombo.h" />
+    <ClInclude Include="..\Include\OcxFiles\mdclist.h" />
+    <ClInclude Include="..\Include\OcxFiles\mdctext.h" />
+    <ClInclude Include="..\Include\OcxFiles\MSCOMM.H" />
+    <ClInclude Include="..\Include\OcxFiles\nokey.h" />
+    <ClInclude Include="..\Include\OcxFiles\picture.h" />
+    <ClInclude Include="..\Include\OcxFiles\spreadsheet.h" />
+    <ClInclude Include="..\Include\OcxFiles\sscommand.h" />
+    <ClInclude Include="afxcmn.h" />
+    <ClInclude Include="AutoGrrResultDlg.h" />
+    <ClInclude Include="AutoGrrSetDlg.h" />
+    <ClInclude Include="AutoLoopSetDlg.h" />
+    <ClInclude Include="AutoQASetDlg.h" />
+    <ClInclude Include="BarcodeMarkSetupDlg.h" />
+    <ClInclude Include="BarcodeValidateSetupDlg.h" />
+    <ClInclude Include="CategorySetupBinDlg.h" />
+    <ClInclude Include="CategorySetupDlg.h" />
+    <ClInclude Include="CBSpeedListCtrl.h" />
+    <ClInclude Include="CCDSetupDlg.h" />
+    <ClInclude Include="ClearCntDlg_64Para.h" />
+    <ClInclude Include="DailyReport.h" />
+    <ClInclude Include="DataAssignDlg.h" />
+    <ClInclude Include="DataMemCont.h" />
+    <ClInclude Include="DeviceSetup.h" />
+    <ClInclude Include="DlgAlarmZoom.h" />
+    <ClInclude Include="DlgTableVacuumCheck.h" />
+    <ClInclude Include="DlgTesterPgmSet.h" />
+    <ClInclude Include="DotMatrix_Comm.h" />
+    <ClInclude Include="DotMatrix_Drv.h" />
+    <ClInclude Include="EngrDlg.h" />
+    <ClInclude Include="EventLogDlg.h" />
+    <ClInclude Include="EventLog_Frequency.h" />
+    <ClInclude Include="EventLog_List.h" />
+    <ClInclude Include="EventLog_Teach.h" />
+    <ClInclude Include="FilePathDlg.h" />
+    <ClInclude Include="LotInfoAmkorAPLDlg.h" />
+    <ClInclude Include="LotInfoAmkorDlg.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MainLowerDlg.h" />
+    <ClInclude Include="MainLower_TabLastDecs.h" />
+    <ClInclude Include="MainLower_TabPassFail.h" />
+    <ClInclude Include="MainLower_TabYield.h" />
+    <ClInclude Include="MCComm.h" />
+    <ClInclude Include="OEE.h" />
+    <ClInclude Include="Register2dDeviceName.h" />
+    <ClInclude Include="RegisterCetagory.h" />
+    <ClInclude Include="RegisterCustomer.h" />
+    <ClInclude Include="RegisterDeviceName.h" />
+    <ClInclude Include="RegisterPgmName.h" />
+    <ClInclude Include="RegisterTrayFile.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SetupDlg.h" />
+    <ClInclude Include="SiteSetDlg_128Para.h" />
+    <ClInclude Include="SLT.h" />
+    <ClInclude Include="SLTDoc.h" />
+    <ClInclude Include="SltPgmSetDlg.h" />
+    <ClInclude Include="SLTView.h" />
+    <ClInclude Include="SocketCleaning.h" />
+    <ClInclude Include="SPD_MotorAll.h" />
+    <ClInclude Include="SPD_TM_FEEDER.h" />
+    <ClInclude Include="SPD_TM_LoadTbl.h" />
+    <ClInclude Include="SPD_TM_PressUnit.h" />
+    <ClInclude Include="SPD_TM_TEST_PP.h" />
+    <ClInclude Include="SPD_TM_Transfer.h" />
+    <ClInclude Include="SPD_TM_TRAY_PP.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SupervisorDlg.h" />
+    <ClInclude Include="SystemData.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TrayFileSetupDlg.h" />
+    <ClInclude Include="TrayMapDlg.h" />
+    <ClInclude Include="TrayViewLoad.h" />
+    <ClInclude Include="TrayViewStacker.h" />
+    <ClInclude Include="TrayViewTestSite.h" />
+    <ClInclude Include="TrayViewUnload.h" />
+    <ClInclude Include="UpdateHistory.h" />
+    <ClInclude Include="UserOffSetTestPp_MP.h" />
+    <ClInclude Include="UserOper.h" />
+    <ClInclude Include="VibratorDlg.h" />
+    <ClInclude Include="YieldMonitorDlg.h" />
+    <ClInclude Include="YieldSetDlg.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Include\OcxFiles\calendar.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\CellMapStatic.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\dsspanel.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\font.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\gradientprogress.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\mdccombo.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\mdclist.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\mdctext.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\MSCOMM.CPP" />
+    <ClCompile Include="..\Include\OcxFiles\nokey.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\picture.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\spreadsheet.cpp" />
+    <ClCompile Include="..\Include\OcxFiles\sscommand.cpp" />
+    <ClCompile Include="AutoGrrResultDlg.cpp" />
+    <ClCompile Include="AutoGrrSetDlg.cpp" />
+    <ClCompile Include="AutoLoopSetDlg.cpp" />
+    <ClCompile Include="AutoQASetDlg.cpp" />
+    <ClCompile Include="BarcodeMarkSetupDlg.cpp" />
+    <ClCompile Include="BarcodeValidateSetupDlg.cpp" />
+    <ClCompile Include="CategorySetupBinDlg.cpp" />
+    <ClCompile Include="CategorySetupDlg.cpp" />
+    <ClCompile Include="CBSpeedListCtrl.cpp" />
+    <ClCompile Include="CCDSetupDlg.cpp" />
+    <ClCompile Include="ClearCntDlg_64Para.cpp" />
+    <ClCompile Include="DailyReport.cpp" />
+    <ClCompile Include="DataAssignDlg.cpp" />
+    <ClCompile Include="DataMemCont.cpp" />
+    <ClCompile Include="DeviceSetup.cpp" />
+    <ClCompile Include="DlgAlarmZoom.cpp" />
+    <ClCompile Include="DlgTableVacuumCheck.cpp" />
+    <ClCompile Include="DlgTesterPgmSet.cpp" />
+    <ClCompile Include="DotMatrix_Comm.cpp" />
+    <ClCompile Include="DotMatrix_Drv.cpp" />
+    <ClCompile Include="EngrDlg.cpp" />
+    <ClCompile Include="EventLogDlg.cpp" />
+    <ClCompile Include="EventLog_Frequency.cpp" />
+    <ClCompile Include="EventLog_List.cpp" />
+    <ClCompile Include="EventLog_Teach.cpp" />
+    <ClCompile Include="FilePathDlg.cpp" />
+    <ClCompile Include="LotInfoAmkorAPLDlg.cpp" />
+    <ClCompile Include="LotInfoAmkorDlg.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MainLowerDlg.cpp" />
+    <ClCompile Include="MainLower_TabLastDecs.cpp" />
+    <ClCompile Include="MainLower_TabPassFail.cpp" />
+    <ClCompile Include="MainLower_TabYield.cpp" />
+    <ClCompile Include="MCComm.cpp" />
+    <ClCompile Include="OEE.cpp" />
+    <ClCompile Include="Register2dDeviceName.cpp" />
+    <ClCompile Include="RegisterCetagory.cpp" />
+    <ClCompile Include="RegisterCustomer.cpp" />
+    <ClCompile Include="RegisterDeviceName.cpp" />
+    <ClCompile Include="RegisterPgmName.cpp" />
+    <ClCompile Include="RegisterTrayFile.cpp" />
+    <ClCompile Include="SetupDlg.cpp" />
+    <ClCompile Include="SiteSetDlg_128Para.cpp" />
+    <ClCompile Include="SLT.cpp" />
+    <ClCompile Include="SLTDoc.cpp" />
+    <ClCompile Include="SltPgmSetDlg.cpp" />
+    <ClCompile Include="SLTView.cpp" />
+    <ClCompile Include="SocketCleaning.cpp" />
+    <ClCompile Include="SPD_MotorAll.cpp" />
+    <ClCompile Include="SPD_TM_FEEDER.cpp" />
+    <ClCompile Include="SPD_TM_LoadTbl.cpp" />
+    <ClCompile Include="SPD_TM_PressUnit.cpp" />
+    <ClCompile Include="SPD_TM_TEST_PP.cpp" />
+    <ClCompile Include="SPD_TM_Transfer.cpp" />
+    <ClCompile Include="SPD_TM_TRAY_PP.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Remoter_Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SupervisorDlg.cpp" />
+    <ClCompile Include="SystemData.cpp" />
+    <ClCompile Include="TrayFileSetupDlg.cpp" />
+    <ClCompile Include="TrayMapDlg.cpp" />
+    <ClCompile Include="TrayViewLoad.cpp" />
+    <ClCompile Include="TrayViewStacker.cpp" />
+    <ClCompile Include="TrayViewTestSite.cpp" />
+    <ClCompile Include="TrayViewUnload.cpp" />
+    <ClCompile Include="UpdateHistory.cpp" />
+    <ClCompile Include="UserOffSetTestPp_MP.cpp" />
+    <ClCompile Include="UserOper.cpp" />
+    <ClCompile Include="VibratorDlg.cpp" />
+    <ClCompile Include="YieldMonitorDlg.cpp" />
+    <ClCompile Include="YieldSetDlg.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SLT.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Door.bmp" />
+    <Image Include="res\ICO\Audit\Audit.ico" />
+    <Image Include="res\ICO\Barcode\Barcode Setting.ico" />
+    <Image Include="res\ICO\Barcode\Barcode Validate.ico" />
+    <Image Include="res\ICO\CBCheck\CBCheck.ico" />
+    <Image Include="res\ico\icon4.ico" />
+    <Image Include="res\ico\icon6.ico" />
+    <Image Include="res\ico\icon8.ico" />
+    <Image Include="res\ICO\Ionizer\Ionizer.ico" />
+    <Image Include="res\ICO\Loop\Loop.ico" />
+    <Image Include="res\ICO\Motor\motor.ico" />
+    <Image Include="res\ICO\Report\Daily.ico" />
+    <Image Include="res\ICO\Report\Report.ico" />
+    <Image Include="res\ICO\SocketCount\SocketCount.ico" />
+    <Image Include="res\ICO\Vision_Auto_Teaching\VATMain.ico" />
+    <Image Include="res\iMotor\iMotor.ico" />
+    <Image Include="res\sitemap\bitmap1.bmp" />
+    <Image Include="res\sitemap\bitmap2.bmp" />
+    <Image Include="res\TrayViewStacker.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="SLT.rc" _x007B_41F841C1-AE16-11D5-8817-0050DA6EF5E5_x007D_="CSpread_enable_site" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

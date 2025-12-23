@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="OcxFiles">
+      <UniqueIdentifier>{4805f445-2b03-4b79-b97a-b7620fdbe9ea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="LIB_CommCtrl.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\LIB_CommCtrl.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\001bmp.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\002bmp.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\003bmp.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\004bmp.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Dot.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Minus.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N0.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N1.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N2.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N3.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N4.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N5.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N6.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N7.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N8.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\N9.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Back.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Cancel.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Clear.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Ok.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LIB_CommCtrl.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyPadDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MinLabel.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LibCommCtrl.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LogInUserDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterUserDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowMessageBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LibCommCtrlDrv.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="StopMsgBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MinButton.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapPicture.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CalenderDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginUserDisplayDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UserConfigDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\calendar.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\CellMapStatic.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\dsspanel.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\font.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\gradientprogress.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\mdccombo.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\mdclist.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\mdctext.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\MSCOMM.CPP">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\nokey.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\picture.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\spreadsheet.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Include\OcxFiles\sscommand.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyPadDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MinLabel.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberBox.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LibCommCtrl.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LogInUserDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterUserDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowMessageBox.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LibCommCtrlDrv.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="StopMsgBox.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MinButton.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapPicture.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CalenderDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginUserDisplayDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UserConfigDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF_LIB_COMMCTRL.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\calendar.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\CellMapStatic.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\dsspanel.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\font.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\gradientprogress.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\mdccombo.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\mdclist.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\mdctext.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\MSCOMM.H">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\nokey.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\picture.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\spreadsheet.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Include\OcxFiles\sscommand.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LIB_CommCtrl.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

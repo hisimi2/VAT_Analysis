@@ -1,0 +1,59 @@
+[Time Out]
+Boot Time=0
+Test Time=0
+[Delay Time]
+AC Power On=0
+AC Power Off=0
+ATX Power On=0
+SotDelay=0
+[Baud Rate]
+Baud Rate=0
+[Cooling]
+Pre Cooling Time=0
+[AGP]
+AGP Delay Time=0
+[BIOS Boot]
+Count=0
+Time Out=0
+[BIOS S3]
+Count=0
+Time Out=0
+Delay Time=0
+[Temperature]
+Setting Temp=0
+Guard Band=0
+[Min PassTime]
+Min PassTime=0
+[Fail Code]
+Digital=0
+Header=
+[Not Testing Time Out]
+Not Testing Time Out=0
+[Pass String]
+String=
+[Line]
+Start Line=
+End Line=
+[Mode]
+BootTimeOut=0
+PreCooling=0
+AcPowerOn=0
+AcPowerOff=0
+AtxPowerOn=0
+PassString=0
+FailCodeHeader=0
+FailCodeDigital=0
+StartLine=0
+EndLine=0
+MinPassTime=0
+BaudRate=0
+HangReboot=0
+BiosBoot=0
+BiosS3=0
+TempMonitor=0
+ExtentionPowerAGP=0
+[Site Off]
+TestTimeOut=0
+DefaultBin=0
+[Sort]
+DefaultBin=1

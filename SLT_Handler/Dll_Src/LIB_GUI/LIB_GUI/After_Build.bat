@@ -1,0 +1,11 @@
+copy .\Release\LIB_GUI.lib ..\..\..\LibFiles
+copy .\Release\LIB_GUI.dll ..\..\..\..\Bin
+copy .\Release\LIB_GUI.pdb ..\..\..\..\Bin
+copy BCMenu.h ..\..\..\Include
+copy BKDialogST.h ..\..\..\Include
+copy BtnST.h ..\..\..\Include
+copy CeXDib.h ..\..\..\Include
+copy ShadeButtonST.h ..\..\..\Include
+copy StaticTrans.h ..\..\..\Include
+copy EditTrans.h ..\..\..\Include
+copy DEF_LIB_GUI.h ..\..\..\Include

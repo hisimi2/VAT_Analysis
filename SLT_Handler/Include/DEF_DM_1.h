@@ -1,0 +1,142 @@
+#pragma once
+
+/* == DOWN PRESS의미 없음 == */
+#define SZ_DM_NAME_1		_T("DM_PRESS_UNIT_DN")
+
+// ======================================================= <NDM>
+//======================================================//
+//           [ 장비 후면 ]
+//	SITE [4]			SITE [8]
+//	SITE [3]			SITE [7] 
+//	SITE [2]			SITE [6]
+//	SITE [1]			SITE [5]
+//           [ 장비 전면 ]
+//======================================================//
+
+// 128para
+// Station 1  : 0x000 ~ 0x007 / Station 2  : 0x008 ~ 0x00F 
+// Station 3  : 0x010 ~ 0x017 / Station 4  : 0x018 ~ 0x01F
+// Station 5  : 0x020 ~ 0x027 / Station 6  : 0x028 ~ 0x02F 
+// Station 7  : 0x030 ~ 0x037 / Station 8  : 0x038 ~ 0x03F
+// Station 9  : 0x040 ~ 0x047 / Station 10 : 0x048 ~ 0x04F
+// Station 11 : 0x050 ~ 0x057 / Station 12 : 0x058 ~ 0x05F
+// Station 13 : 0x060 ~ 0x067 / Station 14 : 0x068 ~ 0x06F
+// Station 15 : 0x070 ~ 0x077 / Station 16 : 0x078 ~ 0x07F
+#define NDM1_ClsAfterFailBinCntPress1_1 	(0x000)
+#define NDM1_ClsAfterFailBinCntPress16_8 	(0x07F)
+
+// 64para
+// Station 1  : 0x080 ~ 0x087 / Station 2  : 0x088 ~ 0x08F 
+// Station 3  : 0x090 ~ 0x097 / Station 4  : 0x098 ~ 0x09F
+// Station 5  : 0x0A0 ~ 0x0A7 / Station 6  : 0x0A8 ~ 0x0AF 
+// Station 7  : 0x0B0 ~ 0x0B7 / Station 8  : 0x0B8 ~ 0x0BF
+#define NDM1_SiteHistory1_1					(0x080)
+#define NDM1_SiteHistory8_8					(0x0FF)
+
+// 64para
+// Station 9  : 0x0C0 ~ 0x0C7 / Station 10 : 0x0C8 ~ 0x0CF
+// Station 11 : 0x0D0 ~ 0x0D7 / Station 12 : 0x0D8 ~ 0x0DF
+// Station 13 : 0x0E0 ~ 0x0E7 / Station 14 : 0x0E8 ~ 0x0EF
+// Station 15 : 0x0F0 ~ 0x0F7 / Station 16 : 0x0F8 ~ 0x0FF
+#define NDM1_SiteStatusHistory1_1			(0x0C0)
+#define NDM1_SiteStatusHistory8_8			(0x0FF)
+
+// 128para
+// Station 1  : 0x100 ~ 0x107 / Station 2  : 0x108 ~ 0x10F 
+// Station 3  : 0x110 ~ 0x117 / Station 4  : 0x118 ~ 0x11F
+// Station 5  : 0x120 ~ 0x127 / Station 6  : 0x128 ~ 0x12F 
+// Station 7  : 0x130 ~ 0x137 / Station 8  : 0x138 ~ 0x13F
+// Station 9  : 0x140 ~ 0x147 / Station 10 : 0x148 ~ 0x14F
+// Station 11 : 0x150 ~ 0x157 / Station 12 : 0x158 ~ 0x15F
+// Station 13 : 0x160 ~ 0x167 / Station 14 : 0x168 ~ 0x16F
+// Station 15 : 0x170 ~ 0x177 / Station 16 : 0x178 ~ 0x17F
+#define NDM1_Yield_Count_Press1_1			(0x100)
+#define NDM1_Yield_Count_Press16_8			(0x17F)
+
+// 128para
+// Station 1  : 0x180 ~ 0x187 / Station 2  : 0x188 ~ 0x18F 
+// Station 3  : 0x190 ~ 0x197 / Station 4  : 0x198 ~ 0x19F
+// Station 5  : 0x1A0 ~ 0x1A7 / Station 6  : 0x1A8 ~ 0x1AF 
+// Station 7  : 0x1B0 ~ 0x1B7 / Station 8  : 0x1B8 ~ 0x1BF
+// Station 9  : 0x1C0 ~ 0x1C7 / Station 10 : 0x1C8 ~ 0x1CF
+// Station 11 : 0x1D0 ~ 0x1D7 / Station 12 : 0x1D8 ~ 0x1DF
+// Station 13 : 0x1E0 ~ 0x1E7 / Station 14 : 0x1E8 ~ 0x1EF
+// Station 15 : 0x1F0 ~ 0x1F7 / Station 16 : 0x1F8 ~ 0x1FF
+#define NDM1_GdBinCnt_Press1_1              (0x180)
+#define NDM1_GdBinCnt_Press16_8             (0x1FF)
+
+// 128para
+// Station 1  : 0x200 ~ 0x207 / Station 2  : 0x208 ~ 0x20F 
+// Station 3  : 0x210 ~ 0x217 / Station 4  : 0x218 ~ 0x21F
+// Station 5  : 0x220 ~ 0x227 / Station 6  : 0x228 ~ 0x22F 
+// Station 7  : 0x230 ~ 0x237 / Station 8  : 0x238 ~ 0x23F
+// Station 9  : 0x240 ~ 0x247 / Station 10 : 0x248 ~ 0x24F
+// Station 11 : 0x250 ~ 0x257 / Station 12 : 0x258 ~ 0x25F
+// Station 13 : 0x260 ~ 0x267 / Station 14 : 0x268 ~ 0x26F
+// Station 15 : 0x270 ~ 0x277 / Station 16 : 0x278 ~ 0x27F
+#define NDM1_ClrAfterGdBinCntPress1_1		(0x200)
+#define NDM1_ClrAfterGdBinCntPress16_8		(0x27F)
+
+// 128para
+// Station 1  : 0x280 ~ 0x287 / Station 2  : 0x288 ~ 0x28F 
+// Station 3  : 0x290 ~ 0x297 / Station 4  : 0x298 ~ 0x29F
+// Station 5  : 0x2A0 ~ 0x2A7 / Station 6  : 0x2A8 ~ 0x2AF 
+// Station 7  : 0x2B0 ~ 0x2B7 / Station 8  : 0x2B8 ~ 0x2BF
+// Station 9  : 0x2C0 ~ 0x2C7 / Station 10 : 0x2C8 ~ 0x2CF
+// Station 11 : 0x2D0 ~ 0x2D7 / Station 12 : 0x2D8 ~ 0x2DF
+// Station 13 : 0x2E0 ~ 0x2E7 / Station 14 : 0x2E8 ~ 0x2EF
+// Station 15 : 0x2F0 ~ 0x2F7 / Station 16 : 0x2F8 ~ 0x2FF
+#define NDM1_FailBinCnt_Press1_1            (0x280)
+#define NDM1_FailBinCnt_Press16_8           (0x2FF)
+
+#define NDM1_INDEX_RECORD_IGNORE_STATION1 (0x300)
+#define NDM1_INDEX_RECORD_IGNORE_STATION16 (0x30F)
+
+#define NDM1_INDEX_TIME_ACC_CNT_STATION1 (0x310)
+#define NDM1_INDEX_TIME_ACC_CNT_STATION16 (0x31F)
+
+// 128para
+// Station 1  : 0x320 ~ 0x327 / Station 2  : 0x328 ~ 0x32F 
+// Station 3  : 0x330 ~ 0x337 / Station 4  : 0x338 ~ 0x33F
+// Station 5  : 0x340 ~ 0x347 / Station 6  : 0x348 ~ 0x34F 
+// Station 7  : 0x350 ~ 0x357 / Station 8  : 0x358 ~ 0x35F
+// Station 9  : 0x360 ~ 0x367 / Station 10 : 0x368 ~ 0x36F
+// Station 11 : 0x370 ~ 0x377 / Station 12 : 0x378 ~ 0x37F
+// Station 13 : 0x380 ~ 0x387 / Station 14 : 0x388 ~ 0x38F
+// Station 15 : 0x390 ~ 0x397 / Station 16 : 0x398 ~ 0x39F
+#define NDM1_Yield_1st_Count_Press1_1			(0x320)
+#define NDM1_Yield_1st_Count_Press16_8			(0x39F)
+
+// ======================================================= <DDM>
+#define DDM1_SUMMARY_INDEX_STATION1	 (0x000)
+#define DDM1_SUMMARY_INDEX_STATION16 (0x00F)
+#define DDM1_STOP_INDEX_STATION1	 (0x010)
+#define DDM1_STOP_INDEX_STATION16	 (0x01F)
+#define DDM1_INDEX_TIME_ACC_TIME_STATION1 (0x020)
+#define DDM1_INDEX_TIME_ACC_TIME_STATION16 (0x02F)
+
+// ======================================================= <SDM>
+
+// 128para
+// Station 1  : 0x000 ~ 0x007 / Station 2  : 0x008 ~ 0x00F 
+// Station 3  : 0x010 ~ 0x017 / Station 4  : 0x018 ~ 0x01F
+// Station 5  : 0x020 ~ 0x027 / Station 6  : 0x028 ~ 0x02F 
+// Station 7  : 0x030 ~ 0x037 / Station 8  : 0x038 ~ 0x03F
+// Station 9  : 0x040 ~ 0x047 / Station 10 : 0x048 ~ 0x04F
+// Station 11 : 0x050 ~ 0x057 / Station 12 : 0x058 ~ 0x05F
+// Station 13 : 0x060 ~ 0x067 / Station 14 : 0x068 ~ 0x06F
+// Station 15 : 0x070 ~ 0x077 / Station 16 : 0x078 ~ 0x07F
+#define SDM1_SiteLastDesc1_1	(0x000)
+#define SDM1_SiteLastDesc16_8 	(0x07F)
+
+// 128para
+// Station 1  : 0x080 ~ 0x087 / Station 2  : 0x088 ~ 0x08F 
+// Station 3  : 0x090 ~ 0x097 / Station 4  : 0x098 ~ 0x09F
+// Station 5  : 0x0A0 ~ 0x0A7 / Station 6  : 0x0A8 ~ 0x0AF 
+// Station 7  : 0x0B0 ~ 0x0B7 / Station 8  : 0x0B8 ~ 0x0BF
+// Station 9  : 0x0C0 ~ 0x0C7 / Station 10 : 0x0C8 ~ 0x0CF
+// Station 11 : 0x0D0 ~ 0x0D7 / Station 12 : 0x0D8 ~ 0x0DF
+// Station 13 : 0x0E0 ~ 0x0E7 / Station 14 : 0x0E8 ~ 0x0EF
+// Station 15 : 0x0F0 ~ 0x0F7 / Station 16 : 0x0F8 ~ 0x0FF
+#define SDM1_SiteGrrPF_History1_1				(0x080)
+#define SDM1_SiteGrrPF_History16_8				(0x0FF)

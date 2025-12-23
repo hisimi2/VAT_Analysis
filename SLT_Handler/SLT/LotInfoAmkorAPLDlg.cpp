@@ -1,0 +1,1514 @@
+// LotInfoDlg.cpp : 구현 파일입니다.
+//
+
+#include "stdafx.h"
+#include "SLT.h"
+#include "LotInfoAmkorAPLDlg.h"
+#include "afxdialogex.h"
+
+#include "DEF_LIB_COMMCTRL.h"
+#include "SLTView.h"
+#include "MainFrm.h"
+
+#include <fstream>
+#include "direct.h"
+enum eCOPY_LAST_EVENT
+{
+	eLotNo = 0,
+	eSchedule,
+	eOperID,
+};
+// CLotInfoAmkorAPLDlg 대화 상자입니다.
+
+IMPLEMENT_DYNAMIC(CLotInfoAmkorAPLDlg, CDialogEx)
+
+CLotInfoAmkorAPLDlg::CLotInfoAmkorAPLDlg(CWnd* pParent /*=NULL*/)
+	: CDialogEx(CLotInfoAmkorAPLDlg::IDD, pParent)
+{
+	m_nLogInLevel = 0;
+	m_nFTRCQC = 0;
+	m_bLotNormalRC = g_DMCont.m_dmHandlerOpt.GB(BDM11_MD_LotStartMode);
+	m_bVisionUseNoUseBak = m_bVisionUse = g_DMCont.m_dmHandlerOpt.GB(BDM11_MD_VisionUse);
+	m_nQaSampleCnt = g_DMCont.m_dmHandlerOpt.GN(NDM11_QaSampleCount);
+	m_nModeTesterIF = g_DMCont.m_dmHandlerOpt.GN(NDM11_MD_TESTER_IF_PRO_AUDIT);
+
+	memset(m_szCompany, 0x00, sizeof(m_szCompany));
+	g_DMCont.m_dmHandlerOpt.GS(SDM11_Company, m_szCompany, sizeof(m_szCompany));
+
+	m_nTheoreticalUPH = 0;
+}
+
+CLotInfoAmkorAPLDlg::~CLotInfoAmkorAPLDlg()
+{
+}
+
+void CLotInfoAmkorAPLDlg::DoDataExchange(CDataExchange* pDX)
+{
+	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT_LOT_NO, m_strLotNo);
+	DDX_Text(pDX, IDC_EDIT_OPER_ID, m_strOperID);
+	DDX_Text(pDX, IDC_EDIT_PROGRAM, m_strPGM_Name);
+	DDX_Text(pDX, IDC_EDIT_DEVICE, m_strDeviceName);
+	DDX_Text(pDX, IDC_EDIT_CUSTOM, m_strCustomName);
+	DDX_Text(pDX, IDC_EDIT_PROCESS, m_strScheduleNo);
+	DDX_Text(pDX, IDC_EDIT_HOSTNAME, m_strHostName);
+	DDX_Text(pDX, IDC_EDIT_PROCESS_ID, m_strProcessID);
+	DDX_Text(pDX, IDC_EDIT_TEMP, m_strTemp);
+	DDX_Text(pDX, IDC_EDIT_QTY, m_strQty);
+	DDX_Control(pDX, IDC_BUTTON_SAVE, m_BtnSave);
+	DDX_Control(pDX, IDCANCEL, m_BtnCancel);
+	DDX_Control(pDX, IDC_BUTTON_GET_INFO, m_BtnGetInfo);
+	DDX_Control(pDX, IDC_BUTTON_LOCK, m_BtnLock);
+
+	DDX_Text(pDX, IDC_EDIT_2DID_SORT_PATH, m_str2DIDSortPath);
+	DDX_Text(pDX, IDC_EDIT_THEORETICAL, m_strTheoreticalUPH);
+
+	//DDX_Radio(pDX, IDC_RADIO_MODE, m_bLotNormalRC);
+	DDX_Radio(pDX, IDC_RADIO_NOT_VISION, m_bVisionUse);
+	DDX_Radio(pDX, IDC_RADIO_FT, m_nFTRCQC);
+
+	DDX_Text(pDX, IDC_EDIT_QA_CNT, m_nQaSampleCnt);
+	DDX_Control(pDX, IDC_EDIT_QA_CNT, m_editQaSample);
+
+	DDX_Radio(pDX, IDC_RADIO_PRODUCTION, m_nModeTesterIF);
+}
+
+
+BEGIN_MESSAGE_MAP(CLotInfoAmkorAPLDlg, CDialogEx)
+	ON_BN_CLICKED(IDC_BUTTON_SAVE, &CLotInfoAmkorAPLDlg::OnBnClickedButtonSave)
+	ON_BN_CLICKED(IDC_RADIO_VISION, &CLotInfoAmkorAPLDlg::OnBnClickedRadioVision)
+	ON_BN_CLICKED(IDC_RADIO_NOT_VISION, &CLotInfoAmkorAPLDlg::OnBnClickedRadioNotVision)
+	ON_BN_CLICKED(IDC_BUTTON_GET_INFO, &CLotInfoAmkorAPLDlg::OnBnClickedGetInfo)
+	ON_BN_CLICKED(IDC_BUTTON_LOCK, &CLotInfoAmkorAPLDlg::OnBnClickedLock)
+	ON_CONTROL_RANGE(BN_CLICKED, IDC_RADIO_FT, IDC_RADIO_AUTO_2DID_SORT_CONTINUE, OnRadioLotModeCtrl)
+	ON_EN_SETFOCUS(IDC_EDIT_QA_CNT, &CLotInfoAmkorAPLDlg::OnEnSetfocusEditQaCnt)
+	ON_BN_CLICKED(IDC_RADIO_PRODUCTION, &CLotInfoAmkorAPLDlg::OnBnClickedRadioProduction)
+	ON_BN_CLICKED(IDC_RADIO_AUDIT, &CLotInfoAmkorAPLDlg::OnBnClickedRadioAudit)
+	ON_BN_CLICKED(IDC_RADIO_LOOP, &CLotInfoAmkorAPLDlg::OnBnClickedRadioLoop)
+	ON_BN_CLICKED(IDC_RADIO_GRR, &CLotInfoAmkorAPLDlg::OnBnClickedRadioGrr)
+	ON_BN_CLICKED(IDC_BUTTON_2DID_SORT_PATH, &CLotInfoAmkorAPLDlg::OnBnClickedButton2didSortPath)
+END_MESSAGE_MAP()
+
+
+// CLotInfoAmkorAPLDlg 메시지 처리기입니다.
+
+
+BOOL CLotInfoAmkorAPLDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	OnBtnGUI();				// overide button GUI image 
+
+	CButton* pBtnNotUse = (CButton*)GetDlgItem(IDC_RADIO_NOT_VISION);
+	CButton* pBtnUse = (CButton*)GetDlgItem(IDC_RADIO_VISION);
+	if (m_bVisionUse == eOPTION_USE)
+	{
+		pBtnUse->SetCheck(TRUE);
+		pBtnNotUse->SetCheck(FALSE);
+	}
+	else
+	{
+		pBtnUse->SetCheck(FALSE);
+		pBtnNotUse->SetCheck(TRUE);
+	}
+
+	pBtnUse = NULL;
+	pBtnNotUse = NULL;
+
+
+	CompanySetting();
+
+	//BOOL bLockState = g_DMCont.m_dmEQP.GB(BDM0_LOT_INFO_IS_LOCK);
+	//
+	//if(bLockState == TRUE){
+	//	LotInfoLock(FALSE);
+	//}else{
+	//	LotInfoLock(TRUE);
+	//}
+
+	BOOL bLotState = g_DMCont.m_dmEQP.GB(BDM0_SYS_LOT_STATUS);
+	if (bLotState == eHandlerLotMode_OnGoing) {
+		GetDlgItem(IDC_RADIO_FT)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_RC)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_QA)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_GRR)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_FT_CONTINUE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_RC_CONTINUE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_QA_CONTINUE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_GRR_CONTINUE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_QA_CNT)->EnableWindow(FALSE);
+		GetDlgItem(IDC_STATIC_EA)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_PRODUCTION)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUDIT)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_LOOP)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_GRR)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_LOOP)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_LOOP_CONTINUE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_2DID_SORT)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_2DID_SORT_CONTINUE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_AUDIT)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_AUDIT_CONTINUE)->EnableWindow(FALSE);
+		LotInfoLock(FALSE);
+	}
+
+	if (m_nLogInLevel < eUSERLEVEL_ENGINEER)
+	{
+		GetDlgItem(IDC_RADIO_AUTO_GRR)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_RADIO_AUTO_GRR_CONTINUE)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_RADIO_AUTO_LOOP)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_RADIO_AUTO_LOOP_CONTINUE)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_RADIO_AUTO_AUDIT)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_RADIO_AUTO_AUDIT_CONTINUE)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_RADIO_AUTO_2DID_SORT)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_RADIO_AUTO_2DID_SORT_CONTINUE)->ShowWindow(SW_HIDE);
+	}
+
+
+	SetDisplayUserData(FALSE);	// setting display data
+	UpdateData(TRUE);
+
+	m_nFTRCQC = g_DMCont.m_dmHandlerOpt.GN(NDM11_MD_FTRTQCContinue);
+
+	int nUserLevel = m_nLogInLevel;
+
+	if (g_DMCont.m_dmEQP.GN(NDM0_CurLotLoadingCnt) == 0 && bLotState != eHandlerLotMode_OnGoing && nUserLevel == eUSERLEVEL_OPERATOR) {
+		m_nModeTesterIF = eTesterIF_Mode_Normal;
+	}
+
+	UpdateData(FALSE);
+
+	CheckHandlerMode(m_nFTRCQC);
+
+	if (nUserLevel < eUSERLEVEL_TECHNICIAN)
+	{
+		GetDlgItem(IDC_RADIO_PRODUCTION)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUDIT)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_LOOP)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_GRR)->EnableWindow(FALSE);
+
+		GetDlgItem(IDC_RADIO_NOT_VISION)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_VISION)->EnableWindow(FALSE);
+
+		GetDlgItem(IDC_RADIO_FT)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_RC)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_QA)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUTO_GRR)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_FT_CONTINUE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_RC_CONTINUE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_QA_CONTINUE)->EnableWindow(FALSE);
+	}
+	else if (nUserLevel == eUSERLEVEL_TECHNICIAN)
+	{
+		GetDlgItem(IDC_RADIO_AUDIT)->EnableWindow(FALSE);
+	}
+
+	int nRunMode = g_DMCont.m_dmHandlerOpt.GN(NDM11_MD_Run);
+	if (nRunMode != eRUN_MODE_ONLINE) {
+		GetDlgItem(IDC_RADIO_PRODUCTION)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_AUDIT)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_LOOP)->EnableWindow(FALSE);
+		GetDlgItem(IDC_RADIO_GRR)->EnableWindow(FALSE);
+	}
+
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
+}
+
+void CLotInfoAmkorAPLDlg::SetDisplayUserData(BOOL bFlag)
+{
+	char szRetBuff[MAX_PATH] = { 0, };
+
+	if (bFlag == TRUE)
+	{
+		// DEVICE
+		GetDlgItemText(IDC_EDIT_DEVICE, m_strDeviceName);
+		m_strDeviceName.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strDeviceName);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_DeviceName, szRetBuff, sizeof(szRetBuff));
+
+		// LOT
+		GetDlgItemText(IDC_EDIT_LOT_NO, m_strLotNo);
+		m_strLotNo.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strLotNo);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_LotNo, szRetBuff, sizeof(szRetBuff));
+
+		// DCC X
+
+		// QTY
+		GetDlgItemText(IDC_EDIT_QTY, m_strQty);
+		m_strQty.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strQty);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_QTY, szRetBuff, MAX_PATH);
+
+		// TP_PROG
+		GetDlgItemText(IDC_EDIT_PROGRAM, m_strPGM_Name);
+		m_strPGM_Name.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strPGM_Name);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_ProgramName, szRetBuff, sizeof(szRetBuff));
+
+		// TP_REV
+		GetDlgItemText(IDC_EDIT_TP_REV, m_strTpRev);
+		m_strTpRev.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strTpRev);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_TP_REV, szRetBuff, sizeof(szRetBuff));
+
+		// Process ID
+		GetDlgItemText(IDC_EDIT_PROCESS_ID, m_strProcessID);
+		m_strProcessID.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strProcessID);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_Operation, szRetBuff, MAX_PATH);
+
+		//RETEST
+		GetDlgItemText(IDC_EDIT_PROCESS, m_strScheduleNo);
+		m_strScheduleNo.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strScheduleNo);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_ScheduleNo, szRetBuff, sizeof(szRetBuff));
+
+		//TEMP
+		GetDlgItemText(IDC_EDIT_TEMP, m_strTemp);
+		m_strTemp.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strTemp);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_Temp, szRetBuff, MAX_PATH);
+
+		// Handler ID INI파일에서 불러옴
+
+		//OPRATOR ID
+		GetDlgItemText(IDC_EDIT_OPER_ID, m_strOperID);
+		m_strOperID.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strOperID);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_OperatorID, szRetBuff, sizeof(szRetBuff));
+
+		//LOAD_BD_NO
+		GetDlgItemText(IDC_EDIT_LOAD_BD_NO, m_strLoadBdNo);
+		m_strLoadBdNo.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strLoadBdNo);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_LOAD_BD_NO, szRetBuff, sizeof(szRetBuff));
+		
+		// NICKNAME
+		GetDlgItemText(IDC_EDIT_NICKNAME, m_strNickname);
+		m_strNickname.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strNickname);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_Nickname, szRetBuff, sizeof(szRetBuff));
+
+		GetDlgItemText(IDC_EDIT_CUSTOM, m_strCustomName);
+		//m_strCustomName.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strCustomName);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_CustomerName, szRetBuff, sizeof(szRetBuff));
+
+		GetDlgItemText(IDC_EDIT_RETEST_CODE, m_strRetestCode);
+		m_strRetestCode.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strRetestCode);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_RetestCode, szRetBuff, sizeof(szRetBuff));
+	
+// 		GetDlgItemText(IDC_EDIT_ART, m_strArt);
+// 		m_strArt.Replace(" ", "");
+// 		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strArt);
+// 		g_DMCont.m_dmHandlerOpt.SS(SDM11_ART, szRetBuff, MAX_PATH);
+
+		GetDlgItemText(IDC_EDIT_2DID_SORT_PATH, m_str2DIDSortPath);
+		m_str2DIDSortPath.Replace(" ", "");
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_str2DIDSortPath);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_2DID_Sort_FilePath, szRetBuff, MAX_PATH);
+
+		m_nTheoreticalUPH = GetDlgItemInt(IDC_EDIT_THEORETICAL);
+		g_DMCont.m_dmHandlerOpt.SN(NDM11_Theoretical_UPH, m_nTheoreticalUPH);
+
+		//Lot Info File에 있는 Data
+	
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strSoakTime);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_Soak_Time, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strFuse);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_FUSE, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strHandler);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_HANDLER, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strSocketId);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_SOCKER_ID, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strCKitID);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_C_KIT_ID, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strFoundryLotId);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_FOUNDRY_LOTID, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strAssemblyStartdate);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_Assembly_startdate, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strAssemblyEnddate);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_Assembly_enddate, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_StrAssyVendorLotid);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_ASSY_vendor_lotid, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strTestVendorLotid);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_TEST_vendor_lotid, szRetBuff, sizeof(szRetBuff));
+
+		sprintf_s(szRetBuff, sizeof(szRetBuff), m_strBotSubVendor);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_BOT_SUB_Vendor, szRetBuff, sizeof(szRetBuff));
+	}
+	else
+	{
+		// DEVICE
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_DeviceName, szRetBuff, MAX_PATH);
+		m_strDeviceName = szRetBuff;
+		SetDlgItemText(IDC_EDIT_DEVICE, szRetBuff);
+
+		// LOT
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_LotNo, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_LOT_NO, szRetBuff);
+
+		// DCC X
+
+		// QTY
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_QTY, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_QTY, szRetBuff);
+
+		// TP_PROG
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_ProgramName, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_PROGRAM, szRetBuff);
+
+		// TP_REV
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_TP_REV, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_TP_REV, szRetBuff);
+
+		// Process ID
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_Operation, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_PROCESS_ID, szRetBuff);
+
+		//RETEST
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_ScheduleNo, szRetBuff, MAX_PATH);
+		m_strScheduleNo = (LPSTR)szRetBuff;
+		SetDlgItemText(IDC_EDIT_PROCESS, m_strScheduleNo);
+
+		//TEMP
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_Temp, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_TEMP, szRetBuff);
+
+		//OPRATOR ID
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_OperatorID, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_OPER_ID, szRetBuff);
+
+		//LOAD_BD_NO
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_LOAD_BD_NO, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_LOAD_BD_NO, szRetBuff);
+
+		// NICKNAME
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_Nickname, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_NICKNAME, szRetBuff);
+
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_CustomerName, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_CUSTOM, szRetBuff);
+
+		g_DMCont.m_dmEQP.GS(SDM0_HANDER_ID, szRetBuff, sizeof(szRetBuff));
+		SetDlgItemText(IDC_EDIT_HOSTNAME, szRetBuff);
+
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_RetestCode, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_RETEST_CODE, szRetBuff);
+
+
+// 		g_DMCont.m_dmHandlerOpt.GS(SDM11_ART, szRetBuff, MAX_PATH);
+// 		SetDlgItemText(IDC_EDIT_ART, szRetBuff);
+
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_2DID_Sort_FilePath, szRetBuff, MAX_PATH);
+		SetDlgItemText(IDC_EDIT_2DID_SORT_PATH, szRetBuff);
+
+		m_nTheoreticalUPH = g_DMCont.m_dmHandlerOpt.GN(NDM11_Theoretical_UPH);
+		SetDlgItemInt(IDC_EDIT_THEORETICAL, m_nTheoreticalUPH);
+	}
+}
+
+void CLotInfoAmkorAPLDlg::OnBtnGUI()
+{
+	m_BtnCancel.SetShade(CShadeButtonST::SHS_SOFTBUMP, 8, 20, 0, RGB(55, 55, 255));
+	m_BtnCancel.SetIcon(IDI_BTN_EXIT);
+	m_BtnCancel.SetAlign(CButtonST::ST_ALIGN_VERT);
+
+	m_BtnSave.SetShade(CShadeButtonST::SHS_SOFTBUMP, 8, 20, 0, RGB(55, 55, 255));
+	m_BtnSave.SetIcon(IDI_BTN_SAVE);
+	m_BtnSave.SetAlign(CButtonST::ST_ALIGN_VERT);
+
+	m_BtnGetInfo.SetShade(CShadeButtonST::SHS_SOFTBUMP, 8, 20, 0, RGB(55, 55, 255));
+	m_BtnGetInfo.SetAlign(CButtonST::ST_ALIGN_VERT);
+
+	m_BtnLock.SetShade(CShadeButtonST::SHS_SOFTBUMP, 8, 20, 0, RGB(55, 55, 255));
+	m_BtnLock.SetAlign(CButtonST::ST_ALIGN_VERT);
+
+	m_editQaSample.SetBackColor(COLOR_WWHITE);
+	m_editQaSample.SetTextSize(20);
+
+}
+
+void CLotInfoAmkorAPLDlg::OnCopyLastButtonEvent(int nEventNo)
+{
+	char szRetBuff[MAX_PATH] = { 0, };
+
+	switch (nEventNo)
+	{
+	case eLotNo:
+	{
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_REC_LotNo, szRetBuff, MAX_PATH);
+		m_strLotNo = (LPSTR)szRetBuff;
+		GetDlgItem(IDC_EDIT_LOT_NO)->SetWindowText(szRetBuff);
+	}break;
+	case eSchedule:
+	{
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_REC_ScheduleNo, szRetBuff, MAX_PATH);
+		m_strScheduleNo = (LPSTR)szRetBuff;
+		//GetDlgItem(IDC_EDIT_SCHEDULE)->SetWindowText(szRetBuff);
+	}break;
+	case eOperID:
+	{
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_REC_OperatorID, szRetBuff, MAX_PATH);
+		m_strOperID = (LPSTR)szRetBuff;
+		GetDlgItem(IDC_EDIT_OPER_ID)->SetWindowText(szRetBuff);
+	}break;
+	}
+}
+
+void CLotInfoAmkorAPLDlg::OnBnClickedButtonSave()
+{
+	GetDlgItemText(IDC_EDIT_LOT_NO, m_strLotNo);
+
+	// 	// Lot 정보가 아무것도 입력되지 않았을 때
+	// 	if( m_strOperID.GetLength() == 0 &&	
+	// 		m_strScheduleNo.GetLength() == 0 && 
+	// 		m_strLotNo.GetLength() == 0 ) {
+	// 			AfxMessageBox(_T("Lot 정보가 없습니다."));
+	// 			return;
+	// 	}
+	BOOL bIsLotInfoEmpty = FALSE;
+
+	bIsLotInfoEmpty = SaveInrolock();
+
+	int nRunMode = g_DMCont.m_dmHandlerOpt.GN(NDM11_MD_Run);
+	if (nRunMode == eRUN_MODE_ONLINE) {
+		//if (strcmp(m_szCompany, DEF_COMPANY_AMKOR) == 0) {
+		CString strMode = _T("");
+		switch (m_nModeTesterIF)
+		{
+		case eTesterIF_Mode_Normal: strMode = _T("PRODUCTION"); break;
+		case eTesterIF_Mode_Grr: strMode = _T("GRR"); break;
+		case eTesterIF_Mode_LoopTest: strMode = _T("LOOP TEST"); break;
+		case eTesterIF_Mode_Audit: strMode = _T("AUDIT"); break;
+		}
+
+		CString strModeMsg = _T("");
+		strModeMsg.Format("Do you check TESTER MODE = %s ??", strMode);
+		int nRet = AfxMessageBox(strModeMsg, MB_TOPMOST | MB_YESNO);
+		if (nRet != IDYES) {
+			return;
+		}
+
+		//}
+		BOOL bFindTestingStation = FALSE;
+		for (int Index = 0; Index < eMaxPressUnitCount; Index++) {
+			if (g_DMCont.m_dmEQP.GB(BDM0_TEST_STATUS_SITE1 + Index) == TRUE)
+				bFindTestingStation = TRUE;
+		}
+		if (bFindTestingStation == TRUE) {
+			AfxMessageBox(_T("Station does not end !!"), MB_TOPMOST);
+			return;
+		}
+	}
+
+	//UpdateData();
+	if (m_nFTRCQC == eStartMD_QA || m_nFTRCQC == eStartMD_QA_Continue)
+	{
+		CString strMessage,strQty;
+		GetDlgItemText(IDC_EDIT_QTY, strQty);
+		if ((atoi(strQty) > 200 || atoi(strQty) <= 0) || strcmp(strQty, "") == 0)
+		{
+			strMessage.Format("QA Mode 입니다. (QTY) 수량을 1개 이상 또는 200개 이하로 설정해 주시길 바랍니다.");
+			AfxMessageBox(strMessage);
+			return;
+		}
+		g_DMCont.m_dmHandlerOpt.SN(NDM11_QaSampleCount, m_nQaSampleCnt);
+	}
+
+	if (bIsLotInfoEmpty != TRUE) {
+		int nLength = m_strLotNo.GetLength();
+		if (m_strLotNo.GetLength() >= 64) {
+			AfxMessageBox(_T("Lot No Max Length is 64..please checking!!"));
+			return;
+		}
+
+		//if (m_strLotNo.Find(",") != -1 || m_strLotNo.Find(";") != -1 || m_strLotNo.Find("/") != -1 || m_strLotNo.Find("\\") != -1 ){
+		if (FileNameLimit(m_strLotNo) == FALSE) {
+			//Lot No에 ',' , ';' 이 있으면 안된다 
+			AfxMessageBox(_T("Lot No is should not be included. ',' or ';' or '/' or '\\' or ' | ' ':' '*' '?' ' < ' '>'  "));
+			return;
+		}
+
+		BOOL bErr = SummaryInterlock();
+		if (bErr == TRUE) {
+			AfxMessageBox("Please Make Summary!!");
+			return;
+		}
+
+		BOOL nCheck = g_DMCont.m_dmHandlerOpt.GB(BDM11_MD_TesterBatchFile_Use);
+		// 		if (m_nFTRCQC == eStartMD_Auto2DIDSort || m_nFTRCQC == eStartMD_Auto2DIDSort_Continue)
+		// 		{
+		if (nRunMode == eRUN_MODE_ONLINE) {
+			if (nCheck == DEF_ON)
+			{
+				g_McComm.CmdTesterBatchFileExcute();
+			}
+		}
+		//		}
+		SetDisplayUserData(TRUE);
+
+		g_DMCont.m_dmHandlerOpt.SB(BDM11_MD_LotStartMode, m_bLotNormalRC);
+		g_DMCont.m_dmHandlerOpt.SN(NDM11_MD_FTRTQCContinue, m_nFTRCQC);
+		g_DMCont.m_dmHandlerOpt.SB(BDM11_MD_VisionUse, m_bVisionUse);
+
+		char szCokName[512] = { 0, };
+		ST_BASIC_INFO   stBasicData, stBeforeBasicData;
+		g_DMCont.m_dmHandlerOpt.GS(SDM11_TrayFileName, szCokName, sizeof(szCokName));
+		g_COK_FileMgr.LoadBasicInfo(szCokName, stBasicData);
+
+		stBeforeBasicData = stBasicData;
+
+		stBasicData.nFTRTQC = (int)g_DMCont.m_dmHandlerOpt.GN(NDM11_MD_FTRTQCContinue);
+		stBasicData.nStartMode = (int)g_DMCont.m_dmHandlerOpt.GB(BDM11_MD_LotStartMode);
+		stBasicData.nVision = (int)g_DMCont.m_dmHandlerOpt.GB(BDM11_MD_VisionUse);
+		strcpy_s(stBasicData.szLotNo, sizeof(stBasicData.szLotNo), m_strLotNo);
+		strcpy_s(stBasicData.szScheduleNo, sizeof(stBasicData.szScheduleNo), m_strScheduleNo);
+		strcpy_s(stBasicData.szOperID, sizeof(stBasicData.szOperID), m_strOperID);
+
+
+		//Set2dMark();
+		//stBasicData.n2dM = g_DMCont.m_dmHandlerOpt.GN(NDM11_2D_BARCODE_MARK_TYPE);
+
+		g_COK_FileMgr.SaveBasicInfo(szCokName, &stBasicData);
+		if (m_bVisionUseNoUseBak != m_bVisionUse) {
+			g_McComm.CmdVisionUseNouse(eVisionPos_TestSite);
+		}
+
+		BOOL bLotState = g_DMCont.m_dmEQP.GB(BDM0_SYS_LOT_STATUS);
+		if (nRunMode == eRUN_MODE_ONLINE && bLotState != eHandlerLotMode_OnGoing /*&& strcmp(m_szCompany, DEF_COMPANY_AMKOR) == 0*/)
+		{
+			MakeLog("[MENU = Lot Information, DATA NAME = Tester Mode ][BEFORE=%d, AFTER=%d]", g_DMCont.m_dmHandlerOpt.GN(NDM11_MD_TESTER_IF_PRO_AUDIT), m_nModeTesterIF);
+			g_DMCont.m_dmHandlerOpt.SN(NDM11_MD_TESTER_IF_PRO_AUDIT, m_nModeTesterIF);
+			//g_McComm.CmdTesterOnlineModeChange(m_nModeTesterIF);
+		}
+
+		std::vector<std::pair<CString, std::pair<CString, CString>>> vData;
+	
+		stBeforeBasicData.IsSameLotInfo(stBasicData, vData);
+
+		if (!(vData.empty()))
+		{
+			LotInfoChangeLog(vData);
+		}
+// 	
+
+		g_McComm.OnSendDlgShow(eDlgProcCmd_LotInfoSave);
+
+		Set2dMark();
+
+		CString strRel = m_strLotNo.Left(4);
+		strRel.TrimLeft();
+		strRel.TrimRight();
+		strRel.MakeUpper();
+
+		char szRel[MAX_PATH] = { 0, };
+		sprintf_s(szRel, sizeof(szRel), strRel);
+		g_DMCont.m_dmHandlerOpt.SS(SDM11_2D_MARK_IGNORE_REL_TEST, szRel, sizeof(szRel));
+
+	}
+
+}
+
+void CLotInfoAmkorAPLDlg::OnBnClickedRadioVision()
+{
+	m_bVisionUse = eOPTION_USE;
+	//UpdateData(TRUE);
+}
+
+
+void CLotInfoAmkorAPLDlg::OnBnClickedRadioNotVision()
+{
+	// AfxGetMainWnd() 메인 윈도우의 정보 얻어온다.
+	CMainFrame* pMainFrm = (CMainFrame*)AfxGetMainWnd();
+	// GetActiveView() 현재 활성화된 창의 정보를 얻어온다.
+	CSLTView* pSltView = (CSLTView*)pMainFrm->GetActiveView();
+	//CButton* pBtnNotUse = (CButton*)GetDlgItem(IDC_RADIO_NOT_VISION);
+	//CButton* pBtnUse = (CButton*)GetDlgItem(IDC_RADIO_VISION);
+
+	GetDlgItem(IDCANCEL)->SetFocus();
+
+	int nUserLevel = pSltView->m_nLogInLv;
+	int nRetLevel = 0;
+
+	// 이전 선택이 Use였고, 현재 변경 된 Status가 Not Use 일 경우만 판단 & 사용자 Level이 Engineer 이하 등급일 경우[현재 로그인 상태 포함]
+	if (m_bVisionUse == eOPTION_USE /*&& nUserLevel < eUSERLEVEL_ENGINEER*/) {
+		BOOL bRet = g_LibCommCtrl.ShowLogInBox(nUserLevel, &nRetLevel);
+
+		if (RETURN_OK == bRet) {
+			if (nRetLevel >= eUSERLEVEL_ENGINEER) {
+				m_bVisionUse = eOPTION_NOT_USE;
+			}
+			else {
+				m_bVisionUse = eOPTION_USE;
+				AfxMessageBox("User level is not apply selection.");
+			}
+		}
+		else {
+			m_bVisionUse = eOPTION_USE;
+		}
+	}
+	//UpdateData(TRUE);
+}
+
+void CLotInfoAmkorAPLDlg::SetLogInLevel(int nLogInLevel)
+{
+	m_nLogInLevel = nLogInLevel;
+}
+
+
+/*=============================================================================
+DESCRIPT : Amkor 요청 사항 LotInfo.txt 에서 LotInfo정보를 불러온다
+KEY WORD :
+ARGUMENT :
+RETURN   :
+==============================================================================*/
+void CLotInfoAmkorAPLDlg::OnBnClickedGetInfo()
+{
+	char szTemp[MAX_PATH] = { 0, }, szRetBuff[MAX_PATH] = { 0, };
+	CString strLotInfo = _T(""), strTitle = _T(""), strData = _T("");
+	char szLotInfoPath[MAX_PATH] = { 0, };
+	CString strLotInfoPath = _T("");
+
+	g_DMCont.m_dmHandlerOpt.GS(SDM11_LotInfoFile_Path, szLotInfoPath, sizeof(szLotInfoPath));
+
+	strLotInfoPath.Format("%s\\uflex_lot_info.txt", szLotInfoPath);
+	std::ifstream ifile;
+
+	ifile.open(strLotInfoPath);
+
+	if (ifile.is_open())
+	{
+		while (ifile.getline(szTemp, sizeof(szTemp)))
+		{
+			strLotInfo = szTemp;
+
+			int nIndx = strLotInfo.Find(':');
+			CString strTitle = strLotInfo.Left(nIndx);
+			CString strData = strLotInfo.Mid(nIndx + 1);
+
+			strTitle.MakeUpper();
+
+			// Lot Info Dialog 에 표시 되는 항목
+			if (strTitle.Compare("LOT") == 0) {
+				m_strLotNo = strData;
+				SetDlgItemText(IDC_EDIT_LOT_NO, m_strLotNo);
+			}
+			else if (strTitle.Compare("CUST") == 0) {
+				m_strCustomName = strData;
+				SetDlgItemText(IDC_EDIT_CUSTOM, m_strCustomName);
+			}
+			else if (strTitle.Compare("DEVICE") == 0) {
+				m_strDeviceName = strData;
+				SetDlgItemText(IDC_EDIT_DEVICE, m_strDeviceName);
+			}
+			else if (strTitle.Compare("RETEST") == 0) {
+				m_strScheduleNo = strData;
+				SetDlgItemText(IDC_EDIT_PROCESS, m_strScheduleNo);
+
+				if (strData.Find("FT1") != -1) {
+					sprintf_s(szRetBuff, sizeof(szRetBuff), "0");
+				}
+				else {
+ 					sprintf_s(szRetBuff, sizeof(szRetBuff), strData.Right(1));
+ 				}
+				m_strRetestCode.Format("%s", szRetBuff);
+				SetDlgItemText(IDC_EDIT_RETEST_CODE, szRetBuff);
+			}
+			else if (strTitle.Compare("TP_PROG") == 0) {
+				m_strPGM_Name = strData;
+				g_DMCont.m_dmHandlerOpt.SS(SDM0_TESTER_INFOR_VERSION, (LPSTR)(LPCTSTR)m_strPGM_Name, m_strPGM_Name.GetLength());
+				//g_DMCont.m_dmHandlerOpt.SS(SDM0_TESTER_INFOR_PROGRAM, (LPSTR)(LPCTSTR)m_strPGM_Name, m_strPGM_Name.GetLength());
+				SetDlgItemText(IDC_EDIT_PROGRAM, m_strPGM_Name);
+			}
+			else if (strTitle.Compare("TP_REV") == 0) {
+				//strData.MakeUpper();
+				m_strTpRev = strData;
+				g_DMCont.m_dmHandlerOpt.SS(SDM0_TESTER_INFOR_PROGRAM, (LPSTR)(LPCTSTR)m_strTpRev, m_strTpRev.GetLength());
+				//g_DMCont.m_dmHandlerOpt.SS(SDM0_TESTER_INFOR_VERSION, (LPSTR)(LPCTSTR)m_strTpRev, m_strTpRev.GetLength());
+
+				SetDlgItemText(IDC_EDIT_TP_REV, m_strTpRev);
+
+
+			}
+			else if (strTitle.Compare("OPERATION") == 0) {
+				m_strProcessID = strData;
+				SetDlgItemText(IDC_EDIT_PROCESS_ID, m_strProcessID);
+
+				//QA Mode 임시 삭제 
+				if (strData.Find("SLTQA1") != -1) {
+					CheckRadioButton(IDC_RADIO_FT, IDC_RADIO_AUTO_GRR_CONTINUE, IDC_RADIO_QA);
+					m_nFTRCQC = eStartMD_QA;
+				}
+				else {
+					CheckRadioButton(IDC_RADIO_FT, IDC_RADIO_AUTO_LOOP_CONTINUE, IDC_RADIO_FT);
+					m_nFTRCQC = eStartMD_Initial;
+				}
+			}
+			else if (strTitle.Compare("TEMP") == 0) {
+				m_strTemp = strData;
+				SetDlgItemText(IDC_EDIT_TEMP, m_strTemp);
+			}
+			else if (strTitle.Compare("QTY") == 0) {
+				m_strQty = strData;
+				SetDlgItemText(IDC_EDIT_QTY, m_strQty);
+			}
+			else if (strTitle.Compare("OPERATOR_ID") == 0) {
+				m_strOperID = strData;
+				SetDlgItemText(IDC_EDIT_OPER_ID, m_strOperID);
+			}
+			else if (strTitle.Compare("LOAD_BD_NO") == 0) {
+				m_strLoadBdNo = strData;
+				SetDlgItemText(IDC_EDIT_LOAD_BD_NO, m_strLoadBdNo);
+			}
+			else if (strTitle.Compare("NICKNAME") == 0) {
+				m_strNickname = strData;
+				SetDlgItemText(IDC_EDIT_NICKNAME, m_strNickname);
+			}
+
+			// Lot Info Dialog 에 표시 되지 않는 항목
+		
+			else if (strTitle.Compare("SOAK_TIME") == 0) {
+				m_strSoakTime = strData;
+			}
+			else if (strTitle.Compare("FUSE") == 0) {
+				m_strFuse = strData;
+			}
+			else if (strTitle.Compare("HANDLER") == 0) {
+				m_strHandler = strData;
+			}			
+			else if (strTitle.Compare("SOCKET_ID") == 0) {
+				m_strSocketId = strData;
+			}
+			else if (strTitle.Compare("C_KIT_ID") == 0) {
+				m_strCKitID = strData;
+			}
+			else if (strTitle.Compare("FOUNDRY_LOTID") == 0) {
+				m_strFoundryLotId = strData;
+			}
+			else if (strTitle.Compare("ASSEMBLY_STARTDATE") == 0) {
+				m_strAssemblyStartdate = strData;
+			}
+			else if (strTitle.Compare("ASSEMBLY_ENDDATE") == 0) {
+				m_strAssemblyEnddate = strData;
+			}
+			else if (strTitle.Compare("ASSY_VENDOR_LOTID") == 0) {
+				m_StrAssyVendorLotid = strData;
+			}
+			else if (strTitle.Compare("TEST_VENDOR_LOTID") == 0) {
+				m_strTestVendorLotid = strData;
+			}
+			else if (strTitle.Compare("BOT_SUB_VENDOR") == 0) {
+				m_strBotSubVendor = strData;
+			}
+		
+			NEXT;
+		}
+		ifile.close();
+		int nAutoRetestKind = g_DMCont.m_dmHandlerOpt.GN(NDM11_MD_AutoRetest);
+
+		BOOL bUseMode = g_DMCont.m_dmHandlerOpt.GB(BDM11_MD_AutoRetestSiteUse);
+		if (bUseMode == eOPTION_USE) {
+			switch (nAutoRetestKind) {
+			case eAutoRetest_Aonly: m_strArt = _T("Aonly"); break;
+			case eAutoRetest_AB:    m_strArt = _T("AB");    break;
+			case eAutoRetest_AAB:   m_strArt = _T("AAB");   break;
+			case eAutoRetest_AA:    m_strArt = _T("AA");    break;
+			}
+		}
+		else {
+			m_strArt.Format("No Use");
+		}
+		SetDlgItemText(IDC_EDIT_ART, m_strArt);
+
+		g_DMCont.m_dmEQP.GS(SDM0_HANDER_ID, szRetBuff, sizeof(szRetBuff));
+		m_strHostName = (LPSTR)szRetBuff;
+		SetDlgItemText(IDC_EDIT_HOSTNAME, szRetBuff);
+
+		//QA 모드 수량 201개 이상 이면 200개로 설정
+		if (m_nFTRCQC == eStartMD_QA)
+		{
+			char szDefaultQACount[64] = { 0, };
+			g_DMCont.m_dmHandlerOpt.GS(SDM11_DEFAULT_QA_QTY, szDefaultQACount, sizeof(szDefaultQACount));
+			m_strQty = (LPSTR)szDefaultQACount;
+
+			if(atoi(m_strQty) > 200)
+				m_strQty.Format("%d", 200);
+
+			SetDlgItemText(IDC_EDIT_QTY, m_strQty);
+		}
+	
+		g_McComm.OnSendDlgShow(eDlgProcCmd_TesterInfo);
+
+		LotInfoLock(FALSE);
+
+	}
+	else {
+		AfxMessageBox("Can't open is LotInfo File");
+	}
+
+}
+
+void CLotInfoAmkorAPLDlg::OnBnClickedLock()
+{
+	BOOL bLockState = g_DMCont.m_dmEQP.GB(BDM0_LOT_INFO_IS_LOCK);
+	LotInfoLock(bLockState);
+}
+
+void CLotInfoAmkorAPLDlg::LotInfoLock(BOOL bLockState)
+{
+	return;
+	CString strLockBtnName = _T("");
+
+	m_BtnLock.GetWindowText(strLockBtnName);
+	strLockBtnName.MakeUpper();
+
+	if (bLockState == FALSE) {
+		GetDlgItem(IDC_EDIT_LOT_NO)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_OPER_ID)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_PROGRAM)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_DEVICE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_CUSTOM)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_PROCESS)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_HOSTNAME)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_PROCESS_ID)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_TEMP)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_DCC)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_QTY)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_LOAD_BD_NO)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_NICKNAME)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_TP_REV)->EnableWindow(FALSE);
+		GetDlgItem(IDC_EDIT_QA_CNT)->EnableWindow(FALSE);
+		//GetDlgItem(IDC_EDIT_RETEST_CODE)->EnableWindow(FALSE);
+		//GetDlgItem(IDC_EDIT_ART)->EnableWindow(FALSE);
+
+		//GetDlgItem(IDC_STATIC_EA)->EnableWindow(FALSE);
+
+		m_BtnLock.SetWindowText("UnLock");
+		g_DMCont.m_dmEQP.SB(BDM0_LOT_INFO_IS_LOCK, TRUE);
+	}
+	else {
+		GetDlgItem(IDC_EDIT_LOT_NO)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_OPER_ID)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_PROGRAM)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_DEVICE)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_CUSTOM)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_PROCESS)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_HOSTNAME)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_PROCESS_ID)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_TEMP)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_DCC)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_QTY)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_LOAD_BD_NO)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_NICKNAME)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_TP_REV)->EnableWindow(TRUE);
+		GetDlgItem(IDC_EDIT_QA_CNT)->EnableWindow(FALSE);
+		m_BtnLock.SetWindowText("Lock");
+		g_DMCont.m_dmEQP.SB(BDM0_LOT_INFO_IS_LOCK, FALSE);
+	}
+}
+
+BOOL CLotInfoAmkorAPLDlg::SaveInrolock()
+{
+	CString strLotData = _T("");
+	BOOL bIsLotInfoEmpty = FALSE;
+	//int nLotData[12] = {IDC_EDIT_LOT_NO, IDC_EDIT_CUSTOM, IDC_EDIT_DEVICE, IDC_EDIT_PROCESS, IDC_EDIT_OPER_ID, IDC_EDIT_PROGRAM,
+	//	                IDC_EDIT_HOSTNAME, IDC_EDIT_PROCESS_ID, IDC_EDIT_TEMP, IDC_EDIT_RETEST_CODE, IDC_EDIT_QTY, IDC_EDIT_ART};
+	//CString strMsg[12] ={"Lot No", "Customer Name","Device Name", "Process", "Operator ID", "Program Name", "Host Name", "Process ID", "Temp", "Retest Code", "Lot Size", "ART"};
+
+	int nLotData[2] = { IDC_EDIT_LOT_NO,IDC_EDIT_PROGRAM };
+	int nTheoreticlaData = 0;
+	CString strMsg[2] = { "Lot No","Tester Program Version" };
+
+	CString strMsgData = _T("");
+
+	for (int i = 0; i< /*12*/2; i++)
+	{
+		GetDlgItemText(nLotData[i], strLotData);
+		if (strLotData.IsEmpty()) {
+			strMsgData.Format("%s is Empty", strMsg[i]);
+			AfxMessageBox(strMsgData);
+			bIsLotInfoEmpty = TRUE;
+			break;
+		}
+	}
+	char szCompany[16] = { 0, };
+
+	return bIsLotInfoEmpty;
+}
+
+void CLotInfoAmkorAPLDlg::MakeLog(LPCTSTR fmt, ...)
+{
+	TCHAR tmpMsg[1024] = { 0, };
+	if (fmt)
+	{
+		va_list argList;
+		va_start(argList, fmt);
+		_vstprintf(tmpMsg, fmt, argList);
+		va_end(argList);
+	}
+	TWLOG.MakeLog(static_cast<int>(eLogID_System_GUI), Debug, "", __LINE__, NULL, tmpMsg);
+}
+
+
+void CLotInfoAmkorAPLDlg::LotInfoChangeLog(std::vector<std::pair<CString, std::pair<CString, CString>>> vData)
+{
+	for (int i = 0; i< (int)vData.size(); i++)
+	{
+		std::pair<CString, std::pair<CString, CString>> p;
+
+		p = vData[i];
+
+		MakeLog("[MENU = Lot Information, DATA NAME = %s ][BEFORE=%s, AFTER=%s]", p.first, p.second.first, p.second.second);
+
+	}
+}
+
+
+void CLotInfoAmkorAPLDlg::CokInfoChangeLog(std::vector<std::pair<CString, std::pair<double, double>>> vData)
+{
+	for (int i = 0; i < (int)vData.size(); i++)
+	{
+		std::pair<CString, std::pair<double, double>> p;
+
+		p = vData[i];
+		MakeLog("[MENU = Cok Info, DATA NAME = %s ][BEFORE=%.2f, AFTER=%.2f]", p.first, p.second.first, p.second.second);
+// 		if (p.first == "Arrived" || p.first == "Impact Load Table" || p.first == "2D Barcode" || p.first == "No Duplication Check 2D Barcode")
+// 		{
+// 			if (p.second.second == 0) // NoUse
+// 			{
+// 				MakeLog("[MENU = Loading Table Speed & Time, DATA NAME = %s ][BEFORE= Use , AFTER= NoUse ]", p.first);
+// 			}
+// 			else if (p.second.second == 1)
+// 			{
+// 				MakeLog("[MENU = Loading Table Speed & Time, DATA NAME = %s ][BEFORE= NoUse , AFTER= Use ]", p.first);
+// 			}
+// 		}
+// 		else
+// 		{
+// 			
+// 		}
+	}
+}
+
+void CLotInfoAmkorAPLDlg::BarcodeMarkChangeLog(std::vector<std::pair<CString, std::pair<CString, CString>>> vData)
+{
+	for (int i = 0; i < (int)vData.size(); i++)
+	{
+		std::pair<CString, std::pair<CString, CString>> p;
+		p = vData[i];
+
+		if (p.first == "2D Device Name")
+		{
+			MakeLog("[LOT INFO][MENU = 2d Barcode Device Name Changed [BEFORE=%s, AFTER=%s]", p.second.first, p.second.second);
+		}
+		else { //"2D Mark List"
+			MakeLog("[LOT INFO][MENU = 2d Barcode Mark List Changed [BEFORE=%s, AFTER=%s]", p.second.first, p.second.second);
+		}
+	}
+}
+
+
+void CLotInfoAmkorAPLDlg::OnRadioLotModeCtrl(UINT nID)
+{
+	if (nID != IDC_RADIO_FT && nID != IDC_RADIO_FT_CONTINUE)
+	{
+		int nRet = ShowLogInBox();
+		if (nRet == FALSE)
+		{
+			m_nFTRCQC = eStartMD_Initial;
+			UpdateData(FALSE);
+			return;
+		}
+	}
+
+	switch (nID)
+	{
+	case IDC_RADIO_FT: { AfxMessageBox("Select FT Mode?"); m_nFTRCQC = eStartMD_Initial; } break;
+	case IDC_RADIO_RC: { AfxMessageBox("Select RT Mode?"); m_nFTRCQC = eStartMD_Retest;  } break;
+	case IDC_RADIO_AUTO_GRR: { AfxMessageBox("Select GRR Mode?"); m_nFTRCQC = eStartMD_AutoGRR;  } break;
+	case IDC_RADIO_QA: { AfxMessageBox("Select QA Mode?"); m_nFTRCQC = eStartMD_QA;  } break;
+	case IDC_RADIO_AUTO_LOOP: { AfxMessageBox("Select Loop Mode?"); m_nFTRCQC = eStartMD_AutoLoop;  } break;
+	case IDC_RADIO_FT_CONTINUE: { AfxMessageBox("Select FT Continue Mode?"); m_nFTRCQC = eStartMD_InitContinue;  } break;
+	case IDC_RADIO_RC_CONTINUE: { AfxMessageBox("Select RT Continue Mode?"); m_nFTRCQC = eStartMD_RetestContinue;  } break;
+	case IDC_RADIO_AUTO_GRR_CONTINUE: { AfxMessageBox("Select GRR Continue Mode?"); m_nFTRCQC = eStartMD_AutoGRR_Continue;  } break;
+	case IDC_RADIO_QA_CONTINUE: { AfxMessageBox("Select QA Continue Mode?");  m_nFTRCQC = eStartMD_QA_Continue; } break;
+	case IDC_RADIO_AUTO_LOOP_CONTINUE: { AfxMessageBox("Select LOOP Continue Mode?"); m_nFTRCQC = eStartMD_AutoLoop_Continue;  } break;
+
+	default: { }break;
+	}
+
+
+	BarcodeSortShowHide(SW_HIDE);
+
+	UpdateData(FALSE);
+}
+
+
+void CLotInfoAmkorAPLDlg::OnEnSetfocusEditQaCnt()
+{
+	char szVal[10] = { 0, };
+	char szRetVal[64] = { 0, };
+	_itoa_s(m_nQaSampleCnt, szVal, sizeof(szVal));
+
+	int nRet = g_LibCommCtrl.GetNumberBox(this, szRetVal, 10, szVal, "Sample Count", "999999", "1");
+
+	if (nRet == RETURN_OK) {
+		GetDlgItem(IDC_EDIT_QA_CNT)->SetWindowText(szRetVal);
+	}
+}
+
+BOOL CLotInfoAmkorAPLDlg::SummaryInterlock()
+{
+	char szLotNo[128] = { 0, }, szBeforeLotNo[128] = { 0, }, szScheduleNo[128] = { 0, }, szBeforeScheduleNo[128] = { 0, };
+	CString strLotNo = _T(""), strScheduleNo = _T("");
+	BOOL bErr = TRUE;
+	g_DMCont.m_dmHandlerOpt.GS(SDM11_LotNo, szBeforeLotNo, sizeof(szBeforeLotNo));
+
+	g_DMCont.m_dmHandlerOpt.GS(SDM11_ScheduleNo, szBeforeScheduleNo, sizeof(szBeforeScheduleNo));
+
+	int nLotMode = 0, nAfterLotMode = 0;
+	nLotMode = g_DMCont.m_dmHandlerOpt.GN(NDM11_MD_FTRTQCContinue);
+
+	if (strcmp(szBeforeLotNo, "") == 0 || g_DMCont.m_dmEQP.GN(NDM0_CurLotLoadingCnt) == 0)
+	{
+		bErr = FALSE;
+		return bErr;
+	}
+
+	switch (nLotMode)
+	{
+	case eStartMD_Initial:
+	case eStartMD_InitContinue:
+	{
+		nLotMode = eStartMD_Initial;
+	}break;
+	case eStartMD_QA:
+	case eStartMD_QA_Continue:
+	{
+		nLotMode = eStartMD_QA;
+	}break;
+	case eStartMD_Retest:
+	case eStartMD_RetestContinue:
+	{
+		nLotMode = eStartMD_Retest;
+	}break;
+	case eStartMD_AutoGRR:
+	case eStartMD_AutoGRR_Continue:
+	{
+		nLotMode = eStartMD_AutoGRR;
+	}break;
+	case eStartMD_AutoLoop:
+	case eStartMD_AutoLoop_Continue:
+	{
+		nLotMode = eStartMD_AutoLoop;
+	}break;
+	}
+
+	switch (m_nFTRCQC)
+	{
+	case eStartMD_Initial:
+	case eStartMD_InitContinue:
+	{
+		nAfterLotMode = eStartMD_Initial;
+	}break;
+	case eStartMD_QA:
+	case eStartMD_QA_Continue:
+	{
+		nAfterLotMode = eStartMD_QA;
+	}break;
+	case eStartMD_Retest:
+	case eStartMD_RetestContinue:
+	{
+		nAfterLotMode = eStartMD_Retest;
+	}break;
+	case eStartMD_AutoGRR:
+	case eStartMD_AutoGRR_Continue:
+	{
+		nAfterLotMode = eStartMD_AutoGRR;
+	}break;
+	case eStartMD_AutoLoop:
+	case eStartMD_AutoLoop_Continue:
+	{
+		nAfterLotMode = eStartMD_AutoLoop;
+	}break;
+
+	}
+
+	GetDlgItemText(IDC_EDIT_LOT_NO, strLotNo);
+	GetDlgItemText(IDC_EDIT_PROCESS, strScheduleNo);
+	strLotNo.Replace(" ", "");
+	strScheduleNo.Replace(" ", "");
+
+	if (strcmp(szBeforeLotNo, strLotNo) != 0 /*|| strcmp(szBeforeScheduleNo,strScheduleNo) !=0*/ || (/*nLotMode !=eStartMD_AutoGRR &&*/ nLotMode != nAfterLotMode)) {
+		MakeLog("[Lot Information save is Fail. Can not make Summary. Lot Information is Different]");
+		// 		CString strDatePath = _T(""), strFileName =_T(""), strFindFileName = _T("");
+		// 		int nChkCount =0;
+		// 
+		// 		bErr = TRUE;
+		// 
+		// 		SYSTEMTIME time;
+		// 		::GetLocalTime( &time );
+		// 		
+		// 		if(time.wDay == 1){
+		// 			nChkCount = 1;
+		// 		}
+		// 		CString strPath = _T("");
+		// 		strPath.Format("%s", SZ_DIR_PATH_SUMMARY);
+		// 
+		// 		int nMonth = 0; 
+		// 		int nYear  = 0;
+		// 
+		// 		for(int i =0; i<=nChkCount; i++){
+		// 			strFindFileName.Format("%s_%s",szBeforeLotNo,szBeforeScheduleNo);
+		// 
+		// 			nMonth = time.wMonth;
+		// 			nYear  = time.wYear;
+		// 
+		// 			nMonth -= i;
+		// 
+		// 			if(nMonth <=0){ // 년도가 변경 되었을 경우
+		// 				nYear -= i;
+		// 				nMonth = 12;
+		// 			}
+		// 
+		// 			CString strMonth =_T("");
+		// 			if(nMonth >=10){
+		// 				strMonth.Format("%02d",nMonth);
+		// 			}else{
+		// 				strMonth.Format("%01d",nMonth);
+		// 			}
+		// 			strDatePath.Format("\\%04d\\%s\\*.csv",nYear,strMonth);
+		// 
+		// 			strPath += strDatePath;
+		// 
+		// 			CFileFind finder;
+		// 			BOOL bFindFile = finder.FindFile(strPath);
+		// 			while(bFindFile){
+		// 				bFindFile = finder.FindNextFile();
+		// 				if(finder.IsDots()) continue;
+		// 				if(finder.IsDirectory())continue;
+		// 
+		// 				strFileName = finder.GetFileName();
+		// 
+		// 				if(strFileName.Find(strFindFileName) != -1){
+		// 					bErr = FALSE;
+		// 					break;
+		// 				}
+		// 			}
+		// 		}
+		// 	k
+		bErr = TRUE;
+	}
+	else {
+		bErr = FALSE;
+	}
+
+	return bErr;
+}
+
+void CLotInfoAmkorAPLDlg::OnBnClickedRadioProduction()
+{
+	m_nModeTesterIF = eTesterIF_Mode_Normal;
+}
+
+
+void CLotInfoAmkorAPLDlg::OnBnClickedRadioAudit()
+{
+	int nRet = ShowLogInBox();
+
+	if (nRet == FALSE)
+	{
+		m_nModeTesterIF = eTesterIF_Mode_Normal;
+		UpdateData(FALSE);
+		return;
+	}
+
+	m_nModeTesterIF = eTesterIF_Mode_Audit;
+}
+
+
+void CLotInfoAmkorAPLDlg::OnBnClickedRadioLoop()
+{
+	int nRet = ShowLogInBox();
+
+	if (nRet == FALSE)
+	{
+		m_nModeTesterIF = eTesterIF_Mode_Normal;
+		UpdateData(FALSE);
+		return;
+	}
+
+
+	m_nModeTesterIF = eTesterIF_Mode_LoopTest;
+}
+
+
+void CLotInfoAmkorAPLDlg::OnBnClickedRadioGrr()
+{
+	int nRet = ShowLogInBox();
+
+	if (nRet == FALSE)
+	{
+		m_nModeTesterIF = eTesterIF_Mode_Normal;
+		UpdateData(FALSE);
+		return;
+	}
+
+	m_nModeTesterIF = eTesterIF_Mode_Grr;
+}
+
+void CLotInfoAmkorAPLDlg::CompanySetting()
+{
+
+	int nProjectOption = g_DMCont.m_dmEQP.GN(NDM0_Handler_Project_Name);
+
+	char szCompany[16] = { 0, };
+	g_DMCont.m_dmHandlerOpt.GS(SDM11_Company, szCompany, sizeof(szCompany));
+
+// 	if (m_nFTRCQC == eStartMD_Auto2DIDSort || m_nFTRCQC == eStartMD_Auto2DIDSort_Continue)
+// 	{
+		GetDlgItem(IDC_RADIO_AUTO_2DID_SORT)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_RADIO_AUTO_2DID_SORT_CONTINUE)->ShowWindow(SW_SHOW);
+		BarcodeSortShowHide(SW_SHOW);
+//	}
+
+	GetDlgItem(IDC_RADIO_AUTO_AUDIT)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_RADIO_AUTO_AUDIT_CONTINUE)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_RADIO_AUTO_LOOP)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_RADIO_AUTO_LOOP_CONTINUE)->ShowWindow(SW_HIDE);
+
+	GetDlgItem(IDC_RADIO_AUTO_2DID_SORT)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_RADIO_AUTO_2DID_SORT_CONTINUE)->ShowWindow(SW_HIDE);
+	BarcodeSortShowHide(SW_HIDE);
+	
+	GetDlgItem(IDC_STATIC_THEORY_UPH)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_EDIT_THEORETICAL)->ShowWindow(SW_HIDE);
+	
+}
+
+
+
+void CLotInfoAmkorAPLDlg::OnBnClickedButton2didSortPath()
+{
+	CString szFilter = "All Files(*.csv)|*.csv||";
+	CString filetype = "*.*";
+
+	CFileDialog dlg(TRUE, NULL, NULL, OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST, szFilter);
+
+	if (dlg.DoModal() == IDOK)
+	{
+		CString str2DIDSortPath = dlg.GetPathName();
+		m_str2DIDSortPath = str2DIDSortPath;
+		UpdateData(FALSE);
+	}
+}
+
+void CLotInfoAmkorAPLDlg::BarcodeSortShowHide(int nShow)
+{
+	if (nShow == SW_SHOW)
+	{
+		GetDlgItem(IDC_STATIC_2DID_SORT_PATH)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_EDIT_2DID_SORT_PATH)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_BUTTON_2DID_SORT_PATH)->ShowWindow(SW_SHOW);
+	}
+	else
+	{
+		GetDlgItem(IDC_STATIC_2DID_SORT_PATH)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_EDIT_2DID_SORT_PATH)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_BUTTON_2DID_SORT_PATH)->ShowWindow(SW_HIDE);
+	}
+}
+
+BOOL CLotInfoAmkorAPLDlg::FileNameLimit(CString strName)
+{
+	BOOL bFind = TRUE;
+	if (strName.Find(_T("\\")) != -1) bFind = FALSE;
+	else if (strName.Find(_T("/")) != -1) bFind = FALSE;
+	else if (strName.Find(_T(":")) != -1) bFind = FALSE;
+	else if (strName.Find(_T("*")) != -1) bFind = FALSE;
+	else if (strName.Find(_T("?")) != -1) bFind = FALSE;
+	else if (strName.Find(_T('"')) != -1) bFind = FALSE;
+	else if (strName.Find(_T("<")) != -1) bFind = FALSE;
+	else if (strName.Find(_T(">")) != -1) bFind = FALSE;
+	else if (strName.Find(_T("|")) != -1) bFind = FALSE;
+	//else if (strName.Find(_T(";")) != -1) bFind = FALSE;
+	else if (strName.Find(_T(",")) != -1) bFind = FALSE;
+
+	if (bFind == FALSE) return FALSE;
+
+	return TRUE;
+}
+
+
+BOOL CLotInfoAmkorAPLDlg::ShowLogInBox()
+{
+	char szCompany[16] = { 0, };
+	g_DMCont.m_dmHandlerOpt.GS(SDM11_Company, szCompany, sizeof(szCompany));
+	int nProjectOption = g_DMCont.m_dmEQP.GN(NDM0_Handler_Project_Name);
+
+	CMainFrame* pMainFrm = (CMainFrame*)AfxGetMainWnd();
+	//CSLTView* pSltView = (CSLTView*)((CMainFrame*)AfxGetMainWnd())->GetActiveView();
+
+
+	int nUserLevel = m_pSltView->m_nLogInLv;
+	int nRetLevel = 0;
+
+	// 이전 선택이 Use였고, 현재 변경 된 Status가 Not Use 일 경우만 판단 & 사용자 Level이 Engineer 이하 등급일 경우[현재 로그인 상태 포함]
+
+	BOOL bRet = g_LibCommCtrl.ShowLogInBox(nUserLevel, &nRetLevel);
+
+	if (RETURN_OK == bRet)
+		return TRUE;
+	else
+		return FALSE;
+}
+
+void CLotInfoAmkorAPLDlg::CheckHandlerMode(int nID)
+{
+	int nIDC = IDC_RADIO_FT;
+	switch (nID)
+	{
+	case eStartMD_Initial: { nIDC = IDC_RADIO_FT; } break;
+	case eStartMD_Retest: {nIDC = IDC_RADIO_RC;  } break;
+	case eStartMD_AutoGRR: {  nIDC = IDC_RADIO_AUTO_GRR;  } break;
+	case eStartMD_QA: {  nIDC = IDC_RADIO_QA;  } break;
+	case eStartMD_AutoLoop: {nIDC = IDC_RADIO_AUTO_LOOP;  } break;
+	case eStartMD_InitContinue: {  nIDC = IDC_RADIO_FT_CONTINUE;  } break;
+	case eStartMD_RetestContinue: {  nIDC = IDC_RADIO_RC_CONTINUE;  } break;
+	case eStartMD_AutoGRR_Continue: { nIDC = IDC_RADIO_AUTO_GRR_CONTINUE;  } break;
+	case eStartMD_QA_Continue: {   nIDC = IDC_RADIO_QA_CONTINUE; } break;
+	case eStartMD_AutoLoop_Continue: { nIDC = IDC_RADIO_AUTO_LOOP_CONTINUE;  } break;
+	default: { }break;
+	}
+
+	CButton* pButton = (CButton*)GetDlgItem(nIDC);
+	pButton->SetCheck(true);
+}
+
+
+void CLotInfoAmkorAPLDlg::Set2dMark()
+{
+	char szCompany[16] = { 0, };
+	g_DMCont.m_dmHandlerOpt.GS(SDM11_Company, szCompany, sizeof(szCompany));
+	
+
+	if (strcmp(szCompany, DEF_COMPANY_AMKOR) == 0) {
+		BOOL bIsFileExist = FindSavedDeviceName(m_strDeviceName);
+		if (bIsFileExist == TRUE)
+		{
+			//API Device Name에 맞는 2D Mark 저장.		
+			char szDeviceName_Api[MAX_PATH] = { 0, };
+			sprintf_s(szDeviceName_Api, sizeof(szDeviceName_Api), m_strDeviceName);
+			
+			//COk Name
+			char szCokName[MAX_PATH] = { 0, };
+			g_DMCont.m_dmHandlerOpt.GS(SDM11_TrayFileName, szCokName, sizeof(szCokName));
+
+			//Device Name
+			//현재 Device Mark 가져 온다.
+			ST_2D_MARK_INFO lpstData;
+			sprintf_s(lpstData.szDeviceName, sizeof(lpstData.szDeviceName), szDeviceName_Api);
+			g_COK_FileMgr.Load2dMarkInfo(szCokName, lpstData);
+
+
+			//==============================공유 메모리 저장.
+			//Device Name
+			g_DMCont.m_dmHandlerOpt.SS(SDM11_2D_DEVICE_NAME, szDeviceName_Api, sizeof(szDeviceName_Api));
+
+			//2D Mark List
+			CString str2DMark = _T("");
+
+			int nMarkCnt = lpstData.v2dMarkList.size();
+			for (int i = 0; i < nMarkCnt; i++) {
+				CString temp = lpstData.v2dMarkList[i];
+				temp += ",";
+
+				str2DMark += temp;
+			}
+			str2DMark.Replace(" ", "");
+
+			char szCur2dMark[MAX_PATH] = { 0, };
+			sprintf_s(szCur2dMark, sizeof(szCur2dMark), str2DMark);
+			g_DMCont.m_dmHandlerOpt.SS(SDM11_2D_MARK_LIST, szCur2dMark, sizeof(szCur2dMark));
+
+			//===============================File Data 저장.
+			ST_COK_INFO     stCokData, stBeforeCokData;
+			g_COK_FileMgr.LoadCokInfo(szCokName, stCokData);
+
+			stBeforeCokData = stCokData;
+
+			strcpy_s(stCokData.sz2dDeviceName, lpstData.szDeviceName);
+			strcpy_s(stCokData.sz2dMarkList, szCur2dMark);
+
+			g_COK_FileMgr.SaveCokInfo(szCokName, &stCokData);
+
+
+			//=================================변경 사항 Log 기록.
+			//Device Name & Mark List Check
+			std::vector<std::pair<CString, std::pair<CString, CString>>> vData2dMark;
+			stBeforeCokData.IsSame2DMark(stCokData, vData2dMark);
+			if (!(vData2dMark.empty()))
+			{
+				BarcodeMarkChangeLog(vData2dMark);
+			}
+		}
+	}
+	
+}
+
+BOOL CLotInfoAmkorAPLDlg::FindSavedDeviceName(CString strApiDeviceName)
+{
+	BOOL bRet = FALSE;
+
+	char szCokName[512] = { 0, };
+	g_DMCont.m_dmHandlerOpt.GS(SDM11_TrayFileName, szCokName, sizeof(szCokName));
+
+	_chdir("SYS_DATA");
+	_chdir("HandlerRecipe");
+	_chdir(SZ_TRAY_FOLDER);
+	_chdir(szCokName);
+	_chdir(SZ_2D_MARK_FOLDER);
+	CFileFind finder;
+	BOOL endf = finder.FindFile();
+
+
+	while (endf)
+	{
+		endf = finder.FindNextFile();
+		CString strExt = finder.GetFileName();
+
+		if (!finder.IsDots() && !finder.IsDirectory())
+		{
+			strExt.Replace(".dat", "");
+		
+			//File Device Name에 APL Device Name에 있는지 확인.
+			if (strExt.Compare(strApiDeviceName) == 0) {
+				bRet = TRUE;
+				break;
+			}			
+		}
+		NEXT;
+	}
+
+	_chdir("..");
+	_chdir("..");
+	_chdir("..");
+	_chdir("..");
+	_chdir("..");
+
+	return bRet;
+}

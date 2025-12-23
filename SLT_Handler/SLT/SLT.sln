@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SLT", "SLT.vcxproj", "{94BD3981-67A0-41B9-AAB6-06D6E6A62337}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LIB_COK_FILE", "..\Dll_Src\LIB_COK_FILE\LIB_COK_FILE\LIB_COK_FILE.vcxproj", "{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Remote_Debug|Win32 = Remote_Debug|Win32
+		Remote_Release|Win32 = Remote_Release|Win32
+		Remoter_Debug|Win32 = Remoter_Debug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Debug|Win32.ActiveCfg = Debug|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Debug|Win32.Build.0 = Debug|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Release|Win32.ActiveCfg = Release|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Release|Win32.Build.0 = Release|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Remote_Debug|Win32.ActiveCfg = Remote_Release|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Remote_Debug|Win32.Build.0 = Remote_Release|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Remote_Release|Win32.ActiveCfg = Remote_Release|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Remote_Release|Win32.Build.0 = Remote_Release|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Remoter_Debug|Win32.ActiveCfg = Remoter_Debug|Win32
+		{94BD3981-67A0-41B9-AAB6-06D6E6A62337}.Remoter_Debug|Win32.Build.0 = Remoter_Debug|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Debug|Win32.Build.0 = Debug|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Release|Win32.ActiveCfg = Release|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Release|Win32.Build.0 = Release|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Remote_Debug|Win32.ActiveCfg = Remote_Debug|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Remote_Debug|Win32.Build.0 = Remote_Debug|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Remote_Release|Win32.ActiveCfg = Release|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Remote_Release|Win32.Build.0 = Release|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Remoter_Debug|Win32.ActiveCfg = Debug|Win32
+		{D9863B8D-D57F-4DDF-9FA0-A020C72B864E}.Remoter_Debug|Win32.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

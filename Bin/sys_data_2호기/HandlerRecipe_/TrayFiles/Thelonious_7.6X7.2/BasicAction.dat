@@ -1,0 +1,165 @@
+[User Config]
+AutoSkip=0
+Contact=0
+Temperature=0
+TestSiteVision=0
+AutoSkipCount=0
+TestSiteRetouch=0
+TestSiteRetouch_Distance=0
+[Drop Mode]
+Drop Height=0
+Drop Timer=0
+[Off Line]
+Test Time=0
+BinRandom=0
+[Machine Config]
+Run Mode=0
+Start Mode=0
+Lot Control=0
+Auto Retest Test PP=0
+Auto Retest Kind Test PP=0
+Device Mode=0
+ExistAAB=0
+ExistTestPP=0
+After ExistTestPP=0
+ExistTestPP_Sensor=0
+PressDeviceCheck=1
+PressDeviceCheckOption=0
+TestPP_ArtDevice_PickPlace=1
+TestPP_PreVacuum=0
+TrayPP_PreVacuum=0
+PnPSiteArrivedSen=0
+PnPSiteMoveArrivedSen=0
+TestppStationFR_PNP=0
+Station1_SocketOnOff=0,0,0,0,0,0,0,0
+Station2_SocketOnOff=0,0,0,0,0,0,0,0
+Station3_SocketOnOff=0,0,0,0,0,0,0,0
+Station4_SocketOnOff=0,0,0,0,0,0,0,0
+Station5_SocketOnOff=0,0,0,0,0,0,0,0
+Station6_SocketOnOff=0,0,0,0,0,0,0,0
+Station7_SocketOnOff=0,0,0,0,0,0,0,0
+Station8_SocketOnOff=0,0,0,0,0,0,0,0
+Station9_SocketOnOff=0,0,0,0,0,0,0,0
+Station10_SocketOnOff=0,0,0,0,0,0,0,0
+Station11_SocketOnOff=0,0,0,0,0,0,0,0
+Station12_SocketOnOff=0,0,0,0,0,0,0,0
+Station13_SocketOnOff=0,0,0,0,0,0,0,0
+Station14_SocketOnOff=0,0,0,0,0,0,0,0
+Station15_SocketOnOff=0,0,0,0,0,0,0,0
+Station16_SocketOnOff=0,0,0,0,0,0,0,0
+[Contact Force]
+Pin Ball=0
+GF=0
+[Vibrator]
+UnLoad Device Action Count=0
+Action Delay Time=0.0
+Active Count=0
+Vibrator Option=0
+Vibrator Retry Count=0
+Vibrator Delay Time=0.0
+Alway Vibrator Option=0
+Alway Vibrator Retry Count=0
+Alway Vibrator Delay Time=0.0
+[Yield Monitoring]
+Continue Failure Count=0
+Yield Monitor=0
+Event Type=0
+Retest Yield=0
+Sample Quantity=0
+Preset Counter=0
+Low Yield=0
+Variance=0
+Continue Failure Count Station=0
+ModeAutoKill=0
+Consecutive Fail AutoKill=0
+Consecutive Fail AutoKill Station=0
+[Load Table]
+ArrivedSen=0
+2D Barcode=0
+ImpactTbl=0
+No Duplication Check 2D Barcode=0
+Barcode Retry=0
+Vibrator Option=0
+Vibrator Retry Count=0
+Vibrator Delay Time=0.0
+Wait Time=0.0
+[Category]
+Name=Test
+[SLT PGM]
+Name=Test
+[Lot Info]
+LotNo=None
+ScheduleNo=None
+OperID=None
+DeviceName=None
+PgmName=None
+CustomerName=None
+[Device Info]
+Dimension X=1
+Dimension Y=1
+[Socket Clean]
+MD_SocketClean=0
+MD_CleanLoadTblArrived=0
+SockClnContactTm=0
+SockClnContactCnt=0
+SockClnAlarmCnt=0
+SockClnPiecesCnt=0
+SockClnIntervalCnt=0
+MD_CleanInitStart=0
+MD_CleanInitRetestStart=0
+MD_CleanIntervalCnt=0
+MD_CleanLowYield=0
+SockClnLowYield=0
+MD_EventType=0
+SockClnContactDelayTime=0
+[GRR]
+TestCount=0
+UnitCount=0
+SOTDelayTime=0
+Device_swap=0
+Audit_loop=0
+AutoGrrMode=0
+GRRStation1_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation2_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation3_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation4_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation5_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation6_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation7_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation8_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation9_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation10_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation11_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation12_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation13_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation14_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation15_SocketOnOff=0,0,0,0,0,0,0,0
+GRRStation16_SocketOnOff=0,0,0,0,0,0,0,0
+[Loop]
+TestCount=0
+UnitCount=0
+SOTDelayTime=0
+AutoLoopMode=0
+AutoLoopRePickPlaceCount=0
+AutoLoopReContactCount=0
+[Audit]
+TestCount=0
+UnitCount=0
+SOTDelayTime=0
+AutoAuditMode=0
+AuditStation1_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation2_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation3_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation4_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation5_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation6_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation7_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation8_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation9_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation10_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation11_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation12_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation13_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation14_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation15_SocketOnOff=0,0,0,0,0,0,0,0
+AuditStation16_SocketOnOff=0,0,0,0,0,0,0,0

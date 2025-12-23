@@ -1,0 +1,994 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{60cacb19-9837-4d37-83d0-782dca6a23dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OcxFiles">
+      <UniqueIdentifier>{256e9e5c-97e1-46ae-b68c-eab9f0425876}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\SLT.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SLTDoc.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SLT.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Run.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Stop.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\TWlogo.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Plate_Form.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Exit_Save\Save.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Exit_Save\Exit.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Clear\Clear.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Setup\Event Log\Log.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Export_Import\Import.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Export_Import\Export.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Online_Offline_Demo\Online.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Online_Offline_Demo\Offline.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Online_Offline_Demo\Demo.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\modify\modify.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\new\New.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\ChangeKit\KitChange.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Base\favicon.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Direct_Drop\Drop.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Direct_Drop\Direct.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ico\online_offline_demo\icon2.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Alignment\Alignment.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\DIO\favicon.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\MotorMonitor\MotorMonitor.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Setup\Event Log\Log2.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\offset\Offset.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Speed\Speed.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Timer\Timer.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\SiteMap\SiteMap.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\CategorySetup\CategorySetup2.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\interface\InterfaceSetting.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Device Setup\DeviceSetup.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\SLT Program\SLT_PGM2.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Yield\YieldCtrl.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Contact\Contact.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\position\Position.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\FileChangae\FileChange.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Counter\Counter.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Lot Info\LotInfo.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\print\favicon.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\AutoSkip\AutoSkip.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\AutoSkip\AutoSkipOn.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Level\Oper.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Level\Setup.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Level\Engr.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Level\Main.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Exit_Save\Exit2.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Level\Oper2.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Level\Supervisor.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Speed\Speed2.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Speed\Speed3.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Speed\Speed4.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00001.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00002.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00003.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00004.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00005.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00006.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00007.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00008.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00009.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00010.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00011.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00012.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00013.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00014.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00015.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00016.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00017.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00018.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00019.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00020.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00021.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00022.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00023.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00024.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00025.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00026.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00027.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00028.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00029.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00030.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00031.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\SiteMap\bmp00032.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Network\Server.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\TrayMap\TrayMap.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\User\Register.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\DeviceMode\device.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\DeviceMode\no_device.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\DeviceMode\nodevice_notray.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ico\Vibrator\Vibrator.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ico\Vision\Barcode.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ico\Vision\vision_down.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ico\Vision\vision_up.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Vibrator\Vibrator.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Aio.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Dio.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Cleaning\Cleaning.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\FTP\laptop.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Tower\Tower.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\TrayAssign.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\UpdateHistory.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\TrayMap\DataAssign.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\TrayMap\TrayAssign.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\TrayAssign_MP.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\GRR_DATA.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\GRR_SET.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\One Cycle.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ICO\Stop_Btn.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SLT.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SLTDoc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SLTView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLogDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TrayMapDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="EngrDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SetupDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="YieldSetDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceSetup.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SltPgmSetDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CategorySetupDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CategorySetupBinDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TrayFileSetupDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UserOper.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainLowerDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SupervisorDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_COMMON.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_SLT_MC.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_0.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_1.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_10.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_11.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_12.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_2.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_3.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_4.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_5.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_6.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_7.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_8.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_9.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_SLT_GUI.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="SPD_TM_TRAY_PP.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SPD_TM_TEST_PP.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SPD_MotorAll.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DataMemCont.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SPD_TM_LoadTbl.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SPD_TM_PressUnit.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SPD_TM_Transfer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterCustomer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterDeviceName.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterPgmName.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterTrayFile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TrayViewLoad.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TrayViewUnload.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MCComm.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_ERROR_CODE.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_EVENT_CODE.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="VibratorDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="YieldMonitorDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="afxcmn.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CCDSetupDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketCleaning.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgTesterPgmSet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DataAssignDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FilePathDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LotInfoAmkorDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateHistory.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterCetagory.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearCntDlg_64Para.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TrayViewTestSite.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainLower_TabPassFail.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainLower_TabYield.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SiteSetDlg_128Para.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainLower_TabLastDecs.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UserOffSetTestPp_MP.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DotMatrix_Drv.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DotMatrix_Comm.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLog_List.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLog_Frequency.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DailyReport.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoLoopSetDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DEVICE_DATA.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\calendar.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\CellMapStatic.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\dsspanel.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\font.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\gradientprogress.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\mdccombo.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\mdclist.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\mdctext.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\MSCOMM.H">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\nokey.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\picture.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\spreadsheet.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\OcxFiles\sscommand.h">
+      <Filter>OcxFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\DEF_DM_13.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoGrrResultDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoGrrSetDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CBSpeedListCtrl.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="OEE.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SPD_TM_FEEDER.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLog_Teach.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoQASetDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgTableVacuumCheck.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BarcodeValidateSetupDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Register2dDeviceName.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BarcodeMarkSetupDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LotInfoAmkorAPLDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgAlarmZoom.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TrayViewStacker.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SLT.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SLTDoc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SLTView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EventLogDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayMapDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EngrDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SetupDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="YieldSetDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceSetup.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SltPgmSetDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CategorySetupDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CategorySetupBinDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayFileSetupDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UserOper.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainLowerDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SupervisorDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SPD_TM_TRAY_PP.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SPD_TM_TEST_PP.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SPD_MotorAll.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DataMemCont.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SPD_TM_LoadTbl.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SPD_TM_PressUnit.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SPD_TM_Transfer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterCustomer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterDeviceName.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterPgmName.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterTrayFile.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayViewLoad.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayViewUnload.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MCComm.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="VibratorDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="YieldMonitorDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CCDSetupDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketCleaning.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgTesterPgmSet.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DataAssignDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoGrrResultDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoGrrSetDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FilePathDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LotInfoAmkorDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateHistory.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterCetagory.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearCntDlg_64Para.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayViewTestSite.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainLower_TabPassFail.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainLower_TabYield.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SiteSetDlg_128Para.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainLower_TabLastDecs.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UserOffSetTestPp_MP.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DotMatrix_Comm.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DotMatrix_Drv.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EventLog_List.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EventLog_Frequency.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DailyReport.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CBSpeedListCtrl.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoLoopSetDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\calendar.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\CellMapStatic.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\dsspanel.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\font.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\gradientprogress.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\mdccombo.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\mdclist.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\mdctext.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\MSCOMM.CPP">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\nokey.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\picture.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\spreadsheet.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\OcxFiles\sscommand.cpp">
+      <Filter>OcxFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="OEE.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SPD_TM_FEEDER.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EventLog_Teach.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayViewStacker.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoQASetDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgTableVacuumCheck.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BarcodeValidateSetupDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Register2dDeviceName.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BarcodeMarkSetupDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LotInfoAmkorAPLDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgAlarmZoom.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SLT.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\sitemap\bitmap1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ico\icon4.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\iMotor\iMotor.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Motor\motor.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Report\Report.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Report\Daily.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Loop\Loop.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Audit\Audit.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\SocketCount\SocketCount.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\CBCheck\CBCheck.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ico\icon6.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Ionizer\Ionizer.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Vision_Auto_Teaching\VATMain.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\TrayViewStacker.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\sitemap\bitmap2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\Door.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Barcode\Barcode Setting.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ico\icon8.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\ICO\Barcode\Barcode Validate.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

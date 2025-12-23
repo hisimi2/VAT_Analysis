@@ -1,0 +1,95 @@
+[User Config]
+AutoSkip=0
+Contact=0
+Temperature=0
+TestSiteVision=0
+AutoSkipCount=0
+[Drop Mode]
+Drop Height=0
+Drop Timer=0
+[Off Line]
+Test Time=0
+[Machine Config]
+Run Mode=0
+Start Mode=0
+Lot Control=0
+Auto Retest Test PP=0
+Auto Retest Kind Test PP=0
+Device Mode=0
+ExistAAB=0
+ExistTestPP=0
+ExistTestPP_Sensor=0
+SocketOnOff 1=1
+SocketOnOff 2=1
+SocketOnOff 3=1
+SocketOnOff 4=1
+SocketOnOff 5=1
+SocketOnOff 6=1
+SocketOnOff 7=1
+SocketOnOff 8=1
+SocketOnOff 9=1
+SocketOnOff 10=1
+SocketOnOff 11=1
+SocketOnOff 12=1
+SocketOnOff 13=1
+SocketOnOff 14=1
+SocketOnOff 15=1
+SocketOnOff 16=1
+[Contact Force]
+Pin Ball=0
+GF=0.000000
+[Vibrator]
+UnLoad Setplate1 Level=0
+UnLoad Setplate2 Level=0
+UnLoad Setplate3 Level=0
+UnLoad Setplate4 Level=0
+UnLoad Setplate1 Delay Time=0
+UnLoad Setplate2 Delay Time=0
+UnLoad Setplate3 Delay Time=0
+UnLoad Setplate4 Delay Time=0
+UnLoad Setplate Active Count=0
+Action Mode=0
+[Yield Monitoring]
+Continue Failure Count=0
+Yield Monitor=0
+Event Type=0
+Retest Yield=0
+Sample Quantity=0
+Preset Counter=0
+Low Yield=0.000000
+Variance=0.000000
+ModeAutoKill=0
+[Load Table]
+ArrivedSen=0
+2D Barcode=0
+ImpactTbl=0
+HorVerType=0
+No Duplication Check 2D Barcode=0
+[Category]
+Name=Test
+[SLT PGM]
+Name=Test
+[Lot Info]
+LotNo=TestLotA
+ScheduleNo=1QA1
+OperID=dddd
+DeviceName=None
+PgmName=None
+CustomerName=None
+[Device Info]
+Dimension X=1
+Dimension Y=1
+[Socket Clean]
+MD_SocketClean=0
+MD_CleanLoadTblArrived=0
+SockClnContactTm=0
+SockClnContactCnt=0
+SockClnAlarmCnt=0
+SockClnPiecesCnt=0
+SockClnIntervalCnt=0
+MD_CleanInitStart=0
+MD_CleanInitRetestStart=0
+MD_CleanIntervalCnt=0
+MD_CleanLowYield=0
+SockClnLowYield=0.000000
+MD_EventType=0

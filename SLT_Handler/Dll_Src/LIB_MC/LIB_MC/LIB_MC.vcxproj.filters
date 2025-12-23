@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Motion">
+      <UniqueIdentifier>{c4f22c00-fba6-495d-b17b-d2169dbf9938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DIO">
+      <UniqueIdentifier>{cc5964b0-8d8a-40a8-b3e1-a0432890f736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AIO">
+      <UniqueIdentifier>{aaa38e39-6418-4782-ae6d-d770a792129b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DIO\Sycon">
+      <UniqueIdentifier>{450b4eb6-bb7b-47c2-aabd-4e3b1005fa53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DIO\Contec">
+      <UniqueIdentifier>{824f6925-a1e2-4a12-b60a-e0f91d589577}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DIO\Techwing">
+      <UniqueIdentifier>{6e0c4137-6957-450e-ac86-2bb6e58b7e6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DIO\Simulator">
+      <UniqueIdentifier>{15fb8b84-b178-4b37-a8be-ce4d4a439235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AIO\Simulator">
+      <UniqueIdentifier>{753bee4b-9c68-43fd-9fda-cf45242e2ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AIO\Sycon">
+      <UniqueIdentifier>{c19bb6a5-c551-42cd-907b-bd8fcbef8a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Motion\MMC">
+      <UniqueIdentifier>{3aa31bc8-8d56-4692-ae4c-2f59a4d33e0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Motion\Simulator">
+      <UniqueIdentifier>{2348d594-e159-4c68-a395-4b2e46082752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Motion\OneAxis">
+      <UniqueIdentifier>{fcb3e7ee-4b9d-4680-97fb-dd5eb06520d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DIO\SoftServo">
+      <UniqueIdentifier>{3c47a35a-4333-49fb-a773-0cd2394d60ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Motion\MotorZPicker">
+      <UniqueIdentifier>{b744cea3-9a08-4dfe-971b-421195b50aac}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="LIB_MC.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\LIB_MC.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\DI_OFF.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\DI_ON.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\DO_OFF.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\DO_ON.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LIB_MC.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Motion_Cont.cpp">
+      <Filter>Motion</Filter>
+    </ClCompile>
+    <ClCompile Include="Motion_Cont_Imp.cpp">
+      <Filter>Motion</Filter>
+    </ClCompile>
+    <ClCompile Include="AIO_Cont.cpp">
+      <Filter>AIO</Filter>
+    </ClCompile>
+    <ClCompile Include="DIO_Cont.cpp">
+      <Filter>DIO</Filter>
+    </ClCompile>
+    <ClCompile Include="DIO_Cont_Imp.cpp">
+      <Filter>DIO</Filter>
+    </ClCompile>
+    <ClCompile Include="DIO.cpp">
+      <Filter>DIO</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgDioAll.cpp">
+      <Filter>DIO</Filter>
+    </ClCompile>
+    <ClCompile Include="AIO_Cont_Imp.cpp">
+      <Filter>AIO</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalogIn.cpp">
+      <Filter>AIO</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalogOut.cpp">
+      <Filter>AIO</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleDatabase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DIO_CONTEC.cpp">
+      <Filter>DIO\Contec</Filter>
+    </ClCompile>
+    <ClCompile Include="DIO_SIMUL.cpp">
+      <Filter>DIO\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="DIO_SYCON.cpp">
+      <Filter>DIO\Sycon</Filter>
+    </ClCompile>
+    <ClCompile Include="DIO_Techwing.cpp">
+      <Filter>DIO\Techwing</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgDIOSimul.cpp">
+      <Filter>DIO\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="AI_SIMUL.cpp">
+      <Filter>AIO\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="AI_SYCON.cpp">
+      <Filter>AIO\Sycon</Filter>
+    </ClCompile>
+    <ClCompile Include="AO_SYCON.cpp">
+      <Filter>AIO\Sycon</Filter>
+    </ClCompile>
+    <ClCompile Include="AIO_SIMUL_DRV.cpp">
+      <Filter>AIO\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="AO_SIMUL.cpp">
+      <Filter>AIO\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgAioSimul.cpp">
+      <Filter>AIO\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgMotionSim.cpp">
+      <Filter>Motion\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgInputNum.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="OneAxis.cpp">
+      <Filter>Motion\OneAxis</Filter>
+    </ClCompile>
+    <ClCompile Include="OneAxis_Sim.cpp">
+      <Filter>Motion\OneAxis</Filter>
+    </ClCompile>
+    <ClCompile Include="SYCON_DRV.cpp" />
+    <ClCompile Include="IO_Cont_Imp.cpp" />
+    <ClCompile Include="io.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DIO_SoftServo.cpp">
+      <Filter>DIO\SoftServo</Filter>
+    </ClCompile>
+    <ClCompile Include="SoftServoControl.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BbxmnpClient.cpp">
+      <Filter>Motion\MotorZPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="OneAxis_SoftServoEtherCAT.cpp">
+      <Filter>Motion\OneAxis</Filter>
+    </ClCompile>
+    <ClCompile Include="OneAxis_Z_PickerMotor.cpp">
+      <Filter>Motion\OneAxis</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Motion_Cont.h">
+      <Filter>Motion</Filter>
+    </ClInclude>
+    <ClInclude Include="Motion_Cont_Imp.h">
+      <Filter>Motion</Filter>
+    </ClInclude>
+    <ClInclude Include="AIO_Cont.h">
+      <Filter>AIO</Filter>
+    </ClInclude>
+    <ClInclude Include="DIO_Cont.h">
+      <Filter>DIO</Filter>
+    </ClInclude>
+    <ClInclude Include="DIO_Cont_Imp.h">
+      <Filter>DIO</Filter>
+    </ClInclude>
+    <ClInclude Include="DIO.h">
+      <Filter>DIO</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgDioAll.h">
+      <Filter>DIO</Filter>
+    </ClInclude>
+    <ClInclude Include="DEF_MOTION.h">
+      <Filter>Motion</Filter>
+    </ClInclude>
+    <ClInclude Include="AIO_Cont_Imp.h">
+      <Filter>AIO</Filter>
+    </ClInclude>
+    <ClInclude Include="AnalogIn.h">
+      <Filter>AIO</Filter>
+    </ClInclude>
+    <ClInclude Include="AnalogOut.h">
+      <Filter>AIO</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleDatabase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DIO_CONTEC.h">
+      <Filter>DIO\Contec</Filter>
+    </ClInclude>
+    <ClInclude Include="DIO_SIMUL.h">
+      <Filter>DIO\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="DIO_SYCON.h">
+      <Filter>DIO\Sycon</Filter>
+    </ClInclude>
+    <ClInclude Include="DIO_Techwing.h">
+      <Filter>DIO\Techwing</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgDIOSimul.h">
+      <Filter>DIO\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="AI_SIMUL.h">
+      <Filter>AIO\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="AI_SYCON.h">
+      <Filter>AIO\Sycon</Filter>
+    </ClInclude>
+    <ClInclude Include="AO_SYCON.h">
+      <Filter>AIO\Sycon</Filter>
+    </ClInclude>
+    <ClInclude Include="AIO_SIMUL_DRV.h">
+      <Filter>AIO\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="AO_SIMUL.h">
+      <Filter>AIO\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgAioSimul.h">
+      <Filter>AIO\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgMotionSim.h">
+      <Filter>Motion\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgInputNum.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="OneAxis.h">
+      <Filter>Motion\OneAxis</Filter>
+    </ClInclude>
+    <ClInclude Include="OneAxis_Sim.h">
+      <Filter>Motion\OneAxis</Filter>
+    </ClInclude>
+    <ClInclude Include="SYCON_DRV.h" />
+    <ClInclude Include="IO_Cont_Imp.h" />
+    <ClInclude Include="io.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DIO_SoftServo.h">
+      <Filter>DIO\SoftServo</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftServoControl.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BbxmnpClient.h">
+      <Filter>Motion\MotorZPicker</Filter>
+    </ClInclude>
+    <ClInclude Include="OneAxis_SoftServoEtherCAT.h">
+      <Filter>Motion\OneAxis</Filter>
+    </ClInclude>
+    <ClInclude Include="OneAxis_Z_PickerMotor.h">
+      <Filter>Motion\OneAxis</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LIB_MC.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

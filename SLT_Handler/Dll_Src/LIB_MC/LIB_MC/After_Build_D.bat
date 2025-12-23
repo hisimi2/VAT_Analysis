@@ -1,0 +1,11 @@
+copy .\Debug\LIB_MC_D.dll ..\..\..\..\Bin
+copy .\Debug\LIB_MC_D.pdb ..\..\..\..\Bin
+copy .\Debug\LIB_MC_D.lib ..\..\..\LibFiles
+copy DEF_MOTION.h ..\..\..\Include
+copy Motion_Cont.h ..\..\..\Include
+copy OneAxis.h ..\..\..\Include
+copy TESTER_IF_Cont.h ..\..\..\Include
+copy DEF_LIB_TESTER_IF.h ..\..\..\Include
+copy DIO_Cont.h ..\..\..\Include
+copy AIO_Cont.h ..\..\..\Include
+copy TIFWnd.h ..\..\..\Include

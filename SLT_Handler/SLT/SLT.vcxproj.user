@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerWorkingDirectory>..\..\Bin</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <ShowAllFiles>false</ShowAllFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remoter_Debug|Win32'">
+    <LocalDebuggerWorkingDirectory>..\..\Bin</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsRemoteDebugger</DebuggerFlavor>
+    <ShowAllFiles>false</ShowAllFiles>
+    <RemoteDebuggerCommand>\\192.168.100.100\TW\bin\SLT_D.exe</RemoteDebuggerCommand>
+    <RemoteDebuggerWorkingDirectory>\\192.168.100.100\TW\bin\</RemoteDebuggerWorkingDirectory>
+    <RemoteDebuggerServerName>192.168.100.100</RemoteDebuggerServerName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerWorkingDirectory>..\..\Bin</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Remote_Release|Win32'">
+    <LocalDebuggerWorkingDirectory>..\..\Bin</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsRemoteDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>$(TargetPath)</LocalDebuggerCommand>
+    <RemoteDebuggerWorkingDirectory>\\192.168.100.100\TW\bin\</RemoteDebuggerWorkingDirectory>
+    <RemoteDebuggerCommand>\\192.168.100.100\TW\bin\SLT.exe</RemoteDebuggerCommand>
+    <RemoteDebuggerCommandArguments>
+    </RemoteDebuggerCommandArguments>
+    <RemoteDebuggerServerName>192.168.100.100</RemoteDebuggerServerName>
+  </PropertyGroup>
+</Project>

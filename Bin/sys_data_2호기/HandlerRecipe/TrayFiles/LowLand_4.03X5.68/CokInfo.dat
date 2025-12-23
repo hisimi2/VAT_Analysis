@@ -1,0 +1,393 @@
+[Tray PP]
+X SPD=30
+X ACC=30
+X DCC=30
+Y SPD=30
+Y ACC=30
+Y DCC=30
+Z SPD=30
+Z ACC=30
+Z DCC=30
+X Pitch SPD=30
+X Pitch ACC=30
+X Pitch DCC=30
+Y Pitch SPD=30
+Y Pitch ACC=30
+Y Pitch DCC=30
+Vacuum Time=200
+Blow Time=200
+Retry Count=0
+Cylinder Down Wait=250
+Pick 1Stage Offset=2000
+Pick 1Stage Speed=20000
+[Test PP 1]
+X SPD=30
+X ACC=30
+X DCC=30
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=250
+Blow Time=300
+Retry Count=0
+Cylinder Down Wait=100
+Motor Wait=100
+X1 SPD=100
+X1 ACC=100
+X1 DCC=100
+X2 SPD=100
+X2 ACC=100
+X2 DCC=100
+Z1 SPD=100
+Z1 ACC=100
+Z1 DCC=100
+Z2 SPD=100
+Z2 ACC=100
+Z2 DCC=100
+X1 Pitch SPD=100
+X1 Pitch ACC=100
+X1 Pitch DCC=100
+X2 Pitch SPD=100
+X2 Pitch ACC=100
+X2 Pitch DCC=100
+Y1 Pitch SPD=100
+Y1 Pitch ACC=100
+Y1 Pitch DCC=100
+Y2 Pitch SPD=100
+Y2 Pitch ACC=100
+Y2 Pitch DCC=100
+Pick 1Stage Offset=1
+Pick 1Stage Speed=1
+[Test PP 2]
+X SPD=30
+X ACC=30
+X DCC=30
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=250
+Blow Time=300
+Retry Count=0
+Cylinder Down Wait=50
+Motor Wait=100
+X1 SPD=100
+X1 ACC=100
+X1 DCC=100
+X2 SPD=100
+X2 ACC=100
+X2 DCC=100
+Z1 SPD=100
+Z1 ACC=100
+Z1 DCC=100
+Z2 SPD=100
+Z2 ACC=100
+Z2 DCC=100
+X1 Pitch SPD=100
+X1 Pitch ACC=100
+X1 Pitch DCC=100
+X2 Pitch SPD=100
+X2 Pitch ACC=100
+X2 Pitch DCC=100
+Y1 Pitch SPD=100
+Y1 Pitch ACC=100
+Y1 Pitch DCC=100
+Y2 Pitch SPD=100
+Y2 Pitch ACC=100
+Y2 Pitch DCC=100
+Pick 1Stage Offset=1
+Pick 1Stage Speed=1
+[Test PP 3]
+X SPD=90
+X ACC=90
+X DCC=90
+Y SPD=90
+Y ACC=90
+Y DCC=90
+Z SPD=90
+Z ACC=90
+Z DCC=90
+Vacuum Time=200
+Blow Time=200
+Retry Count=0
+Cylinder Down Wait=250
+Motor Wait=100
+[Test PP 4]
+X SPD=90
+X ACC=90
+X DCC=90
+Y SPD=90
+Y ACC=90
+Y DCC=90
+Z SPD=90
+Z ACC=90
+Z DCC=90
+Vacuum Time=200
+Blow Time=200
+Retry Count=0
+Cylinder Down Wait=250
+Motor Wait=100
+[Press Unit 1]
+Z SPD=100
+Z ACC=100
+Z DCC=100
+Vacuum Time=0
+Blow Time=100
+[Press Unit 2]
+Z SPD=100
+Z ACC=100
+Z DCC=100
+Vacuum Time=0
+Blow Time=100
+[Press Unit 3]
+Z SPD=100
+Z ACC=100
+Z DCC=100
+Vacuum Time=0
+Blow Time=100
+[Press Unit 4]
+Z SPD=100
+Z ACC=100
+Z DCC=100
+Vacuum Time=0
+Blow Time=100
+[Press Unit 5]
+Z SPD=100
+Z ACC=100
+Z DCC=100
+Vacuum Time=0
+Blow Time=100
+[Press Unit 6]
+Z SPD=100
+Z ACC=100
+Z DCC=100
+Vacuum Time=0
+Blow Time=100
+[Press Unit 7]
+Z SPD=100
+Z ACC=100
+Z DCC=100
+Vacuum Time=0
+Blow Time=100
+[Press Unit 8]
+Z SPD=100
+Z ACC=100
+Z DCC=100
+Vacuum Time=0
+Blow Time=100
+[Press Unit 9]
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=0
+Blow Time=100
+[Press Unit 10]
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=0
+Blow Time=100
+[Press Unit 11]
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=0
+Blow Time=100
+[Press Unit 12]
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=0
+Blow Time=100
+[Press Unit 13]
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=0
+Blow Time=100
+[Press Unit 14]
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=0
+Blow Time=100
+[Press Unit 15]
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=0
+Blow Time=100
+[Press Unit 16]
+Z SPD=30
+Z ACC=30
+Z DCC=30
+Vacuum Time=0
+Blow Time=100
+[LoadTbl 1]
+X SPD=30
+X ACC=30
+X DCC=30
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Rotate SPD=100
+Rotate ACC=100
+Rotate DCC=100
+[LoadTbl 2]
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Rotate SPD=100
+Rotate ACC=100
+Rotate DCC=100
+[LoadTbl 3]
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Rotate SPD=100
+Rotate ACC=100
+Rotate DCC=100
+[LoadTbl 4]
+X SPD=90
+X ACC=90
+X DCC=90
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Rotate SPD=100
+Rotate ACC=100
+Rotate DCC=100
+[EV Transfer 1L]
+X SPD=100
+X ACC=100
+X DCC=100
+Z SPD=100
+Z ACC=100
+Z DCC=100
+[EV Transfer 2R]
+X SPD=100
+X ACC=100
+X DCC=100
+Z SPD=100
+Z ACC=100
+Z DCC=100
+[Transfer]
+X SPD=100
+X ACC=100
+X DCC=100
+Z1 LH SPD=80
+Z1 LH ACC=80
+Z1 LH DCC=80
+Z2 RH SPD=80
+Z2 RH ACC=80
+Z2 RH DCC=80
+Cylinder Down Wait=100
+[Tray Form]
+Start X Pitch=8150
+Start Y Pitch=7900
+X Pitch=9200
+Y Pitch=8800
+X Count=14
+Y Count=35
+Thickness=5620
+[Plate Form]
+Start X Pitch=0
+Start Y Pitch=0
+X Pitch=0
+Y Pitch=0
+X Count=0
+Y Count=0
+[LoadTable]
+X Pitch=46000
+Y Pitch=21000
+X Count=4
+Y Count=4
+X Pitch Ver=22000
+Y Pitch Ver=21000
+[BuffTable]
+X Pitch=12000
+Y Pitch=18000
+X Count=4
+Y Count=4
+[Test BuffTable]
+X Pitch=23000
+Y Pitch=21000
+X Count=8
+Y Count=2
+[Test Site]
+X Pitch=46000
+Y Pitch=60000
+X Count=4
+Y Count=2
+[Test Clean]
+X Pitch=23000
+Y Pitch=26000
+X Count=4
+Y Count=2
+[Tray PP Load Table]
+X Pitch=46000
+Y Pitch=42000
+[Test PP]
+X Pitch=46000
+Y Pitch=42000
+[Stacker]
+Main Wait=300
+Sub Wait=500
+Clamp Wait=300
+Conveyor unload wait=200
+Slow Unload Stacker Option=0
+[Tray PP 1]
+X SPD=100
+X ACC=100
+X DCC=100
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Z SPD=100
+Z ACC=100
+Z DCC=100
+X Pitch SPD=100
+X Pitch ACC=100
+X Pitch DCC=100
+Y Pitch SPD=100
+Y Pitch ACC=100
+Y Pitch DCC=100
+[Tray PP 2]
+X SPD=100
+X ACC=100
+X DCC=100
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Z SPD=100
+Z ACC=100
+Z DCC=100
+X Pitch SPD=100
+X Pitch ACC=100
+X Pitch DCC=100
+Y Pitch SPD=100
+Y Pitch ACC=100
+Y Pitch DCC=100
+[TestPP_ST_XPitch]
+X Pitch=46000
+Y Pitch=60000
+[Feeder]
+Y SPD=100
+Y ACC=100
+Y DCC=100
+Up/Down Wait=1500
+Clamp Wait=500
+Step Offset=0.000000
+[Tray Load PP]
+Vacuum Time=250
+Blow Time=250
+[Tray Unload PP]
+Vacuum Time=300
+Blow Time=300
+[LoadTbl Barcode Limit]
+Y SPD=20

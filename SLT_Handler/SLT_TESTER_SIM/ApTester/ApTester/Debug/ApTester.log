@@ -1,0 +1,62 @@
+﻿  stdafx.cpp
+c:\program files (x86)\microsoft visual studio 14.0\vc\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\atlmfc\include\afx.h(33): note: 'MBCS_Support_Deprecated_In_MFC' 선언을 참조하십시오.
+  ParamList.cpp
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(145): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: 'strncpy' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(199): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: 'strncpy' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(201): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: 'strncpy' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(216): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(227): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: 'strncpy' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(255): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(256): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(259): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 'strcat' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(261): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(395): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\paramlist.cpp(460): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1465): note: 'vsprintf' 선언을 참조하십시오.
+  MainFrm.cpp
+  DlgDisplay.cpp
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(46): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(47): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(48): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(49): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(50): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(51): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(52): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(53): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(54): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ConfigData.cpp
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\configdata.cpp(258): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\configdata.cpp(261): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\configdata.cpp(276): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\configdata.cpp(279): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+  ConectSocket.cpp
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\conectsocket.cpp(166): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: 'strncpy' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\conectsocket.cpp(398): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\conectsocket.cpp(403): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\conectsocket.cpp(408): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' 선언을 참조하십시오.
+  ApTesterView.cpp
+  ApTesterDoc.cpp
+  ApTester.cpp
+  코드를 생성하고 있습니다...
+d:\git\twsl421\slt_handler\slt_tester_sim\aptester\aptester\dlgdisplay.cpp(116): warning C4715: 'CDlgDisplay::getStrState': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  ApTester.vcxproj -> D:\Git\TWSL421\SLT_Handler\SLT_TESTER_SIM\ApTester\Debug\ApTester.exe
+  ApTester.vcxproj -> D:\Git\TWSL421\SLT_Handler\SLT_TESTER_SIM\ApTester\Debug\ApTester.pdb (Full PDB)

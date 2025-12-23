@@ -1,0 +1,200 @@
+[Tray PP]
+X SPD=5
+X ACC=5
+X DCC=5
+Y SPD=5
+Y ACC=5
+Y DCC=5
+Z SPD=5
+Z ACC=5
+Z DCC=5
+X Pitch SPD=5
+X Pitch ACC=5
+X Pitch DCC=5
+Y Pitch SPD=5
+Y Pitch ACC=5
+Y Pitch DCC=5
+Vacuum Time=0
+Blow Time=0
+Retry Count=0
+Cylinder Down Wait=0
+[Test PP 1]
+X SPD=5
+X ACC=5
+X DCC=5
+Y SPD=5
+Y ACC=5
+Y DCC=5
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Vacuum Time=0
+Blow Time=0
+Retry Count=0
+Cylinder Down Wait=0
+Motor Wait=0
+[Test PP 2]
+X SPD=5
+X ACC=5
+X DCC=5
+Y SPD=5
+Y ACC=5
+Y DCC=5
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Vacuum Time=0
+Blow Time=0
+Retry Count=0
+Cylinder Down Wait=0
+Motor Wait=0
+[Press Unit 1]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 2]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 3]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 4]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 5]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 6]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 7]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 8]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 9]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 10]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 11]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 12]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 13]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 14]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 15]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[Press Unit 16]
+Z SPD=5
+Z ACC=5
+Z DCC=5
+Blow Time=0
+[LoadTbl 1]
+X SPD=5
+X ACC=5
+X DCC=5
+Y SPD=5
+Y ACC=5
+Y DCC=5
+[LoadTbl 2]
+Y SPD=5
+Y ACC=5
+Y DCC=5
+[Transfer]
+X SPD=5
+X ACC=5
+X DCC=5
+Cylinder Down Wait=0
+[Tray Form]
+Start X Pitch=0
+Start Y Pitch=0
+X Pitch=0
+Y Pitch=0
+X Count=0
+Y Count=0
+Thickness=0
+[Plate Form]
+Start X Pitch=0
+Start Y Pitch=0
+X Pitch=0
+Y Pitch=0
+X Count=0
+Y Count=0
+[LoadTable]
+X Pitch=0
+Y Pitch=0
+X Count=0
+Y Count=0
+X Pitch Ver=0
+Y Pitch Ver=0
+[BuffTable]
+X Pitch=0
+Y Pitch=0
+X Count=0
+Y Count=0
+[Test BuffTable]
+X Pitch=0
+Y Pitch=0
+X Count=0
+Y Count=0
+[Test Site]
+X Pitch=0
+Y Pitch=0
+X Count=0
+Y Count=0
+[Test Clean]
+X Pitch=0
+Y Pitch=0
+X Count=0
+Y Count=0
+[Tray PP Load Table]
+X Pitch=0
+Y Pitch=0
+[Test PP]
+X Pitch=0
+Y Pitch=0
+[Stacker]
+Main Wait=0
+Sub Wait=0
+Clamp Wait=0
+Conveyor unload wait=0
+Slow Unload Stacker Option=0
